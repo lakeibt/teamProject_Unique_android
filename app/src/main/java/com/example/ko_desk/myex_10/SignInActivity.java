@@ -103,9 +103,22 @@ public class SignInActivity extends AppCompatActivity {
             if(s.length() > 0) {
                 Gson gson = new Gson();
                 MemberVO m = gson.fromJson(s, MemberVO.class);
-                if (m.getMember_id() != null && m.getMember_step() != 8) {
+
+                System.out.println("111111111111111111"+m.getMember_step());
+                if (m.getMember_id() != null && m.getMember_step() == 9) {
                     // 페이지 이동
                     Intent intent = new Intent(SignInActivity.this, MainActivity2.class);
+                    intent.putExtra("id", m.getMember_id());
+                    startActivity(intent);
+                } else if (m.getMember_step() != 8) {
+                    Toast.makeText(getApplicationContext(), "회원 정보가 올바르지 않습니다.", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "가입 인증이 필요한 회원입니다.", Toast.LENGTH_SHORT).show();
+                }
+
+                if (m.getMember_id() != null && m.getMember_step() == 8) {
+                    // 페이지 이동
+                    Intent intent = new Intent(SignInActivity.this, MainActivity3.class);
                     intent.putExtra("id", m.getMember_id());
                     startActivity(intent);
                 } else if (m.getMember_step() != 8) {

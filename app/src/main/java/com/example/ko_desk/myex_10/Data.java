@@ -1,8 +1,9 @@
 package com.example.ko_desk.myex_10;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.HashMap;
 import java.util.Map;
-import com.google.gson.annotations.SerializedName;
 
 /**
  * Created by psn on 2018-02-07.
