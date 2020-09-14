@@ -13,7 +13,6 @@ public class Data {
     private String data1;
     private String data2;
     private String data3;
-    private String data4;
 
     @SerializedName("member")   /*import후 오른쪽 위 sync now를 클릭해야 동기화됨*/
     private Map<String, String> member = new HashMap<String, String>();
@@ -40,14 +39,6 @@ public class Data {
 
     public void setData3(String data13) {
         this.data3 = data3;
-    }
-
-    public String getData4() {
-        return data4;
-    }
-
-    public void setData4(String data4) {
-        this.data4 = data4;
     }
 
     public Map<String, String> getMember() {
