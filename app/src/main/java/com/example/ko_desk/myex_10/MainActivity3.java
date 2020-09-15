@@ -14,7 +14,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import com.example.ko_desk.myex_10.data.Constant;
+import com.example.ko_desk.myex_10.data.Constant3;
 import com.example.ko_desk.myex_10.navigationdrawer.NavMenuAdapter;
 import com.example.ko_desk.myex_10.navigationdrawer.NavMenuModel;
 import com.example.ko_desk.myex_10.navigationdrawer.SubTitle;
@@ -24,7 +24,7 @@ import com.google.gson.Gson;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity2 extends AppCompatActivity implements NavMenuAdapter.MenuItemClickListener{
+public class MainActivity3 extends AppCompatActivity implements NavMenuAdapter.MenuItemClickListener{
 
 
     Toolbar toolbar;
@@ -36,7 +36,7 @@ public class MainActivity2 extends AppCompatActivity implements NavMenuAdapter.M
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main_activity);
+        setContentView(R.layout.main_activity3);
 
         setToolbar();
 
@@ -51,7 +51,7 @@ public class MainActivity2 extends AppCompatActivity implements NavMenuAdapter.M
         Intent intent = getIntent();
         id = intent.getStringExtra("id"); //req.getParameter("id")'
 
-        task = new MainActivity2.InnerTask();
+        task = new MainActivity3.InnerTask();
         task.execute(id);
 
     }
@@ -79,7 +79,7 @@ public class MainActivity2 extends AppCompatActivity implements NavMenuAdapter.M
     private List<TitleMenu> getMenuList() {
         List<TitleMenu> list = new ArrayList<>();
 
-        menu = Constant.getMenuNavigasi();
+        menu = Constant3.getMenuNavigasi();
         for (int i = 0; i < menu.size(); i++) {
             ArrayList<SubTitle> subMenu = new ArrayList<>();
             if (menu.get(i).subMenu.size() > 0){
@@ -166,6 +166,7 @@ public class MainActivity2 extends AppCompatActivity implements NavMenuAdapter.M
             Log.d("JSON_RESULT", (String) o);
             Gson gson = new Gson();
             Data data = gson.fromJson((String) o, Data.class);
+
             try {
                 TextView name = (TextView) findViewById(R.id.name);
                 name.setText(data.getData1() + "님");

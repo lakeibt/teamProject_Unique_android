@@ -17,7 +17,7 @@
             android:gravity="center"
             android:layout_gravity="center"
             android:textSize="40sp"
-            android:text="메인화면" />
+            android:text="관리자 메인화면" />
 
         <TextView
             android:layout_width="wrap_content"

@@ -88,6 +88,7 @@ public class SignInActivity extends AppCompatActivity {
             post.request(); // jsp의 submit 역할
 
             String body = post.getBody(); //Web의 Controller에서 리턴한 값
+            System.out.println("---" + body);
             return body;
         }
 
@@ -98,20 +99,24 @@ public class SignInActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
             Log.d("JSON_RESULT", s);
-
             //JSON으로 받은 데이터를 VO Obejct로 바꿔준다.
+            System.out.println("-----" + s);
             if(s.length() > 0) {
                 Gson gson = new Gson();
                 MemberVO m = gson.fromJson(s, MemberVO.class);
-                if (m.getMember_id() != null && m.getMember_step() != 8) {
+
+                if (m.getUserId() != null && m.getAuthority().equals("ROLE_STUDENT")) {
                     // 페이지 이동
                     Intent intent = new Intent(SignInActivity.this, MainActivity2.class);
-                    intent.putExtra("id", m.getMember_id());
+                    intent.putExtra("id", m.getUserId());
                     startActivity(intent);
-                } else if (m.getMember_step() != 8) {
-                    Toast.makeText(getApplicationContext(), "회원 정보가 올바르지 않습니다.", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(getApplicationContext(), "가입 인증이 필요한 회원입니다.", Toast.LENGTH_SHORT).show();
+                }
+
+                if (m.getUserId() != null && m.getAuthority().equals("ROLE_ADMIN")) {
+                    // 페이지 이동
+                    Intent intent = new Intent(SignInActivity.this, MainActivity3.class);
+                    intent.putExtra("id", m.getUserId());
+                    startActivity(intent);
                 }
             } else {
                 Toast.makeText(getApplicationContext(), "로그인 실패", Toast.LENGTH_SHORT).show();

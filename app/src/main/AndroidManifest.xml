@@ -21,8 +21,13 @@
         </activity>
         <activity
             android:name=".MainActivity2"
-            android:label="@string/title_activity_main2"
+            android:label="학생쪽"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".MainActivity3"
+            android:label="관리자쪽"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+
         <activity android:name=".SignInActivity" />
         <activity android:name=".MyPageMainActivity" />
 
