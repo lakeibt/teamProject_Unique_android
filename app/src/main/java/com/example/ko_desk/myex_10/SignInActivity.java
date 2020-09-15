@@ -105,6 +105,10 @@ public class SignInActivity extends AppCompatActivity {
                 Gson gson = new Gson();
                 MemberVO m = gson.fromJson(s, MemberVO.class);
 
+                if (m.getPassword() == null) {
+                    Toast.makeText(getApplicationContext(), "비밀번호를 확인하세요", Toast.LENGTH_SHORT).show();
+                }
+
                 if (m.getUserId() != null && m.getAuthority().equals("ROLE_STUDENT")) {
                     // 페이지 이동
                     Intent intent = new Intent(SignInActivity.this, MainActivity2.class);
@@ -119,7 +123,7 @@ public class SignInActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
             } else {
-                Toast.makeText(getApplicationContext(), "로그인 실패", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "아이디 비밀번호를 확인하세요", Toast.LENGTH_SHORT).show();
             }
         }
     }

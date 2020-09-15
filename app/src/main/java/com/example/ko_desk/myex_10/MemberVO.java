@@ -9,6 +9,7 @@ public class MemberVO {
     private String member_id;
     private String username;
     private String authority;
+    private String password;
 
     public String getUserId() {
         return member_id;
@@ -27,6 +28,12 @@ public class MemberVO {
     }
     public void setAuthority(String authority) {
         this.authority = authority;
+    }
+    public String getPassword() {
+        return password;
+    }
+    public void setPassword(String password) {
+        this.password = password;
     }
 
 //    private String id;
