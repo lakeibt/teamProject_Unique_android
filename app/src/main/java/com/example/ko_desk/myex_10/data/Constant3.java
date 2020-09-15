@@ -34,7 +34,7 @@ public class Constant3 {
 
         menu.add(new NavMenuModel("출퇴근 관리", R.drawable.rotating,
                 new ArrayList<NavMenuModel.SubMenuModel>() {{
-                    add(new NavMenuModel.SubMenuModel("출퇴근 NFC", Commute.newInstance("출퇴근 NFC")));
+                    add(new NavMenuModel.SubMenuModel("출퇴근 NFC", Commute.newInstance("NFC를 태깅해 주세요")));
                     add(new NavMenuModel.SubMenuModel("출퇴근 조회", CommuteS.newInstance("출퇴근 조회")));
                 }}));
 
