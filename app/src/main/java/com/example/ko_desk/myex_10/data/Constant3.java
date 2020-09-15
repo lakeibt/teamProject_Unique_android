@@ -1,10 +1,14 @@
 package com.example.ko_desk.myex_10.data;
 
 import com.example.ko_desk.myex_10.R;
+import com.example.ko_desk.myex_10.fragment.ChatBot;
+import com.example.ko_desk.myex_10.fragment.Commute;
+import com.example.ko_desk.myex_10.fragment.CommuteS;
 import com.example.ko_desk.myex_10.fragment.MainHome3;
 import com.example.ko_desk.myex_10.fragment.Myinfo3;
 import com.example.ko_desk.myex_10.fragment.MyinfoMod3;
-import com.example.ko_desk.myex_10.fragment.SearchClass3;
+import com.example.ko_desk.myex_10.fragment.Parking;
+import com.example.ko_desk.myex_10.fragment.Salary;
 import com.example.ko_desk.myex_10.navigationdrawer.NavMenuModel;
 
 import java.util.ArrayList;
@@ -18,23 +22,29 @@ public class Constant3 {
     public static ArrayList<NavMenuModel> getMenuNavigasi(){
         ArrayList<NavMenuModel> menu = new ArrayList<>();
 
-        menu.add(new NavMenuModel("관리자 메인", R.drawable.ic_beranda, MainHome3.newInstance("kuy")));
+        menu.add(new NavMenuModel("메인", R.drawable.home, MainHome3.newInstance("메인")));
 
-        menu.add(new NavMenuModel("관리자1", R.drawable.ic_teman,
+        menu.add(new NavMenuModel("마이페이지", R.drawable.my,
                 new ArrayList<NavMenuModel.SubMenuModel>() {{
-                    add(new NavMenuModel.SubMenuModel("관리자1-1", Myinfo3.newInstance("unch")));
-                    add(new NavMenuModel.SubMenuModel("관리자1-2", MyinfoMod3.newInstance("utututu")));
+                    add(new NavMenuModel.SubMenuModel("정보 조회", Myinfo3.newInstance("조회")));
+                    add(new NavMenuModel.SubMenuModel("정보 수정", MyinfoMod3.newInstance("수정")));
         }}));
 
-        menu.add(new NavMenuModel("관리자2", R.drawable.ic_notifikasi, SearchClass3.newInstance("cuy")));
-        menu.add(new NavMenuModel("관리자3", R.drawable.ic_notifikasi, SearchClass3.newInstance("cuy")));
-        menu.add(new NavMenuModel("관리자4", R.drawable.ic_notifikasi, SearchClass3.newInstance("cuy")));
-        menu.add(new NavMenuModel("관리자5", R.drawable.ic_notifikasi, SearchClass3.newInstance("cuy")));
-        menu.add(new NavMenuModel("TESTLINE1", R.drawable.ic_teman,
+        menu.add(new NavMenuModel("급여조회", R.drawable.money, Salary.newInstance("급여조회")));
+
+        menu.add(new NavMenuModel("출퇴근 관리", R.drawable.rotating,
                 new ArrayList<NavMenuModel.SubMenuModel>() {{
-                    add(new NavMenuModel.SubMenuModel("TESTLINE2", Myinfo3.newInstance("unch")));
-                    add(new NavMenuModel.SubMenuModel("TESTLINE3", MyinfoMod3.newInstance("utututu")));
+                    add(new NavMenuModel.SubMenuModel("출퇴근 NFC", Commute.newInstance("출퇴근 NFC")));
+                    add(new NavMenuModel.SubMenuModel("출퇴근 조회", CommuteS.newInstance("출퇴근 조회")));
                 }}));
+
+        menu.add(new NavMenuModel("기능구현", R.drawable.parking,
+                new ArrayList<NavMenuModel.SubMenuModel>() {{
+                    add(new NavMenuModel.SubMenuModel("주차", Parking.newInstance("주차")));
+                    add(new NavMenuModel.SubMenuModel("TESTLINE3", MyinfoMod3.newInstance("TESTLINE3")));
+                }}));
+
+        menu.add(new NavMenuModel("챗봇", R.drawable.chat, ChatBot.newInstance("챗봇")));
 
         return menu;
     }

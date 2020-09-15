@@ -9,17 +9,17 @@ import android.widget.TextView;
 
 import com.example.ko_desk.myex_10.R;
 
-public class SearchClass3 extends Fragment {
+public class ChatBot extends Fragment {
 
     private static final String ARG_PARAM = "";
 
-    public static SearchClass3 newInstance() {
-        SearchClass3 fragment = new SearchClass3();
+    public static ChatBot newInstance() {
+        ChatBot fragment = new ChatBot();
         return fragment;
     }
 
-    public static SearchClass3 newInstance(String param) {
-        SearchClass3 fragment = new SearchClass3();
+    public static ChatBot newInstance(String param) {
+        ChatBot fragment = new ChatBot();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM, param);
         fragment.setArguments(args);
@@ -39,7 +39,7 @@ public class SearchClass3 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.search_class3, container, false);;
+        View view = inflater.inflate(R.layout.chatbot, container, false);;
         TextView paramView = (TextView) view.findViewById(R.id.param);
         paramView.setText(paramText);
 

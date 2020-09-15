@@ -105,18 +105,11 @@ public class SignInActivity extends AppCompatActivity {
                 Gson gson = new Gson();
                 MemberVO m = gson.fromJson(s, MemberVO.class);
 
-                System.out.println("111111111111111111"+m.getAuthority());
-                System.out.println("222222222222222222"+m.getUserId());
-                System.out.println("333333333333333333"+m.getUsername());
                 if (m.getUserId() != null && m.getAuthority().equals("ROLE_STUDENT")) {
                     // 페이지 이동
                     Intent intent = new Intent(SignInActivity.this, MainActivity2.class);
                     intent.putExtra("id", m.getUserId());
                     startActivity(intent);
-                } else if (!m.getAuthority().equals("ROLE_STUDENT")) {
-                    Toast.makeText(getApplicationContext(), "회원 정보가 올바르지 않습니다.", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(getApplicationContext(), "가입 인증이 필요한 회원입니다.", Toast.LENGTH_SHORT).show();
                 }
 
                 if (m.getUserId() != null && m.getAuthority().equals("ROLE_ADMIN")) {
@@ -124,10 +117,6 @@ public class SignInActivity extends AppCompatActivity {
                     Intent intent = new Intent(SignInActivity.this, MainActivity3.class);
                     intent.putExtra("id", m.getUserId());
                     startActivity(intent);
-                } else if (!m.getAuthority().equals("ROLE_ADMIN")) {
-                    Toast.makeText(getApplicationContext(), "회원 정보가 올바르지 않습니다.", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(getApplicationContext(), "가입 인증이 필요한 회원입니다.", Toast.LENGTH_SHORT).show();
                 }
             } else {
                 Toast.makeText(getApplicationContext(), "로그인 실패", Toast.LENGTH_SHORT).show();

@@ -16,7 +16,7 @@
             android:gravity="center"
             android:layout_gravity="center"
             android:textSize="40sp"
-            android:text="정보수정" />
+            android:text="공용챗봇" />
 
         <TextView
             android:layout_width="wrap_content"
