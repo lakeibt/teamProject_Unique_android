@@ -19,6 +19,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".SignInActivity" />
+
         <activity
             android:name=".MainActivity2"
             android:label="학생쪽"
@@ -28,7 +31,6 @@
             android:label="관리자쪽"
             android:theme="@style/AppTheme.NoActionBar"></activity>
 
-        <activity android:name=".SignInActivity" />
         <activity android:name=".MyPageMainActivity" />
 
     </application>
