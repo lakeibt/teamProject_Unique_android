@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Ex-androidpj.iml" filepath="$PROJECT_DIR$/.idea/modules/Ex-androidpj.iml" group="androidpj" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Ex-teamProject_Unique_android.iml" filepath="$PROJECT_DIR$/.idea/modules/Ex-teamProject_Unique_android.iml" group="teamProject_Unique_android" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Ex-teamProject_Unique_android-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Ex-teamProject_Unique_android-app.iml" group="teamProject_Unique_android/app" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/android-teamProject_Unique_android.iml" filepath="$PROJECT_DIR$/.idea/modules/android-teamProject_Unique_android.iml" group="teamProject_Unique_android" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/android-teamProject_Unique_android-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/android-teamProject_Unique_android-app.iml" group="teamProject_Unique_android/app" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/androidpj.iml" filepath="$PROJECT_DIR$/.idea/modules/androidpj.iml" group="androidpj" />
