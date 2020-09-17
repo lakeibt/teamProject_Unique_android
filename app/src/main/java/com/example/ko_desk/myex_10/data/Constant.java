@@ -13,7 +13,7 @@ import com.example.ko_desk.myex_10.navigationdrawer.NavMenuModel;
 import java.util.ArrayList;
 
 /**
- * Created by miki on 7/7/17.
+ * 수정날짜  2020/09/16 마지막 수정자 최병현
  */
 
 public class Constant {
