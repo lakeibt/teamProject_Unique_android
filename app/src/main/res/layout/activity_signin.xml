@@ -48,7 +48,7 @@
             android:padding="10dp"
             android:textColor="@color/btnColor"
             android:hint="비밀번호"
-            android:inputType="textPersonName"
+            android:inputType="textPassword"
             tools:layout_editor_absoluteX="85dp"
             tools:layout_editor_absoluteY="197dp" />
 
