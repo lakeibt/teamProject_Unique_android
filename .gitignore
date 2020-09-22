@@ -63,7 +63,7 @@ obj/
 /out/
 
 # User-specific configurations
-.idea/caches/
+.idea/caches/*
 .idea/caches/build_file_checksums.ser
 .idea/libraries/
 .idea/shelf/
