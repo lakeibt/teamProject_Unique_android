@@ -1,5 +1,8 @@
 package com.example.ko_desk.myex_10.data;
 
+import android.support.v4.app.Fragment;
+
+import com.example.ko_desk.myex_10.NFCAct;
 import com.example.ko_desk.myex_10.R;
 import com.example.ko_desk.myex_10.fragment.ChatBot;
 import com.example.ko_desk.myex_10.fragment.Commute;
@@ -28,15 +31,10 @@ public class Constant3 {
                 new ArrayList<NavMenuModel.SubMenuModel>() {{
                     add(new NavMenuModel.SubMenuModel("정보 조회", Myinfo3.newInstance("조회")));
                     add(new NavMenuModel.SubMenuModel("정보 수정", MyinfoMod3.newInstance("수정")));
-        }}));
+                }}));
 
         menu.add(new NavMenuModel("급여조회", R.drawable.money, Salary.newInstance("급여조회")));
-
-        menu.add(new NavMenuModel("출퇴근 관리", R.drawable.rotating,
-                new ArrayList<NavMenuModel.SubMenuModel>() {{
-                    add(new NavMenuModel.SubMenuModel("출퇴근 NFC", Commute.newInstance("NFC를 태깅해 주세요")));
-                    add(new NavMenuModel.SubMenuModel("출퇴근 조회", CommuteS.newInstance("출퇴근 조회")));
-                }}));
+        menu.add(new NavMenuModel("출퇴근 관리", R.drawable.rotating, Commute.newInstance("메뉴를 선택하세요")));
 
         menu.add(new NavMenuModel("기능구현", R.drawable.parking,
                 new ArrayList<NavMenuModel.SubMenuModel>() {{

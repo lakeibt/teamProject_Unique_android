@@ -34,15 +34,15 @@ public class Commute extends Fragment {
         if (getArguments() != null) {
             paramText = getArguments().getString(ARG_PARAM);
         }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.commute, container, false);;
-        TextView paramView = (TextView) view.findViewById(R.id.param);
-        paramView.setText(paramText);
+        View view = inflater.inflate(R.layout.nfc, container, false);
 
         return view;
     }
+
 }

@@ -3,6 +3,10 @@
     package="com.example.ko_desk.myex_10">
     <!-- 추가시작 -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.NFC"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_NUMBERS"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
 
     <application
         android:allowBackup="true"
@@ -15,7 +19,6 @@
         <activity android:name=".lodingclass">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -32,6 +35,18 @@
             android:theme="@style/AppTheme.NoActionBar"></activity>
 
         <activity android:name=".MyPageMainActivity" />
+
+        <activity android:name=".NFCAct">
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/plain"/>
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".WriteAct" />
+
+        <activity android:name=".ReadAct" />
 
     </application>
 

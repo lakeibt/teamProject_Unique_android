@@ -8,17 +8,32 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:orientation="vertical">
-        <ImageView
+
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/nfc" />
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:textAlignment="center"
+            android:text="18!!!! 성공!!!!!"
+            android:gravity="center_horizontal" />
+
+        <Button
+            android:id="@+id/readActivityButton"
+            android:textSize="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="NFC 태그 읽기???" />
+        <Button
+            android:id="@+id/writeActivityButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:text="NFC 태그 쓰기" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:gravity="center"
-            android:layout_gravity="center"
             android:textSize="20sp"
             android:text="출퇴근 NFC 태그" />
 
@@ -27,8 +42,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:gravity="center"
-            android:layout_gravity="center"
             android:textSize="25dp"
             android:textStyle="bold"
             android:text="paramText" />
