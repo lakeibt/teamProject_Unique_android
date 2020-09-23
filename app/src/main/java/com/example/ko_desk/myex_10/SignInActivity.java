@@ -17,6 +17,9 @@ import com.google.gson.Gson;
 
 import java.util.HashMap;
 import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * Created by psn on 2018-01-18.
@@ -101,27 +104,64 @@ public class SignInActivity extends AppCompatActivity {
             Log.d("JSON_RESULT", s);
             //JSON으로 받은 데이터를 VO Obejct로 바꿔준다.
             System.out.println("-----" + s);
-            if(s.length() > 0) {
+
+
+            if(s.length() > 12) {
                 Gson gson = new Gson();
-                MemberVO m = gson.fromJson(s, MemberVO.class);
+                String go = Character.toString(s.charAt(20));
 
-                if (m.getPassword() == null) {
-                    Toast.makeText(getApplicationContext(), "비밀번호를 확인하세요", Toast.LENGTH_SHORT).show();
+                try {
+                    JSONObject job = new JSONObject(s);
+                    String pass = job.getString("id").substring(0,1);
+
+                    if(pass.equals("s")){
+
+                        StudentVO st = gson.fromJson(s, StudentVO.class);
+
+                        System.out.println("아이디 : "+st.getId());
+                        System.out.println("비밀번호 : "+st.getPwd());
+
+                        if (st.getId() != null && st.getId().substring(0,1).equals("s")) {
+                            // 페이지 이동
+                            Intent intent = new Intent(SignInActivity.this, MainActivity2.class);
+                            intent.putExtra("id", st.getId());
+                            startActivity(intent);
+                        }
+
+                        if (st.getId() != null && st.getId().substring(0,1).equals("a")) {
+                            // 페이지 이동
+                            Intent intent = new Intent(SignInActivity.this, MainActivity3.class);
+                            intent.putExtra("id", st.getId());
+                            startActivity(intent);
+                        }
+                    } else if (pass.equals("a")) {
+                        Manager ad = gson.fromJson(s, Manager.class);
+
+                        System.out.println("아이디 : " + ad.getId());
+                        System.out.println("비밀번호 : " + ad.getPwd());
+
+                        if (ad.getPwd() == null) {
+                            Toast.makeText(getApplicationContext(), "비밀번호를 확인하세요", Toast.LENGTH_SHORT).show();
+                        }
+
+                        if (ad.getId() != null && ad.getId().substring(0, 1).equals("s")) {
+                            // 페이지 이동
+                            Intent intent = new Intent(SignInActivity.this, MainActivity2.class);
+                            intent.putExtra("id", ad.getId());
+                            startActivity(intent);
+                        }
+
+                        if (ad.getId() != null && ad.getId().substring(0, 1).equals("a")) {
+                            // 페이지 이동
+                            Intent intent = new Intent(SignInActivity.this, MainActivity3.class);
+                            intent.putExtra("id", ad.getId());
+                            startActivity(intent);
+                        }
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
 
-                if (m.getUserId() != null && m.getAuthority().equals("ROLE_STUDENT")) {
-                    // 페이지 이동
-                    Intent intent = new Intent(SignInActivity.this, MainActivity2.class);
-                    intent.putExtra("id", m.getUserId());
-                    startActivity(intent);
-                }
-
-                if (m.getUserId() != null && m.getAuthority().equals("ROLE_ADMIN")) {
-                    // 페이지 이동
-                    Intent intent = new Intent(SignInActivity.this, MainActivity3.class);
-                    intent.putExtra("id", m.getUserId());
-                    startActivity(intent);
-                }
             } else {
                 Toast.makeText(getApplicationContext(), "아이디 비밀번호를 확인하세요", Toast.LENGTH_SHORT).show();
             }
