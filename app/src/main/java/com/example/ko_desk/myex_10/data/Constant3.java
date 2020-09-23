@@ -6,7 +6,6 @@ import com.example.ko_desk.myex_10.NFCAct;
 import com.example.ko_desk.myex_10.R;
 import com.example.ko_desk.myex_10.fragment.ChatBot;
 import com.example.ko_desk.myex_10.fragment.Commute;
-import com.example.ko_desk.myex_10.fragment.CommuteS;
 import com.example.ko_desk.myex_10.fragment.MainHome3;
 import com.example.ko_desk.myex_10.fragment.Myinfo3;
 import com.example.ko_desk.myex_10.fragment.MyinfoMod3;
@@ -32,9 +31,8 @@ public class Constant3 {
                     add(new NavMenuModel.SubMenuModel("정보 조회", Myinfo3.newInstance("조회")));
                     add(new NavMenuModel.SubMenuModel("정보 수정", MyinfoMod3.newInstance("수정")));
                 }}));
-
+        menu.add(new NavMenuModel("출결조회", R.drawable.rotating, Commute.newInstance("출결조회")));
         menu.add(new NavMenuModel("급여조회", R.drawable.money, Salary.newInstance("급여조회")));
-        menu.add(new NavMenuModel("출퇴근 관리", R.drawable.rotating, Commute.newInstance("메뉴를 선택하세요")));
 
         menu.add(new NavMenuModel("기능구현", R.drawable.parking,
                 new ArrayList<NavMenuModel.SubMenuModel>() {{

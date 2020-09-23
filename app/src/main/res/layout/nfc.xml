@@ -7,17 +7,23 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="30dp"
+        android:gravity="center_horizontal"
+        android:text="아래 항목을 선택하세요"
         android:textAlignment="center"
-        android:text="18!!!! 성공!!!!!"
-        android:gravity="center_horizontal" />
+        android:layout_marginTop="50dp"
+        android:textSize="35dp" />
 
     <Button
         android:id="@+id/readActivityButton"
-        android:textSize="30dp"
+        android:text="교직원 출/퇴근 체크"
+        android:textColor="#FFFFFF"
+        android:textSize="40dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="NFC 태그 읽기!!!" />
+        android:layout_height="120dp"
+        android:layout_margin="20dp"
+        android:background="@drawable/buttonshape"
+        />
+
     <Button
         android:id="@+id/writeActivityButton"
         android:layout_width="match_parent"

@@ -195,7 +195,7 @@ public class MainActivity2 extends AppCompatActivity implements NavMenuAdapter.M
             Data data = gson.fromJson((String) o, Data.class);
             try {
                 TextView name = (TextView) findViewById(R.id.name);
-                name.setText(data.getData1() + "님");
+                name.setText(data.getData2() + "님");
 
                 Log.d("JSON_RESULT", "이름 = " + data.getMember().get("member_name"));
             } catch (Exception e) {
