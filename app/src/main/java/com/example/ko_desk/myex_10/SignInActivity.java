@@ -17,7 +17,6 @@ import com.google.gson.Gson;
 
 import java.util.HashMap;
 import java.util.Map;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -108,7 +107,6 @@ public class SignInActivity extends AppCompatActivity {
 
             if(s.length() > 12) {
                 Gson gson = new Gson();
-                String go = Character.toString(s.charAt(20));
 
                 try {
                     JSONObject job = new JSONObject(s);
