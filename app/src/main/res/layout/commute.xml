@@ -8,21 +8,6 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:orientation="vertical">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="30dp"
-            android:textAlignment="center"
-            android:text="18!!!! 성공!!!!!"
-            android:gravity="center_horizontal" />
-
-        <Button
-            android:id="@+id/readActivityButton"
-            android:textSize="30dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="NFC 태그 읽기???" />
         <Button
             android:id="@+id/writeActivityButton"
             android:layout_width="match_parent"

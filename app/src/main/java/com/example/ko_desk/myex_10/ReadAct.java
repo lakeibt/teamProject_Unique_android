@@ -30,6 +30,7 @@ public class ReadAct extends Activity {
 
     public static final int TYPE_TEXT = 1;
     public static final int TYPE_URI = 2;
+    private String PhoneNum2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,7 +108,9 @@ public class ReadAct extends Activity {
             @SuppressLint("MissingPermission") String PhoneNum = telManager.getLine1Number();
             if(PhoneNum.startsWith("+82")){
                 PhoneNum = PhoneNum.replace("+82", "0");
-                readResult.append("폰 번호 : " + PhoneNum + "\n");
+                String renewer = "(\\d{3})(\\d{3,4})(\\d{4})";
+                PhoneNum2 = PhoneNum.replaceAll(renewer, "$1-$2-$3");
+                readResult.append("폰 번호 : " + PhoneNum2 + "\n");
             }
 
 
@@ -145,7 +148,7 @@ public class ReadAct extends Activity {
             return;
         }
 
-        Toast.makeText(getApplicationContext(), "스캔 성공!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "스캔 성공!",Toast.LENGTH_SHORT).show();
 
         Log.i("info", "rawMsgs.length:"+rawMsgs.length);
         // 참고! rawMsgs.length : 스캔한 태그 개수

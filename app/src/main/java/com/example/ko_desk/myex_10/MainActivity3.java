@@ -195,7 +195,7 @@ public class MainActivity3 extends AppCompatActivity implements NavMenuAdapter.M
 
             try {
                 TextView name = (TextView) findViewById(R.id.name);
-                name.setText(data.getData1() + "님");
+                name.setText(data.getData2() + "님");
 
                 Log.d("JSON_RESULT", "이름 = " + data.getMember().get("member_name"));
             } catch (Exception e) {
