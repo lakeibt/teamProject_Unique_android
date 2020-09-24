@@ -14,8 +14,8 @@ public class Web {
     //    context.xml  id: jsp   /   password : tiger
 
     // 3. 크롬 실행 : http://localhost:8081/android/
-    public static String ip = "192.168.219.122"; //본인 IP
-    public static String servletURL = "http://" + ip + "/gsonEx/"; //연결할 JSP URL
+    public static String ip = "192.168.219.131"; //본인 IP
+    public static String servletURL = "http://" + ip + "/uni/"; //연결할 JSP URL
 
     // 5. AVD 실행
 

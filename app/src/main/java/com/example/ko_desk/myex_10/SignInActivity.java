@@ -79,12 +79,14 @@ public class SignInActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(Map... maps) {
             //HTTP 요청 준비
-            HttpClient.Builder http = new HttpClient.Builder("POST", Web.servletURL + "androidSignIn"); //스프링 url
+            HttpClient.Builder http = new HttpClient.Builder("POST", Web.servletURL + "android/androidSignIn"); //스프링 url
             //파라미터 전송
+            System.out.println("** : " + http);
             http.addAllParameters(maps[0]);
 
             //HTTP 요청 전송
             HttpClient post = http.create();
+            System.out.println("*** : " + post);
             post.request(); // jsp의 submit 역할
 
             String body = post.getBody(); //Web의 Controller에서 리턴한 값
@@ -101,10 +103,14 @@ public class SignInActivity extends AppCompatActivity {
             Log.d("JSON_RESULT", s);
             //JSON으로 받은 데이터를 VO Obejct로 바꿔준다.
             System.out.println("-----" + s);
+            System.out.println("id 맨 앞 글자 : " + s.charAt(14));
             if(s.length() > 0) {
                 Gson gson = new Gson();
                 MemberVO m = gson.fromJson(s, MemberVO.class);
-
+                System.out.println("!! : " + m.getPassword());
+                System.out.println("!! : " + m.getUserId());
+                System.out.println("!! : " + m.getUsername());
+                System.out.println("!! : " + m.getAuthority());
                 if (m.getPassword() == null) {
                     Toast.makeText(getApplicationContext(), "비밀번호를 확인하세요", Toast.LENGTH_SHORT).show();
                 }

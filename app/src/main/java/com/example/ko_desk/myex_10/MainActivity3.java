@@ -177,7 +177,7 @@ public class MainActivity3 extends AppCompatActivity implements NavMenuAdapter.M
 
         @Override
         protected Object doInBackground(Object[] objects) {
-            HttpClient.Builder http = new HttpClient.Builder("POST", Web.servletURL + "androidMyPageMain"); //@RequestMapping url
+            HttpClient.Builder http = new HttpClient.Builder("POST", Web.servletURL + "android/androidMyPageMain"); //@RequestMapping url
             http.addOrReplace("id", (String) objects[0]);
 
             HttpClient post = http.create();
