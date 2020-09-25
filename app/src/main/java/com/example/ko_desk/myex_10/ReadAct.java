@@ -10,6 +10,7 @@ import android.nfc.NdefMessage;
 import android.nfc.NfcAdapter;
 import android.nfc.Tag;
 import android.nfc.tech.NfcF;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.telephony.TelephonyManager;
@@ -17,7 +18,14 @@ import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ReadAct extends Activity {
 
@@ -113,6 +121,11 @@ public class ReadAct extends Activity {
                 readResult.append("폰 번호 : " + PhoneNum2 + "\n");
             }
 
+            ReadAct.InnerTask task = new ReadAct.InnerTask();
+            Map<String, String> map = new HashMap<>();
+            map.put("phonenum", PhoneNum2);
+            map.put("tagid", toHexString(tagId));
+            task.execute(map);
 
         }
         // 전달받은 Intent에서 NFC 태그에 등록한 비즈니스 정보(사원코드 등)를 얻음
@@ -203,4 +216,56 @@ public class ReadAct extends Activity {
 
         return size;
     }
+
+    //각 Activity 마다 Task 작성
+    public class InnerTask extends AsyncTask<Map, Integer, String> {
+
+        //doInBackground 실행되기 이전에 동작
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        //작업을 쓰레드로 처리
+        @Override
+        protected String doInBackground(Map... maps) {
+            //HTTP 요청 준비
+            HttpClient.Builder http = new HttpClient.Builder("POST", Web.servletURL + "androidNfcTag"); //스프링 url
+            //파라미터 전송
+            http.addAllParameters(maps[0]);
+
+            //HTTP 요청 전송
+            HttpClient post = http.create();
+            post.request(); // jsp의 submit 역할
+
+            String body = post.getBody(); //Web의 Controller에서 리턴한 값
+            System.out.println("---" + body);
+            return body;
+        }
+
+        //doInBackground 종료되면 동작
+
+        /**
+         * @param s : doInBackground에서 리턴한 body. JSON 데이터
+         */
+        @Override
+        protected void onPostExecute(String s) {
+            Log.d("JSON_RESULT", s);
+            //JSON으로 받은 데이터를 VO Obejct로 바꿔준다.
+            System.out.println("-----" + s);
+
+
+            if (s.length() > 0) {
+                Gson gson = new Gson();
+                System.out.println("SSSSSS : "+s);
+                Toast.makeText(getApplicationContext(), "출틔근 태깅 성공", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(ReadAct.this, lodingclass.class);
+                startActivity(intent);
+
+            }else {
+                Toast.makeText(getApplicationContext(), "출틔근 태깅 실패", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
 }
