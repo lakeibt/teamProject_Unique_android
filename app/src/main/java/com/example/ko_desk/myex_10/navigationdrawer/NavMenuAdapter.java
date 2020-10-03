@@ -3,7 +3,7 @@ package com.example.ko_desk.myex_10.navigationdrawer;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
-import android.support.v4.content.ContextCompat;
+import androidx.core.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

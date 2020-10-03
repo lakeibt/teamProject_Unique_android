@@ -1,8 +1,5 @@
 package com.example.ko_desk.myex_10.data;
 
-import android.support.v4.app.Fragment;
-
-import com.example.ko_desk.myex_10.NFCAct;
 import com.example.ko_desk.myex_10.R;
 import com.example.ko_desk.myex_10.fragment.ChatBot;
 import com.example.ko_desk.myex_10.fragment.Commute;

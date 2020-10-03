@@ -3,15 +3,16 @@ package com.example.ko_desk.myex_10;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.gson.Gson;
 
@@ -35,7 +36,6 @@ public class SignInActivity extends AppCompatActivity {
         setContentView(R.layout.activity_signin);
         // 엑션바 삭제 시작
         ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
         // 엑션바 삭제 끝
 
         edtId = (EditText) findViewById(R.id.edt_id);
@@ -52,20 +52,15 @@ public class SignInActivity extends AppCompatActivity {
                 task.execute(map);
             }
         });
-
-        actionBar();
     }
 
     public void actionBar() {
         ActionBar bar = getSupportActionBar();
-        bar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        bar.setCustomView(R.layout.custom_bar);
 
         LayoutInflater inflater = LayoutInflater.from(this);
         View v = inflater.inflate(R.layout.custom_bar, null);
 //        TextView tv_bar = (TextView) v.findViewById(R.id.tv_bar);
 //        tv_bar.setText("로그인");
-        bar.setCustomView(v);
     }
 
     //각 Activity 마다 Task 작성
