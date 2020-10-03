@@ -230,7 +230,7 @@ public class ReadAct extends Activity {
         @Override
         protected String doInBackground(Map... maps) {
             //HTTP 요청 준비
-            HttpClient.Builder http = new HttpClient.Builder("POST", Web.servletURL + "androidNfcTag"); //스프링 url
+            HttpClient.Builder http = new HttpClient.Builder("POST", Web.servletURL + "android/androidNfcTag"); //스프링 url
             //파라미터 전송
             http.addAllParameters(maps[0]);
 
