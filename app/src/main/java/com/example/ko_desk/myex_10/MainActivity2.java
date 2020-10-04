@@ -17,8 +17,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.ko_desk.myex_10.data.Constant;
 import com.example.ko_desk.myex_10.navigationdrawer.NavMenuAdapter;
 import com.example.ko_desk.myex_10.navigationdrawer.NavMenuModel;
@@ -137,7 +139,6 @@ public class MainActivity2 extends AppCompatActivity implements NavMenuAdapter.M
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu, menu);
-
         return true;
     }
 
@@ -197,8 +198,13 @@ public class MainActivity2 extends AppCompatActivity implements NavMenuAdapter.M
             Data data = gson.fromJson((String) o, Data.class);
             try {
                 TextView name = (TextView) findViewById(R.id.name);
-                name.setText(data.getData2() + "님");
-
+                TextView className = (TextView) findViewById(R.id.className);
+                ImageView imageView =  (ImageView) findViewById(R.id.stuimg);
+                name.setText(data.getData2() + " 님");
+                className.setText(data.getData3());
+                String imageUrl = "http://choihyun7000.synology.me/profile_photo/student/"+data.getData4();
+                Glide.with(MainActivity2.this).load(imageUrl).into(imageView);
+                Log.d("pic", "사진 = " + data.getData4());
                 Log.d("JSON_RESULT", "이름 = " + data.getMember().get("member_name"));
             } catch (Exception e) {
                 e.printStackTrace();
