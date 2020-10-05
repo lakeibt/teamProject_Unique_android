@@ -5,20 +5,22 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.ko_desk.myex_10.data.Constant3;
 import com.example.ko_desk.myex_10.navigationdrawer.NavMenuAdapter;
 import com.example.ko_desk.myex_10.navigationdrawer.NavMenuModel;
@@ -194,11 +196,15 @@ public class MainActivity3 extends AppCompatActivity implements NavMenuAdapter.M
             Log.d("JSON_RESULT", (String) o);
             Gson gson = new Gson();
             Data data = gson.fromJson((String) o, Data.class);
-
             try {
                 TextView name = (TextView) findViewById(R.id.name);
-                name.setText(data.getData2() + "님");
-
+                TextView className = (TextView) findViewById(R.id.className);
+                ImageView imageView =  (ImageView) findViewById(R.id.stuimg);
+                name.setText(data.getData2() + " 님");
+                className.setText(data.getData5() +" / "+ data.getData3());
+                String imageUrl = "http://choihyun7000.synology.me/profile_photo/admin/"+data.getData4();
+                Glide.with(MainActivity3.this).load(imageUrl).into(imageView);
+                Log.d("pic", "사진 = " + data.getData4());
                 Log.d("JSON_RESULT", "이름 = " + data.getMember().get("member_name"));
             } catch (Exception e) {
                 e.printStackTrace();
