@@ -1,9 +1,12 @@
-package com.example.ko_desk.myex_10;
+package com.example.ko_desk.myex_10.activity;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import com.example.ko_desk.myex_10.R;
+import com.example.ko_desk.myex_10.activity.SignInActivity;
 
 public class lodingclass extends Activity {
 

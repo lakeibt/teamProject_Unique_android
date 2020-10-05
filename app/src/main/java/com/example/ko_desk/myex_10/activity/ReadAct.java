@@ -1,4 +1,4 @@
-package com.example.ko_desk.myex_10;
+package com.example.ko_desk.myex_10.activity;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -18,10 +18,13 @@ import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.ko_desk.myex_10.HttpClient;
+import com.example.ko_desk.myex_10.NdefMessageParser;
+import com.example.ko_desk.myex_10.ParsedRecord;
+import com.example.ko_desk.myex_10.R;
+import com.example.ko_desk.myex_10.TextRecord;
+import com.example.ko_desk.myex_10.Web;
 import com.google.gson.Gson;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.List;

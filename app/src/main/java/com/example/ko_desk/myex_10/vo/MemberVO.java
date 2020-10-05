@@ -1,4 +1,4 @@
-package com.example.ko_desk.myex_10;
+package com.example.ko_desk.myex_10.vo;
 
 /**
  * Created by psn on 2018-01-18.

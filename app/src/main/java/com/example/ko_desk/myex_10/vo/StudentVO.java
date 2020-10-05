@@ -1,4 +1,4 @@
-package com.example.ko_desk.myex_10;
+package com.example.ko_desk.myex_10.vo;
 
 public class StudentVO {
     private String id;

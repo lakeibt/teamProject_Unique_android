@@ -1,4 +1,4 @@
-package com.example.ko_desk.myex_10;
+package com.example.ko_desk.myex_10.activity;
 
 import android.app.Activity;
 import android.app.PendingIntent;
@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.ko_desk.myex_10.R;
 import com.google.common.base.Charsets;
 import com.google.common.primitives.Bytes;
 

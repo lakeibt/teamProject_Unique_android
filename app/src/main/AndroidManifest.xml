@@ -17,27 +17,27 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
 
-        <activity android:name=".lodingclass">
+        <activity android:name=".activity.lodingclass">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".SignInActivity"/>
+        <activity android:name=".activity.SignInActivity"/>
 
         <activity
-            android:name=".MainActivity2"
+            android:name=".activity.MainActivity2"
             android:label="학생쪽"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".MainActivity3"
+            android:name=".activity.MainActivity3"
             android:label="관리자쪽"
             android:theme="@style/AppTheme.NoActionBar"></activity>
 
-        <activity android:name=".MyPageMainActivity" />
+        <activity android:name=".activity.MyPageMainActivity" />
 
-        <activity android:name=".NFCAct">
+        <activity android:name=".activity.NFCAct">
             <intent-filter>
                 <action android:name="android.nfc.action.NDEF_DISCOVERED"/>
                 <category android:name="android.intent.category.DEFAULT"/>
@@ -45,9 +45,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".WriteAct" />
+        <activity android:name=".activity.WriteAct" />
 
-        <activity android:name=".ReadAct" />
+        <activity android:name=".activity.ReadAct" />
 
     </application>
 

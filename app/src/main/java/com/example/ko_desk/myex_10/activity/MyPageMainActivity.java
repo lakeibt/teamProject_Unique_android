@@ -1,4 +1,4 @@
-package com.example.ko_desk.myex_10;
+package com.example.ko_desk.myex_10.activity;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -12,6 +12,10 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.ko_desk.myex_10.HttpClient;
+import com.example.ko_desk.myex_10.R;
+import com.example.ko_desk.myex_10.Web;
+import com.example.ko_desk.myex_10.vo.Data;
 import com.google.gson.Gson;
 
 /**
