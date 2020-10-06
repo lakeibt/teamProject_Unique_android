@@ -7,6 +7,9 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <uses-permission android:name="android.permission.READ_PHONE_NUMBERS"/>
     <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
 
     <application
         android:allowBackup="true"
@@ -28,11 +31,11 @@
 
         <activity
             android:name=".activity.MainActivity2"
-            android:label="학생쪽"
+            android:label="Uil Univ 학생"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".activity.MainActivity3"
-            android:label="관리자쪽"
+            android:label="Uil Univ 관리자"
             android:theme="@style/AppTheme.NoActionBar"></activity>
 
         <activity android:name=".activity.MyPageMainActivity" />
@@ -49,6 +52,21 @@
 
         <activity android:name=".activity.ReadAct" />
 
+        <activity
+            android:screenOrientation="portrait"
+            android:name="com.example.ko_desk.myex_10.activity.Parking"
+            android:label="@string/menu_parking"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"/>
+        </provider>
     </application>
 
 </manifest>

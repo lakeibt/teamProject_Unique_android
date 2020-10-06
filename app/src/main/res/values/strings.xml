@@ -17,4 +17,13 @@
     <string name="menu_message">쪽지</string>
     <string name="menu_accordion">공지사항</string>
     <string name="menu_recycle">test</string>
+    <string name="menu_parking">주차관리</string>
+
+    <string name="image_details_header">Details:</string>
+    <string name="image_preview_header">Preview:</string>
+    <string name="loading_message">이미지 전송중입니다. 잠시만 기다려 주세요.</string>
+
+    <string name="dialog_select_camera">카메라</string>
+
+    <string name="image_picker_error">Something is wrong with that image. Pick a different one please.</string>
 </resources>

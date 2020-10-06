@@ -56,13 +56,13 @@ public class MyPageMainActivity extends AppCompatActivity {
 
     private void actionBar() {
         LayoutInflater inflater = getLayoutInflater();
-        View v = inflater.inflate(R.layout.custom_bar, null);
+//        View v = inflater.inflate(R.layout.custom_bar, null);
 //        TextView tv_bar = v.findViewById(R.id.tv_bar);
 //        tv_bar.setText("MyProject");
 
         ActionBar bar = getSupportActionBar();
         bar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        bar.setCustomView(v);
+//        bar.setCustomView(v);
     }
 
     private class InnerTask extends AsyncTask {

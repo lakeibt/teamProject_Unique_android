@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AlertDialog;
+import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -14,9 +15,11 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.Layout;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -24,25 +27,18 @@ import com.bumptech.glide.Glide;
 import com.example.ko_desk.myex_10.HttpClient;
 import com.example.ko_desk.myex_10.R;
 import com.example.ko_desk.myex_10.Web;
-import com.example.ko_desk.myex_10.data.Constant3;
-import com.example.ko_desk.myex_10.navigationdrawer.NavMenuAdapter;
-import com.example.ko_desk.myex_10.navigationdrawer.NavMenuModel;
-import com.example.ko_desk.myex_10.navigationdrawer.SubTitle;
-import com.example.ko_desk.myex_10.navigationdrawer.TitleMenu;
 import com.example.ko_desk.myex_10.vo.Data;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity3 extends AppCompatActivity implements NavMenuAdapter.MenuItemClickListener{
-
+public class MainActivity3 extends AppCompatActivity {
 
     Toolbar toolbar;
-    DrawerLayout drawer;
-    ArrayList<NavMenuModel> menu;
-    InnerTask task = null;
+    MainActivity3.InnerTask task = null;
     String id;
+    View parking;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,19 +46,21 @@ public class MainActivity3 extends AppCompatActivity implements NavMenuAdapter.M
         setContentView(R.layout.main_activity3);
         setToolbar();
 
-        drawer = (DrawerLayout) findViewById(R.id.main_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
-
-        setNavigationDrawerMenu();
-
         Intent intent = getIntent();
         id = intent.getStringExtra("id"); //req.getParameter("id")'
-
         task = new MainActivity3.InnerTask();
         task.execute(id);
+
+        parking = findViewById(R.id.parking);
+        parking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), Parking.class);
+                startActivity(intent);
+            }
+        });
+
+
 
     }
 
@@ -70,73 +68,6 @@ public class MainActivity3 extends AppCompatActivity implements NavMenuAdapter.M
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-    }
-
-    private void setNavigationDrawerMenu() {
-        NavMenuAdapter adapter = new NavMenuAdapter(this, getMenuList(), this);
-        RecyclerView navMenuDrawer = (RecyclerView) findViewById(R.id.main_nav_menu_recyclerview);
-        navMenuDrawer.setAdapter(adapter);
-        navMenuDrawer.setLayoutManager(new LinearLayoutManager(this));
-        navMenuDrawer.setAdapter(adapter);
-
-//        INITIATE SELECT MENU
-        adapter.selectedItemParent = menu.get(0).menuTitle;
-        onMenuItemClick(adapter.selectedItemParent);
-        adapter.notifyDataSetChanged();
-    }
-
-
-    private List<TitleMenu> getMenuList() {
-        List<TitleMenu> list = new ArrayList<>();
-
-        menu = Constant3.getMenuNavigasi();
-        for (int i = 0; i < menu.size(); i++) {
-            ArrayList<SubTitle> subMenu = new ArrayList<>();
-            if (menu.get(i).subMenu.size() > 0){
-                for (int j = 0; j < menu.get(i).subMenu.size(); j++) {
-                    subMenu.add(new SubTitle(menu.get(i).subMenu.get(j).subMenuTitle));
-                }
-            }
-
-            list.add(new TitleMenu(menu.get(i).menuTitle, subMenu, menu.get(i).menuIconDrawable));
-        }
-
-        return list;
-    }
-
-    @Override
-    public void onMenuItemClick(String itemString) {
-        for (int i = 0; i < menu.size(); i++) {
-            if (itemString.equals(menu.get(i).menuTitle)){
-                getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.main_content, menu.get(i).fragment)
-                        .commit();
-                break;
-            }else{
-                for (int j = 0; j < menu.get(i).subMenu.size(); j++) {
-                    if (itemString.equals(menu.get(i).subMenu.get(j).subMenuTitle)){
-                        getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.main_content, menu.get(i).subMenu.get(j).fragment)
-                                .commit();
-                        break;
-                    }
-                }
-            }
-        }
-
-        if (drawer != null){
-            drawer.closeDrawer(GravityCompat.START);
-        }
-    }
-
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.main_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
     }
 
     @Override
@@ -150,8 +81,7 @@ public class MainActivity3 extends AppCompatActivity implements NavMenuAdapter.M
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        new AlertDialog.Builder(this)
-                .setTitle("로그아웃").setMessage("로그아웃 하시겠습니까?")
+        new AlertDialog.Builder(this).setMessage("로그아웃 하시겠습니까?")
                 .setPositiveButton("로그아웃", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         Intent i = new Intent(MainActivity3.this, SignInActivity.class);
@@ -167,7 +97,6 @@ public class MainActivity3 extends AppCompatActivity implements NavMenuAdapter.M
                 .show();
 
         if (id == android.R.id.home) {
-            drawer.openDrawer(GravityCompat.START);
             return true;
         }
 

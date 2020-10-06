@@ -63,7 +63,6 @@ public class SignInActivity extends AppCompatActivity {
         ActionBar bar = getSupportActionBar();
 
         LayoutInflater inflater = LayoutInflater.from(this);
-        View v = inflater.inflate(R.layout.custom_bar, null);
 //        TextView tv_bar = (TextView) v.findViewById(R.id.tv_bar);
 //        tv_bar.setText("로그인");
     }
