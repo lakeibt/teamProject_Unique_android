@@ -41,7 +41,7 @@ public class MainHome extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.main_home, container, false);;
+        View view = inflater.inflate(R.layout.personinfo, container, false);;
         TextView paramView = (TextView) view.findViewById(R.id.param);
         paramView.setText(paramText);
 
