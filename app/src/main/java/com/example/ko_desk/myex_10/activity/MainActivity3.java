@@ -146,7 +146,7 @@ public class MainActivity3 extends AppCompatActivity {
                 ImageView imageView =  (ImageView) findViewById(R.id.stuimg);
                 name.setText(data.getData2() + " 님");
                 className.setText(data.getData5() +" / "+ data.getData3());
-                String imageUrl = "http://choihyun7000.synology.me/profile_photo/admin/"+data.getData4();
+                String imageUrl = "" + Web.servletURL + "resources/img/profile_photo/admin/"+data.getData4();
                 Glide.with(MainActivity3.this).load(imageUrl).into(imageView);
                 Log.d("pic", "사진 = " + data.getData4());
                 Log.d("JSON_RESULT", "이름 = " + data.getMember().get("member_name"));
