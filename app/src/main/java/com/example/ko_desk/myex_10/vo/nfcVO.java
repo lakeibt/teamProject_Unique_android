@@ -6,6 +6,7 @@ public class nfcVO {
 	private String pnum;
 	private String tagintime;
 	private String tagouttime;
+	private String date;
 	
 	public int getNum() {
 		return num;
@@ -31,6 +32,6 @@ public class nfcVO {
 	public void setTagouttime(String tagouttime) {
 		this.tagouttime = tagouttime;
 	}
-	
-	
+	public String getDate() { return date; }
+	public void setDate(String date) { this.date = date; }
 }

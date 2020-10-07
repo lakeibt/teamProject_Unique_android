@@ -109,32 +109,10 @@
                             android:background="@color/blue_grey_200"/>
 
                         <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_marginLeft="15dp"
-                            android:layout_marginRight="15dp"
-                            >
-                            <TextView
-                                android:gravity="center_vertical"
-                                android:text="일자"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:paddingHorizontal="35dp"/>
-                            <TextView
-                                android:gravity="center"
-                                android:text="출근 시간"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:paddingHorizontal="35dp"/>
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:gravity="center|right"
-                                android:paddingHorizontal="35dp"
-                                android:text="퇴근 시간" />
-
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginHorizontal="15dp">
+                        <include layout="@layout/itemlist"/>
                         </LinearLayout>
 
                         <View
@@ -145,23 +123,6 @@
                             android:layout_marginTop="10dp"
                             android:layout_centerInParent="true"
                             android:background="@color/blue_grey_200"/>
-
-                        <LinearLayout
-                            android:orientation="vertical"
-                            android:id="@+id/itemList"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-
-                            <View
-                            android:layout_width="fill_parent"
-                            android:layout_height="1dp"
-                            android:layout_marginRight="10dp"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_centerInParent="true"
-                            android:background="@color/blue_grey_200"/>
-
-                        </LinearLayout>
 
                     </LinearLayout>
 
