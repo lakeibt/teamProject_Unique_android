@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.ko_desk.myex_10.HttpClient;
 import com.example.ko_desk.myex_10.R;
 import com.example.ko_desk.myex_10.Web;
+import com.example.ko_desk.myex_10.vo.HumanVO;
 import com.example.ko_desk.myex_10.vo.Manager;
 import com.example.ko_desk.myex_10.vo.StudentVO;
 import com.google.gson.Gson;
@@ -119,16 +120,13 @@ public class SignInActivity extends AppCompatActivity {
                         System.out.println("아이디 : "+st.getId());
                         System.out.println("비밀번호 : "+st.getPwd());
 
+                        if (st.getPwd() == null) {
+                            Toast.makeText(getApplicationContext(), "비밀번호를 확인하세요", Toast.LENGTH_SHORT).show();
+                        }
+
                         if (st.getId() != null && st.getId().substring(0,1).equals("s")) {
                             // 페이지 이동
                             Intent intent = new Intent(SignInActivity.this, MainActivity2.class);
-                            intent.putExtra("id", st.getId());
-                            startActivity(intent);
-                        }
-
-                        if (st.getId() != null && st.getId().substring(0,1).equals("a")) {
-                            // 페이지 이동
-                            Intent intent = new Intent(SignInActivity.this, MainActivity3.class);
                             intent.putExtra("id", st.getId());
                             startActivity(intent);
                         }
@@ -142,16 +140,25 @@ public class SignInActivity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "비밀번호를 확인하세요", Toast.LENGTH_SHORT).show();
                         }
 
-                        if (ad.getId() != null && ad.getId().substring(0, 1).equals("s")) {
-                            // 페이지 이동
-                            Intent intent = new Intent(SignInActivity.this, MainActivity2.class);
-                            intent.putExtra("id", ad.getId());
-                            startActivity(intent);
-                        }
-
                         if (ad.getId() != null && ad.getId().substring(0, 1).equals("a")) {
                             // 페이지 이동
                             Intent intent = new Intent(SignInActivity.this, MainActivity3.class);
+                            intent.putExtra("id", ad.getId());
+                            startActivity(intent);
+                        }
+                    } else if (pass.equals("p")) {
+                        HumanVO ad = gson.fromJson(s, HumanVO.class);
+
+                        System.out.println("아이디 : " + ad.getId());
+                        System.out.println("비밀번호 : " + ad.getPwd());
+
+                        if (ad.getPwd() == null) {
+                            Toast.makeText(getApplicationContext(), "비밀번호를 확인하세요", Toast.LENGTH_SHORT).show();
+                        }
+
+                        if (ad.getId() != null && ad.getId().substring(0, 1).equals("p")) {
+                            // 페이지 이동
+                            Intent intent = new Intent(SignInActivity.this, MainActivity.class);
                             intent.putExtra("id", ad.getId());
                             startActivity(intent);
                         }
