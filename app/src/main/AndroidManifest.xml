@@ -38,6 +38,11 @@
             android:label="Uil Univ 관리자"
             android:theme="@style/AppTheme.NoActionBar"></activity>
 
+        <activity
+            android:name=".activity.MainActivity"
+            android:label="Uil Univ 교수"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+
         <activity android:name=".activity.MyPageMainActivity" />
 
         <activity android:name=".activity.NFCAct"/>
@@ -73,6 +78,8 @@
         <activity android:name=".activity.Maninfo"/>
 
         <activity android:name=".activity.Stuinfo"/>
+
+        <activity android:name=".activity.Proinfo"/>
     </application>
 
 </manifest>
