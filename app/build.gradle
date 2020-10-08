@@ -47,7 +47,7 @@ dependencies {
     api 'com.google.android.material:material:1.1.0-alpha08'
 
     // Java Object를 JSON 형식으로 주고받기 위한 구글 라이브러리
-    implementation 'com.google.code.gson:gson:2.7'
+    implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
 
     implementation 'net.cachapa.expandablelayout:expandablelayout:2.9.2'
