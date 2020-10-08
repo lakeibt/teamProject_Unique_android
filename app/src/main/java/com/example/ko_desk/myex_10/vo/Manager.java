@@ -16,6 +16,7 @@ public class Manager {
     private String tel;
     private String email;
     private String address;
+    private String de_address;
     private String depart;
     private String rank;
     private Timestamp r_code;
@@ -99,6 +100,8 @@ public class Manager {
     public void setAddress(String address) {
         this.address = address;
     }
+    public String getDe_address() { return de_address; }
+    public void setDe_address(String de_address) { this.de_address = de_address; }
     public String getDepart() {
         return depart;
     }
