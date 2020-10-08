@@ -110,16 +110,8 @@
                                 android:gravity="center"
                                 android:orientation="horizontal">
 
-                                <ImageView
-                                    android:layout_width="@dimen/spacing_large"
-                                    android:layout_height="@dimen/spacing_large"
-                                    android:layout_marginEnd="@dimen/spacing_medium"
-                                    android:layout_marginRight="@dimen/spacing_medium"
-                                    app:srcCompat="@drawable/ic_location"
-                                    app:tint="@color/grey_20" />
-
                                 <TextView
-                                    android:id="@+id/location"
+                                    android:id="@+id/className"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="San Francisco, CA"
@@ -139,92 +131,35 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:background="?attr/selectableItemBackgroundBorderless"
-                                android:clickable="true"
-                                android:gravity="center"
-                                android:orientation="vertical">
+                                android:gravity="left"
+                                android:orientation="vertical"
+                                android:paddingLeft="30dp"
+                                android:paddingRight="30dp">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="@dimen/spacing_small"
-                                    android:text="학과/전공"
+                                    android:text="아이디"
                                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                                     android:textColor="@color/grey_40" />
 
                                 <TextView
-                                    android:id="@+id/mainClassName"
-                                    android:layout_width="wrap_content"
+                                    android:id="@+id/id"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="1"
                                     android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                                     android:textColor="@color/grey_90"
                                     android:textStyle="bold"
-                                    android:padding="5dp"/>
-
-
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:background="?attr/selectableItemBackgroundBorderless"
-                                android:clickable="true"
-                                android:gravity="center"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="@dimen/spacing_small"
-                                    android:text="학년"
-                                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                                    android:textColor="@color/grey_40" />
-                                <TextView
-                                    android:id="@+id/grade"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="2"
-                                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-                                    android:textColor="@color/grey_90"
-                                    android:textStyle="bold"
-                                    android:padding="5dp"/>
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:background="?attr/selectableItemBackgroundBorderless"
-                                android:clickable="true"
-                                android:gravity="center"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:id="@+id/textView13"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="@dimen/spacing_small"
-                                    android:text="입학년도"
-                                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                                    android:textColor="@color/grey_40" />
-
-                                <TextView
-                                    android:id="@+id/year"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="3"
-                                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-                                    android:textColor="@color/grey_90"
-                                    android:textStyle="bold"
+                                    android:paddingLeft="10dp"
+                                    android:paddingRight="10dp"
                                     android:padding="5dp"/>
 
                             </LinearLayout>
 
                         </LinearLayout>
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -235,8 +170,6 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:background="?attr/selectableItemBackgroundBorderless"
-                                android:clickable="true"
                                 android:gravity="left"
                                 android:orientation="vertical"
                                 android:paddingLeft="30dp"
@@ -246,15 +179,19 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="@dimen/spacing_small"
-                                    android:text="전화번호"
+                                    android:text=" 전화번호"
                                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                                     android:textColor="@color/grey_40" />
 
-                                <TextView
+                                <EditText
                                     android:id="@+id/tel"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="4"
+                                    android:text="2"
+                                    android:inputType="text"
+                                    android:maxLength="50"
+                                    android:maxLines="1"
+                                    android:singleLine="true"
                                     android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                                     android:textColor="@color/grey_90"
                                     android:textStyle="bold"
@@ -275,8 +212,6 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:background="?attr/selectableItemBackgroundBorderless"
-                                android:clickable="true"
                                 android:gravity="left"
                                 android:orientation="vertical"
                                 android:paddingLeft="30dp"
@@ -290,11 +225,15 @@
                                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                                     android:textColor="@color/grey_40" />
 
-                                <TextView
+                                <EditText
                                     android:id="@+id/email"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="5"
+                                    android:text="3"
+                                    android:inputType="text"
+                                    android:maxLength="50"
+                                    android:maxLines="1"
+                                    android:singleLine="true"
                                     android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                                     android:textColor="@color/grey_90"
                                     android:textStyle="bold"
@@ -315,8 +254,6 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:background="?attr/selectableItemBackgroundBorderless"
-                                android:clickable="true"
                                 android:gravity="left"
                                 android:orientation="vertical"
                                 android:paddingLeft="30dp"
@@ -330,22 +267,15 @@
                                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                                     android:textColor="@color/grey_40" />
 
-                                <TextView
+                                <EditText
                                     android:id="@+id/address"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="6"
-                                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-                                    android:textColor="@color/grey_90"
-                                    android:textStyle="bold"
-                                    android:paddingLeft="10dp"
-                                    android:paddingRight="10dp"
-                                    android:padding="5dp"/>
-                                <TextView
-                                    android:id="@+id/address2"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="7"
+                                    android:text="4"
+                                    android:inputType="text"
+                                    android:maxLength="50"
+                                    android:maxLines="1"
+                                    android:singleLine="true"
                                     android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                                     android:textColor="@color/grey_90"
                                     android:textStyle="bold"
@@ -356,6 +286,85 @@
                             </LinearLayout>
 
                         </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_mlarge"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="left"
+                                android:orientation="vertical"
+                                android:paddingLeft="30dp"
+                                android:paddingRight="30dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/spacing_small"
+                                    android:text="상세주소"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                                    android:textColor="@color/grey_40" />
+
+                                <EditText
+                                    android:id="@+id/address2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="5"
+                                    android:inputType="text"
+                                    android:maxLength="50"
+                                    android:maxLines="1"
+                                    android:singleLine="true"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                                    android:textColor="@color/grey_90"
+                                    android:textStyle="bold"
+                                    android:paddingLeft="10dp"
+                                    android:paddingRight="10dp"
+                                    android:padding="5dp"/>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_mlarge"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <Button
+                                android:id="@+id/btn_infosave"
+                                android:layout_width="150dp"
+                                android:layout_height="55dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:background="@drawable/btn_rounded_primary"
+                                android:text="저  장"
+
+                                android:textAllCaps="false"
+                                android:textColor="@android:color/white"
+                                android:textStyle="bold" />
+                            <Button
+                                android:id="@+id/btn_back"
+                                android:layout_width="150dp"
+                                android:layout_height="55dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:background="@drawable/btn_rounded_primary"
+                                android:layout_gravity="center"
+                                android:text="돌 아 가 기"
+                                android:textAllCaps="false"
+                                android:textColor="@android:color/white"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
 
                     </LinearLayout>
 

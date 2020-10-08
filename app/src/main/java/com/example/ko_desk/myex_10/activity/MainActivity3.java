@@ -40,6 +40,7 @@ public class MainActivity3 extends AppCompatActivity {
     String id;
     View parking;
     View workcheck;
+    View myinfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +67,16 @@ public class MainActivity3 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getBaseContext(), WorkCheck.class);
+                intent.putExtra("id", id);
+                startActivity(intent);
+            }
+        });
+
+        myinfo = findViewById(R.id.myinfo);
+        myinfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), Maninfo.class);
                 intent.putExtra("id", id);
                 startActivity(intent);
             }
