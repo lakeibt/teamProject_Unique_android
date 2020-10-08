@@ -125,7 +125,7 @@ public class Stuinfo extends Activity {
 
                 name.setText(data.getName() + " 님");
                 className.setText(data.getM_code());
-                String imageUrl = "http://choihyun7000.synology.me/profile_photo/student/"+data.getPhoto();
+                String imageUrl = "" + Web.servletURL + "resources/img/profile_photo/student/"+data.getPhoto();
                 Glide.with(Stuinfo.this).load(imageUrl).into(imageView);
                 grade.setText(String.valueOf(data.getGrade()));
                 year.setText(String.valueOf(data.getEntrancedate()));
