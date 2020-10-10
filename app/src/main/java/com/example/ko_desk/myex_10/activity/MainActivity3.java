@@ -28,6 +28,7 @@ public class MainActivity3 extends AppCompatActivity {
     View parking;
     View workcheck;
     View fingerprint;
+    View myinfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,11 +60,11 @@ public class MainActivity3 extends AppCompatActivity {
             }
         });
 
-        fingerprint = findViewById(R.id.fingerprint);
-        fingerprint.setOnClickListener(new View.OnClickListener() {
+        myinfo = findViewById(R.id.myinfo);
+        myinfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getBaseContext(), AuthConfirm.class);
+                Intent intent = new Intent(getBaseContext(), Maninfo.class);
                 intent.putExtra("id", id);
                 startActivity(intent);
             }

@@ -274,7 +274,7 @@
                                         android:layout_height="wrap_content"
                                         android:textAlignment="center"
                                         android:layout_marginTop="20dp"
-                                        android:text="학점조회"
+                                        android:text="학생조회"
                                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
                                         android:textColor="@color/grey_60" />
 
@@ -319,7 +319,7 @@
                                         android:layout_height="wrap_content"
                                         android:textAlignment="center"
                                         android:layout_marginTop="20dp"
-                                        android:text="시간표조회"
+                                        android:text="상담조회"
                                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
                                         android:textColor="@color/grey_60" />
 

@@ -17,7 +17,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="350dp"
-        android:src="@drawable/nfc"
+        android:src="@drawable/nfctag"
         />
     <TextView
         android:id="@+id/readResult"

@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -34,6 +35,7 @@ public class MainActivity2 extends AppCompatActivity {
 
     Toolbar toolbar;
     InnerTask task = null;
+    View stuinfo;
     String id;
 
     @Override
@@ -47,6 +49,16 @@ public class MainActivity2 extends AppCompatActivity {
 
         task = new MainActivity2.InnerTask();
         task.execute(id);
+
+        stuinfo = findViewById(R.id.stuinfo);
+        stuinfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), Stuinfo.class);
+                intent.putExtra("id", id);
+                startActivity(intent);
+            }
+        });
 
     }
 

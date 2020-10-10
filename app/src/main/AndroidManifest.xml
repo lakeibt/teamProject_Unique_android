@@ -44,19 +44,24 @@
             android:label="Uil Univ 관리자"
             android:theme="@style/AppTheme.NoActionBar"></activity>
 
+        <activity
+            android:name=".activity.MainActivity"
+            android:label="Uil Univ 교수"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+
         <activity android:name=".activity.MyPageMainActivity" />
 
-        <activity android:name=".activity.NFCAct">
+        <activity android:name=".activity.NFCAct"/>
+
+        <activity android:name=".activity.WriteAct" />
+
+        <activity android:name=".activity.ReadAct">
             <intent-filter>
                 <action android:name="android.nfc.action.NDEF_DISCOVERED"/>
                 <category android:name="android.intent.category.DEFAULT"/>
                 <data android:mimeType="text/plain"/>
             </intent-filter>
         </activity>
-
-        <activity android:name=".activity.WriteAct" />
-
-        <activity android:name=".activity.ReadAct" />
 
         <activity
             android:screenOrientation="portrait"
@@ -80,6 +85,12 @@
         </provider>
 
         <activity android:name=".activity.WorkCheck"/>
+
+        <activity android:name=".activity.Maninfo"/>
+
+        <activity android:name=".activity.Stuinfo"/>
+
+        <activity android:name=".activity.Proinfo"/>
     </application>
 
 </manifest>
