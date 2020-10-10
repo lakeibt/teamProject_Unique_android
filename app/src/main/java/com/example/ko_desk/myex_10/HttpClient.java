@@ -38,6 +38,7 @@ public class HttpClient {
 
     public void request() {
         HttpURLConnection conn = getConnection();
+        System.out.println("--------------------conn----------------------- : " + conn);
         setHeader(conn);
         setBody(conn);
         httpStatusCode = getStatusCode(conn);

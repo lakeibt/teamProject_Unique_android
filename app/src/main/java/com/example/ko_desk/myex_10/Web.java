@@ -14,9 +14,14 @@ public class Web {
     //    context.xml  id: jsp   /   password : tiger
 
     // 3. 크롬 실행 : http://localhost:8081/android/
+<<<<<<< HEAD
     public static String ip = "192.168.219.128"; //본인 IP
     public static String servletURL = "http://" + ip + "/gsonEx/"; //연결할 JSP URL
 
+=======
+    public static String ip = "192.168.219.111"; //본인 IP
+    public static String servletURL = "http://" + ip + "/uni/"; //연결할 JSP URL
+>>>>>>> b8cabd585361a3d62f72877a4e82ec68b54feb10
     // 5. AVD 실행
 
     /*
@@ -51,7 +56,6 @@ Insert into ANDROID_MEMBER_TBL (MEMBER_ID,MEMBER_PWD,MEMBER_NAME,MEMBER_TEL,MEMB
 
 
     7. 안드로이드 로그인  : trump/123
-
      */
 
 
