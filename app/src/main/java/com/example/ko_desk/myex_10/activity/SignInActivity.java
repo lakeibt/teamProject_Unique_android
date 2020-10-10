@@ -9,11 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.ko_desk.myex_10.HttpClient;
 import com.example.ko_desk.myex_10.R;
 import com.example.ko_desk.myex_10.Web;
@@ -34,6 +32,7 @@ public class SignInActivity extends AppCompatActivity {
 
     EditText edtId, edtPwd;
     Button btnSignIn;
+    Button btnfpSignin;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -45,8 +44,16 @@ public class SignInActivity extends AppCompatActivity {
 
         edtId = (EditText) findViewById(R.id.edt_id);
         edtPwd = (EditText) findViewById(R.id.edt_pwd);
-        btnSignIn = (Button) findViewById(R.id.btn_signin);
+        btnSignIn = (Button) findViewById(R.id.btn_fpSignin);
 
+        /*btnSignIn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                String Unique = UUID.getDeviceId(null);
+                Intent intent = new Intent(SignInActivity.this, AuthLoginCheck.class);
+                intent.putExtra("uuid", Unique);
+                startActivity(intent);
+            }
+        });*/
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
@@ -67,8 +74,9 @@ public class SignInActivity extends AppCompatActivity {
 //        tv_bar.setText("로그인");
     }
 
+
     //각 Activity 마다 Task 작성
-    public class InnerTask extends AsyncTask<Map, Integer, String> {
+    public class InnerTask extends AsyncTask<Map, String, String> {
 
         //doInBackground 실행되기 이전에 동작
         @Override
@@ -131,8 +139,10 @@ public class SignInActivity extends AppCompatActivity {
                             Intent intent = new Intent(SignInActivity.this, MainActivity3.class);
                             intent.putExtra("id", st.getId());
                             startActivity(intent);
+
                         }
                     } else if (pass.equals("a")) {
+
                         Manager ad = gson.fromJson(s, Manager.class);
 
                         System.out.println("아이디 : " + ad.getId());

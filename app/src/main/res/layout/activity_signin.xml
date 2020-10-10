@@ -36,7 +36,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:padding="@dimen/spacing_mlarge">
 
@@ -103,9 +103,16 @@
                     android:layout_width="0dp"
                     android:layout_height="@dimen/spacing_mlarge" />
 
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+
                 <Button
                     android:id="@+id/btn_signin"
-                    android:layout_width="match_parent"
+                    android:layout_width="257dp"
                     android:layout_height="55dp"
                     android:layout_marginLeft="-4dp"
                     android:layout_marginRight="-4dp"
@@ -115,7 +122,32 @@
                     android:textColor="@android:color/white"
                     android:textStyle="bold" />
 
+                <ImageButton
+                    android:id="@+id/btn_fpSign"
+                    android:layout_width="61dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    app:srcCompat="@drawable/ic_baseline_fingerprint_24"
+                    app:tint="@color/light_blue_400"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"
+                    android:background="@color/white"/>
+
             </LinearLayout>
+
+                <Button
+                    android:id="@+id/btn_fpSignin"
+                    android:layout_width="257dp"
+                    android:layout_height="55dp"
+                    android:layout_marginLeft="-4dp"
+                    android:layout_marginRight="-4dp"
+                    android:background="@drawable/btn_rounded_primary"
+                    android:text="지 문 로 그 인"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold" />
+
+        </LinearLayout>
         </androidx.cardview.widget.CardView>
 
         <View
