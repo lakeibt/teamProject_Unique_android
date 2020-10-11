@@ -27,7 +27,9 @@ public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
     MainActivity.InnerTask task = null;
     View proinfo;
+    View consult;
     String id;
+    String name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         id = intent.getStringExtra("id"); //req.getParameter("id")'
+        name = intent.getStringExtra("name");
 
         task = new MainActivity.InnerTask();
         task.execute(id);
@@ -51,6 +54,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        consult = findViewById(R.id.consultlist);
+        consult.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), ConsultList.class);
+                intent.putExtra("name", name);
+                startActivity(intent);
+            }
+        });
     }
 
     private void setToolbar() {
@@ -124,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
                 ImageView imageView =  (ImageView) findViewById(R.id.stuimg);
                 name.setText(data.getData2() + " 님");
                 className.setText(data.getData5());
-                String imageUrl = "http://choihyun7000.synology.me/profile_photo/professor/"+data.getData4();
+                String imageUrl = "" + Web.servletURL + "resources/img/profile_photo/professor/"+data.getData4();
                 Glide.with(MainActivity.this).load(imageUrl).into(imageView);
                 Log.d("pic", "사진 = " + data.getData4());
                 Log.d("JSON_RESULT", "이름 = " + data.getData2());

@@ -160,6 +160,7 @@ public class SignInActivity extends AppCompatActivity {
                             // 페이지 이동
                             Intent intent = new Intent(SignInActivity.this, MainActivity.class);
                             intent.putExtra("id", ad.getId());
+                            intent.putExtra("name", ad.getName());
                             startActivity(intent);
                         }
                     }

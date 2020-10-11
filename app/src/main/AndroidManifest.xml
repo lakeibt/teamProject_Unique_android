@@ -80,6 +80,8 @@
         <activity android:name=".activity.Stuinfo"/>
 
         <activity android:name=".activity.Proinfo"/>
+
+        <activity android:name=".activity.ConsultList"/>
     </application>
 
 </manifest>

@@ -121,7 +121,7 @@ public class Proinfo extends Activity {
 
                 name.setText(data.getName() + " 님");
                 className.setText(data.getDepart() +" / "+ data.getRank());
-                String imageUrl = "http://choihyun7000.synology.me/profile_photo/admin/"+data.getPhoto();
+                String imageUrl = "" + Web.servletURL + "resources/img/profile_photo/professor/"+data.getPhoto();
                 Glide.with(Proinfo.this).load(imageUrl).into(imageView);
                 id.setText(data.getId());
                 tel.setText(data.getTel());
