@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
     MainActivity.InnerTask task = null;
     View proinfo;
+    View procourse;
     String id;
 
     @Override
@@ -41,11 +42,21 @@ public class MainActivity extends AppCompatActivity {
         task = new MainActivity.InnerTask();
         task.execute(id);
 
-        proinfo = findViewById(R.id.stuinfo);
+        proinfo = findViewById(R.id.proinfo);
         proinfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getBaseContext(), Proinfo.class);
+                intent.putExtra("id", id);
+                startActivity(intent);
+            }
+        });
+
+        procourse = findViewById(R.id.procourse);
+        procourse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), ProCourse.class);
                 intent.putExtra("id", id);
                 startActivity(intent);
             }
