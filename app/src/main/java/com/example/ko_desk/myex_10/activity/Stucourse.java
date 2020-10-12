@@ -21,7 +21,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.ko_desk.myex_10.Adapter.RecyclerAdapter_ProfessorCourse;
 import com.example.ko_desk.myex_10.Adapter.RecyclerAdapter_studentCourse;
 import com.example.ko_desk.myex_10.HttpClient;
 import com.example.ko_desk.myex_10.R;
@@ -36,29 +35,30 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ProCourse extends Activity {
+public class Stucourse extends Activity {
     private RecyclerView recyclerView;
-    private RecyclerAdapter_ProfessorCourse adapter;
+    private RecyclerAdapter_studentCourse adapter;
     JSONArray jsonArray;
     JSONObject jsonObject;
     String id;
-    Spinner spinner1, spinner2;
+    Spinner spinner1, spinner2, spinner3;
 
     Button btnselect, btnback;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pro_course);
+        setContentView(R.layout.stucourse);
 
         Intent intent = getIntent();
         id = intent.getStringExtra("id"); //req.getParameter("id")'
 
-        ProCourse.InnerTask task = new ProCourse.InnerTask();
+        Stucourse.InnerTask task = new Stucourse.InnerTask();
         Map<String, String> map = new HashMap<>();
         map.put("id", id);
         map.put("year", "2020");
         map.put("semester", "2학기");
+        map.put("day", "월요일");
 
         task.execute(map);
 
@@ -69,21 +69,24 @@ public class ProCourse extends Activity {
             public void onClick(View v) {
                 spinner1 = (Spinner)findViewById(R.id.selectYear);
                 spinner2 = (Spinner)findViewById(R.id.selectSemester);
+                spinner3 = (Spinner)findViewById(R.id.selectDay);
                 String text1 = spinner1.getSelectedItem().toString();
                 String text2 = spinner2.getSelectedItem().toString();
+                String text3 = spinner3.getSelectedItem().toString();
 
-                ProCourse.InnerTask task = new ProCourse.InnerTask();
+                Stucourse.InnerTask task = new Stucourse.InnerTask();
                 Map<String, String> map = new HashMap<>();
                 map.put("id", id);
                 map.put("year", text1);
                 map.put("semester", text2);
+                map.put("day", text3);
 
                 task.execute(map);
             }
         });
         btnback.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(ProCourse.this, MainActivity.class);
+                Intent intent = new Intent(Stucourse.this, MainActivity2.class);
                 intent.putExtra("id", id);
                 startActivity(intent);
             }
@@ -100,6 +103,10 @@ public class ProCourse extends Activity {
         semesterAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         semesterSpinner.setAdapter(semesterAdapter);
 
+        Spinner daySpinner = (Spinner)findViewById(R.id.selectDay);
+        ArrayAdapter dayAdapter = ArrayAdapter.createFromResource(this, R.array.day, android.R.layout.simple_spinner_item);
+        dayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        daySpinner.setAdapter(dayAdapter);
     }
 
     @Override
@@ -114,7 +121,7 @@ public class ProCourse extends Activity {
 
         @Override
         protected String doInBackground(Map... maps) {
-            HttpClient.Builder http = new HttpClient.Builder("POST", Web.servletURL + "android/proCourse"); //@RequestMapping url
+            HttpClient.Builder http = new HttpClient.Builder("POST", Web.servletURL + "android/stuCourse"); //@RequestMapping url
             http.addAllParameters(maps[0]);
 
             HttpClient post = http.create();
@@ -129,7 +136,7 @@ public class ProCourse extends Activity {
             JSONObject jsonObject = null;
             Log.d("JSON_RESULT : STUDENT COURSE :", o);
 
-            ImageView imageView =  (ImageView) findViewById(R.id.proimg);
+            ImageView imageView =  (ImageView) findViewById(R.id.stuimg);
             TextView name = findViewById(R.id.name);
             TextView major = findViewById(R.id.className);
 
@@ -140,6 +147,7 @@ public class ProCourse extends Activity {
 
                 int length = jsonArray.length();
                 String[] course = new String[length];
+                String[] professor = new String[length];
                 String[] day = new String[length];
                 String[] time = new String[length];
                 String[] grade = new String[length];
@@ -151,25 +159,27 @@ public class ProCourse extends Activity {
                 List<String> listGrade = null;
 
                 recyclerView = findViewById(R.id.rv_recyclerview);
-                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ProCourse.this);
+                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(Stucourse.this);
                 recyclerView.setLayoutManager(linearLayoutManager);
-                adapter = new RecyclerAdapter_ProfessorCourse();
+                adapter = new RecyclerAdapter_studentCourse();
                 recyclerView.setAdapter(adapter);
 
                 for(int i = 0; i < length; i++) {
                     jsonObject = jsonArray.getJSONObject(i);
 
-                    imageUrl = "" + Web.servletURL + "resources/img/profile_photo/professor/"+jsonObject.getString("PHOTO");
-                    Glide.with(ProCourse.this).load(imageUrl).into(imageView);
+                    imageUrl = "" + Web.servletURL + "resources/img/profile_photo/student/"+jsonObject.getString("PHOTO");
+                    Glide.with(Stucourse.this).load(imageUrl).into(imageView);
                     name.setText(jsonObject.getString("NAME"));
                     major.setText(jsonObject.getString("M_NAME"));
 
                     course[i] = jsonObject.getString("CO_NAME");
+                    professor[i] = jsonObject.getString("P_NAME");
                     day[i] = jsonObject.getString("DAY");
                     time[i] = jsonObject.getString("TIME");
                     grade[i] = jsonObject.getString("GRADE");
 
                     listCourse = Arrays.asList(course[i]);
+                    listProfessor = Arrays.asList(professor[i]);
                     listDay = Arrays.asList(day[i]);
                     listTime = Arrays.asList(time[i]);
                     listGrade = Arrays.asList(grade[i]);
@@ -177,6 +187,7 @@ public class ProCourse extends Activity {
                     for(int j = 0; j < listCourse.size(); j++) {
                         Map<String, String> data = new HashMap<>();
                         data.put("course", listCourse.get(j));
+                        data.put("professor", listProfessor.get(j));
                         data.put("day", listDay.get(j));
                         data.put("time", listTime.get(j));
                         data.put("grade", listGrade.get(j));

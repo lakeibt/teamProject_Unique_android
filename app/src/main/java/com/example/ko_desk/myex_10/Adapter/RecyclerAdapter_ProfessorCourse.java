@@ -1,24 +1,22 @@
 package com.example.ko_desk.myex_10.Adapter;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ko_desk.myex_10.R;
-import com.example.ko_desk.myex_10.vo.ConsultVO;
-import com.example.ko_desk.myex_10.vo.nfcVO;
 
 import java.util.ArrayList;
+import java.util.Map;
 
-public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemViewHolder> {
-
+public class RecyclerAdapter_ProfessorCourse extends RecyclerView.Adapter<RecyclerAdapter_ProfessorCourse.ItemViewHolder> {
     // adapter에 들어갈 list 입니다.
-    private ArrayList<nfcVO> listData = new ArrayList<>();
+    private ArrayList<Map<String, String>> listData = new ArrayList<>();
 
     @NonNull
     @Override
@@ -26,7 +24,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemVi
 
         // LayoutInflater를 이용하여 전 단계에서 만들었던 item.xml을 inflate 시킵니다.
         // return 인자는 ViewHolder 입니다.
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recyclerview_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recyclerview_item_professor_course, parent, false);
         return new ItemViewHolder(view);
     }
 
@@ -39,10 +37,11 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemVi
     @Override
     public int getItemCount() {
         // RecyclerView의 총 개수 입니다.
+        Log.d("viewSize:", String.valueOf(listData.size()));
         return listData.size();
     }
 
-    public void addItem(nfcVO data) {
+    public void addItem(Map<String, String> data) {
         // 외부에서 item을 추가시킬 함수입니다.
         listData.add(data);
     }
@@ -52,21 +51,32 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemVi
     class ItemViewHolder extends RecyclerView.ViewHolder {
 
         private TextView textView1;
-        private TextView textView2;
         private TextView textView3;
+        private TextView textView4;
 
         ItemViewHolder(View itemView) {
             super(itemView);
 
-            textView1 = itemView.findViewById(R.id.textView1);
-            textView2 = itemView.findViewById(R.id.textView2);
-            textView3 = itemView.findViewById(R.id.textView3);
+            textView1 = itemView.findViewById(R.id.procourse_coursename);
+            textView3 = itemView.findViewById(R.id.procourse_day);
+            textView4 = itemView.findViewById(R.id.procourse_time);
         }
 
-        void onBind(nfcVO data) {
-            textView1.setText("날짜 : "+data.getDate());
-            textView2.setText("출근시간 : "+data.getTagintime());
-            textView3.setText("퇴근시간 : "+data.getTagouttime());
+        void onBind(Map<String, String> data) {
+            int time = Integer.parseInt(data.get("time"));
+            int grade = Integer.parseInt(data.get("grade"));
+            int firstTime = time;
+            int endTime = grade + time - 1;
+            String courseTime = firstTime + "-" + endTime;
+
+            Log.d("course:", data.get("course"));
+            Log.d("day:", data.get("day"));
+            Log.d("time:", data.get("time"));
+            Log.d("grade:", data.get("grade"));
+
+            textView1.setText(data.get("course"));
+            textView3.setText(data.get("day"));
+            textView4.setText(courseTime);
         }
     }
 }

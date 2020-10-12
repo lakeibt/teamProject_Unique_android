@@ -76,8 +76,6 @@ public class WorkCheck extends Activity {
 
     private class InnerTask extends AsyncTask {
 
-        //MypageRecyAdapter adapter;
-
         @Override
         protected void onPreExecute() {
             super.onPreExecute();

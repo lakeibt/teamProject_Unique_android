@@ -35,7 +35,7 @@ public class MainActivity2 extends AppCompatActivity {
 
     Toolbar toolbar;
     InnerTask task = null;
-    View stuinfo;
+    View stuinfo, stuCourse, stuScore;
     String id;
 
     @Override
@@ -55,6 +55,26 @@ public class MainActivity2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getBaseContext(), Stuinfo.class);
+                intent.putExtra("id", id);
+                startActivity(intent);
+            }
+        });
+
+        stuCourse = findViewById(R.id.stuCourse);
+        stuCourse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), Stucourse.class);
+                intent.putExtra("id", id);
+                startActivity(intent);
+            }
+        });
+
+        stuScore = findViewById(R.id.stuScore);
+        stuScore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), Stuscore.class);
                 intent.putExtra("id", id);
                 startActivity(intent);
             }

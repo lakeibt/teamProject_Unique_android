@@ -68,12 +68,25 @@
                 android:resource="@xml/provider_paths" />
         </provider>
 
-        <activity android:name=".activity.WorkCheck" />
-        <activity android:name=".activity.Maninfo" />
-        <activity android:name=".activity.Stuinfo" />
-        <activity android:name=".activity.Proinfo" />
 
+
+
+
+
+        <activity android:name=".activity.WorkCheck"/>
+
+        <activity android:name=".activity.Maninfo"/>
+
+        <activity android:name=".activity.Stuinfo"/>
+        <activity android:name=".activity.Stucourse"/>
+        <activity android:name=".activity.Stuscore"/>
+
+        <activity android:name=".activity.Proinfo"/>
         <activity android:name=".activity.ProCourse" />
+
+
+        <activity android:name=".activity.ConsultList"/>
+
     </application>
 
 </manifest>

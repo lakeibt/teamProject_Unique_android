@@ -56,7 +56,7 @@
                     app:cardElevation="3dp">
 
                     <com.mikhaellopez.circularimageview.CircularImageView
-                        android:id="@+id/proimg"
+                        android:id="@+id/stuimg"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_margin="@dimen/spacing_xsmall"
@@ -216,28 +216,40 @@
                                     android:background="@color/colorPrimary">
 
                                     <TextView
-                                        android:layout_width="180dp"
+                                        android:layout_width="150dp"
                                         android:layout_height="30dp"
                                         android:gravity="center"
                                         android:text="과목명"
                                         android:textSize="18dp"
                                         android:textColor="@color/white" />
-
                                     <TextView
-                                        android:layout_width="103dp"
+                                        android:layout_width="60dp"
+                                        android:layout_height="30dp"
+                                        android:gravity="center"
+                                        android:text="교수명"
+                                        android:textSize="18dp"
+                                        android:textColor="@color/white" />
+                                    <TextView
+                                        android:layout_width="50dp"
                                         android:layout_height="30dp"
                                         android:gravity="center"
                                         android:text="요일"
-                                        android:textColor="@color/white"
-                                        android:textSize="18dp" />
-
+                                        android:textSize="18dp"
+                                        android:textColor="@color/white" />
                                     <TextView
-                                        android:layout_width="93dp"
+                                        android:layout_width="50dp"
                                         android:layout_height="30dp"
                                         android:gravity="center"
                                         android:text="시간"
-                                        android:textColor="@color/white"
-                                        android:textSize="18dp" />
+                                        android:textSize="18dp"
+                                        android:textColor="@color/white" />
+                                    <TextView
+                                        android:layout_width="50dp"
+                                        android:layout_height="30dp"
+                                        android:gravity="center"
+                                        android:text="학점"
+                                        android:textSize="18dp"
+                                        android:textColor="@color/white" />
                                 </TableRow>
                             </TableLayout>
                             <include layout="@layout/itemlist"/>

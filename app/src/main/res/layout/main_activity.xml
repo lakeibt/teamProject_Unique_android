@@ -204,6 +204,7 @@
                                 app:cardUseCompatPadding="true">
 
                                 <LinearLayout
+                                    android:id="@+id/stuCourse"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:background="?android:selectableItemBackground"
@@ -255,6 +256,7 @@
                                 app:cardUseCompatPadding="true">
 
                                 <LinearLayout
+                                    android:id="@+id/stuScore"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:background="?android:selectableItemBackground"
@@ -311,7 +313,7 @@
                                         android:layout_width="fill_parent"
                                         android:layout_height="@dimen/spacing_mxlarge"
                                         android:layout_centerHorizontal="true"
-                                        app:srcCompat="@drawable/ic_timetable"
+                                        app:srcCompat="@drawable/ic_mess"
                                         app:tint="@color/light_blue_400" />
 
                                     <TextView
@@ -319,7 +321,7 @@
                                         android:layout_height="wrap_content"
                                         android:textAlignment="center"
                                         android:layout_marginTop="20dp"
-                                        android:text="시간표조회"
+                                        android:text="챗봇"
                                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
                                         android:textColor="@color/grey_60" />
 
