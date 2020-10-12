@@ -3,13 +3,13 @@
     package="com.example.ko_desk.myex_10">
     <!-- 추가시작 -->
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.NFC"/>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-    <uses-permission android:name="android.permission.READ_PHONE_NUMBERS"/>
-    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.NFC" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_NUMBERS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -23,45 +23,40 @@
         <activity android:name=".activity.lodingclass">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".activity.SignInActivity"/>
-
+        <activity android:name=".activity.SignInActivity" />
         <activity
             android:name=".activity.MainActivity2"
             android:label="Uil Univ 학생"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.MainActivity3"
             android:label="Uil Univ 관리자"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.MainActivity"
             android:label="Uil Univ 교수"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activity.MyPageMainActivity" />
-
-        <activity android:name=".activity.NFCAct"/>
-
+        <activity android:name=".activity.NFCAct" />
         <activity android:name=".activity.WriteAct" />
-
         <activity android:name=".activity.ReadAct">
             <intent-filter>
-                <action android:name="android.nfc.action.NDEF_DISCOVERED"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <data android:mimeType="text/plain"/>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="text/plain" />
             </intent-filter>
         </activity>
-
         <activity
-            android:screenOrientation="portrait"
-            android:name="com.example.ko_desk.myex_10.activity.Parking"
+            android:name=".activity.Parking"
             android:label="@string/menu_parking"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -70,8 +65,13 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/provider_paths"/>
+                android:resource="@xml/provider_paths" />
         </provider>
+
+
+
+
+
 
         <activity android:name=".activity.WorkCheck"/>
 
@@ -82,8 +82,11 @@
         <activity android:name=".activity.Stuscore"/>
 
         <activity android:name=".activity.Proinfo"/>
+        <activity android:name=".activity.ProCourse" />
+
 
         <activity android:name=".activity.ConsultList"/>
+
     </application>
 
 </manifest>
