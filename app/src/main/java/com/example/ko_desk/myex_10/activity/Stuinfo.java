@@ -79,13 +79,9 @@ public class Stuinfo extends Activity {
     }
 
     @Override
-    public void onBackPressed() {
-//        super.onBackPressed();
-    }
+    public void onBackPressed() { }
 
     private class InnerTask extends AsyncTask<Map, Integer, String> {
-
-        //MypageRecyAdapter adapter;
 
         @Override
         protected void onPreExecute() {
@@ -143,8 +139,6 @@ public class Stuinfo extends Activity {
     }
 
     private class InnerTask2 extends AsyncTask<Map, Integer, String> {
-
-        //MypageRecyAdapter adapter;
 
         @Override
         protected void onPreExecute() {
