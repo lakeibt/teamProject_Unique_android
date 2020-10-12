@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     MainActivity.InnerTask task = null;
     View proinfo;
     View consult;
+    View classcheck;
     String id;
     String name;
 
@@ -59,6 +60,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getBaseContext(), ConsultList.class);
+                intent.putExtra("name", name);
+                startActivity(intent);
+            }
+        });
+
+        classcheck = findViewById(R.id.classcheck);
+        classcheck.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), Proclasscheck.class);
                 intent.putExtra("name", name);
                 startActivity(intent);
             }

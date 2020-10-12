@@ -84,7 +84,7 @@ public class SignInActivity extends AppCompatActivity {
             HttpClient.Builder http = new HttpClient.Builder("POST", Web.servletURL + "android/androidSignIn"); //스프링 url
             //파라미터 전송
             System.out.println("** : " + http);
-            http.addAllParameters(maps[0]);
+            http.addAllParameters(  maps[0]);
 
             //HTTP 요청 전송
             HttpClient post = http.create();

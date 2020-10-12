@@ -84,6 +84,8 @@
         <activity android:name=".activity.Proinfo"/>
 
         <activity android:name=".activity.ConsultList"/>
+
+        <activity android:name=".activity.Proclasscheck"/>
     </application>
 
 </manifest>
