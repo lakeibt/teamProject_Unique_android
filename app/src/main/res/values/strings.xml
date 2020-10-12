@@ -27,7 +27,7 @@
 
     <string name="image_picker_error">Something is wrong with that image. Pick a different one please.</string>
     <string name="assign_message">지문을 등록해주세요.</string>
-    <string name="auth_error_message">지문 인식에 오류입니다. 다시 시도 해주세요.</string>
-    <string name="auth_success_message">지문 등록 완료, 되었습니다.</string>
+    <string name="auth_error_message">지문이 인식 되지 않았습니다. 다시 시도 해주세요.</string>
+    <string name="auth_success_message">로그인 되었습니다.</string>
     <string name="auth_fail_message">실패 인식에 실패했습니다. 다시 시도 해주세요.</string>
 </resources>

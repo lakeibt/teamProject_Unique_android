@@ -10,6 +10,8 @@
         android:layout_height="220dp"
         android:background="@color/colorPrimaryDark" />
 
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -112,7 +114,7 @@
 
                 <Button
                     android:id="@+id/btn_signin"
-                    android:layout_width="257dp"
+                    android:layout_width="match_parent"
                     android:layout_height="55dp"
                     android:layout_marginLeft="-4dp"
                     android:layout_marginRight="-4dp"
@@ -121,23 +123,15 @@
                     android:textAllCaps="false"
                     android:textColor="@android:color/white"
                     android:textStyle="bold" />
-
-                <ImageButton
-                    android:id="@+id/btn_fpSign"
-                    android:layout_width="61dp"
-                    android:layout_height="match_parent"
-                    android:layout_centerHorizontal="true"
-                    app:srcCompat="@drawable/ic_baseline_fingerprint_24"
-                    app:tint="@color/light_blue_400"
-                    android:adjustViewBounds="true"
-                    android:scaleType="fitCenter"
-                    android:background="@color/white"/>
-
             </LinearLayout>
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
                 <Button
                     android:id="@+id/btn_fpSignin"
-                    android:layout_width="257dp"
+                    android:layout_width="match_parent"
                     android:layout_height="55dp"
                     android:layout_marginLeft="-4dp"
                     android:layout_marginRight="-4dp"
@@ -146,6 +140,7 @@
                     android:textAllCaps="false"
                     android:textColor="@android:color/white"
                     android:textStyle="bold" />
+            </LinearLayout>
 
         </LinearLayout>
         </androidx.cardview.widget.CardView>

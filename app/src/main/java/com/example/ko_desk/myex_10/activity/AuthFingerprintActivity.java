@@ -60,6 +60,7 @@ public class AuthFingerprintActivity extends AppCompatActivity {
                     .setPositiveButton("확인", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which){
                             Intent intent = new Intent(AuthFingerprintActivity.this, MainActivity3.class);
+                            intent.putExtra("id", id);
                             startActivity(intent);
                         }
                     })

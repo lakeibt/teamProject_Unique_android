@@ -72,6 +72,8 @@
         <activity android:name=".activity.AuthConfirm" />
         <activity android:name=".activity.AuthFingerprintActivity" />
         <activity android:name=".activity.AuthLoginCheck" />
+        <activity android:name=".activity.Auth" />
+        <activity android:name=".activity.Auth2" />
 
 
         <provider

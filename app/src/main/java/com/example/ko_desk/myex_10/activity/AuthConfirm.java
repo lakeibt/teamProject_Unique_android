@@ -79,7 +79,6 @@ public class AuthConfirm extends AppCompatActivity {
             System.out.println("키값 : "+fp.getUuid());
 
             if (jsonData.length() > 0) {
-                Toast.makeText(getApplicationContext(), "지문정보 로드 완료", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getBaseContext(), AuthFingerprintActivity.class);
                 intent.putExtra("uuid", fp.getUuid());
                 intent.putExtra("id", fp.getId());
