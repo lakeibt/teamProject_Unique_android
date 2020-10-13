@@ -53,7 +53,6 @@ public class Proclasscheck extends Activity {
         name = intent.getStringExtra("name"); //req.getParameter("id")'
         classname = intent.getStringExtra("classname");
         imageUrl = intent.getStringExtra("imageUrl");
-        Log.d("받은 이름 값",name);
 
         Proclasscheck.InnerTask task = new Proclasscheck.InnerTask();
         Map<String, String> map = new HashMap<>();

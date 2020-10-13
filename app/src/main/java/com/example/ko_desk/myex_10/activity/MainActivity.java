@@ -29,11 +29,8 @@ public class MainActivity extends AppCompatActivity {
     View proinfo;
     View procourse;
     View consult;
-    View classcheck;
     String id;
     String name;
-    String pushclassname;
-    String imageUrl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = getIntent();
         id = intent.getStringExtra("id"); //req.getParameter("id")'
         name = intent.getStringExtra("name");
+        pushclassname = intent.getStringExtra("classname");
+        imageUrl = intent.getStringExtra("imageUrl");
+
 
         task = new MainActivity.InnerTask();
         task.execute(id);
@@ -54,6 +54,23 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getBaseContext(), Proinfo.class);
                 intent.putExtra("id", id);
+                intent.putExtra("name", name);
+                intent.putExtra("classname", pushclassname);
+                intent.putExtra("imageUrl", imageUrl);
+                startActivity(intent);
+            }
+        });
+
+
+        procourse = findViewById(R.id.procourse);
+        procourse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), ProCourse.class);
+                intent.putExtra("id", id);
+                intent.putExtra("name", name);
+                intent.putExtra("classname", pushclassname);
+                intent.putExtra("imageUrl", imageUrl);
                 startActivity(intent);
             }
         });
@@ -75,18 +92,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getBaseContext(), ConsultList.class);
                 intent.putExtra("name", name);
-                startActivity(intent);
-            }
-        });
-
-        classcheck = findViewById(R.id.classcheck);
-        classcheck.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getBaseContext(), Proclasscheck.class);
-                intent.putExtra("name", name);
-                intent.putExtra("classname", pushclassname);
-                intent.putExtra("imageUrl", imageUrl);
                 startActivity(intent);
             }
         });
@@ -158,13 +163,12 @@ public class MainActivity extends AppCompatActivity {
             Gson gson = new Gson();
             Data data = gson.fromJson((String) o, Data.class);
             try {
-                TextView name = (TextView) findViewById(R.id.name);
+                TextView name1 = (TextView) findViewById(R.id.name);
                 TextView className = (TextView) findViewById(R.id.className);
                 ImageView imageView =  (ImageView) findViewById(R.id.stuimg);
-                name.setText(data.getData2() + " 님");
+                name1.setText(data.getData2() + " 님");
                 className.setText(data.getData5());
-                pushclassname = data.getData5();
-                imageUrl = "" + Web.servletURL + "resources/img/profile_photo/professor/"+data.getData4();
+                String imageUrl = "" + Web.servletURL + "resources/img/profile_photo/professor/"+data.getData4();
                 Glide.with(MainActivity.this).load(imageUrl).into(imageView);
                 Log.d("pic", "사진 = " + data.getData4());
                 Log.d("JSON_RESULT", "이름 = " + data.getData2());

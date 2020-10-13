@@ -9,7 +9,7 @@
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar_layout"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="120dp"
         android:background="@color/colorPrimaryDark"
         android:fitsSystemWindows="true"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
@@ -59,13 +59,16 @@
                     app:cardElevation="2dp"
                     app:cardUseCompatPadding="true">
 
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:orientation="vertical"
-                        android:paddingTop="@dimen/spacing_large"
-                        android:paddingBottom="@dimen/spacing_large">
+                        android:paddingBottom="@dimen/spacing_medium"
+                        android:paddingTop="@dimen/spacing_middle">
+
+
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -80,36 +83,77 @@
                                 android:orientation="vertical">
 
                                 <TextView
-                                    android:id="@+id/title"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="20dp"
                                     android:layout_marginRight="20dp"
-                                    android:text="강의별 학생 조회"
+                                    android:textAlignment="center"
+                                    android:textSize="22dp"
+                                    android:text="당근 나라"
                                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                                     android:textColor="@color/colorPrimaryDark"
-                                    android:textSize="22dp"
                                     app:fontFamily="sans-serif-medium" />
 
                                 <View
                                     android:layout_width="fill_parent"
                                     android:layout_height="1dp"
-                                    android:layout_centerInParent="true"
-                                    android:layout_marginLeft="10dp"
-                                    android:layout_marginTop="10dp"
                                     android:layout_marginRight="10dp"
-                                    android:layout_marginBottom="10dp"
-                                    android:background="@color/blue_grey_200" />
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginTop="3dp"
+                                    android:layout_marginBottom="3dp"
+                                    android:layout_centerInParent="true"
+                                    android:background="@color/blue_grey_200"/>
 
                             </LinearLayout>
 
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <Button
+                                    android:id="@+id/btn_insert"
+                                    android:layout_width="150dp"
+                                    android:layout_height="35dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginRight="10dp"
+                                    android:background="@drawable/btn_rounded_primary"
+                                    android:layout_gravity="center"
+                                    android:text="글 쓰 기"
+                                    android:textAllCaps="false"
+                                    android:textColor="@android:color/white"
+                                    android:textStyle="bold" />
+
+                                <Button
+                                    android:id="@+id/btn_back"
+                                    android:layout_width="150dp"
+                                    android:layout_height="35dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginRight="10dp"
+                                    android:background="@drawable/btn_rounded_primary"
+                                    android:layout_gravity="center"
+                                    android:text="돌 아 가 기"
+                                    android:textAllCaps="false"
+                                    android:textColor="@android:color/white"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+                            <View
+                                android:layout_width="fill_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginBottom="3dp"
+                                android:layout_centerInParent="true"
+                                android:background="@color/blue_grey_200"/>
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent">
-
-                            <include layout="@layout/itemlist" />
+                            <include layout="@layout/itemlist"/>
                         </LinearLayout>
 
 

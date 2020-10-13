@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,12 +14,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.ko_desk.myex_10.Adapter.RecyclerAdapter_Shop;
 import com.example.ko_desk.myex_10.Adapter.RecyclerAdapter_proclasscheck;
-import com.example.ko_desk.myex_10.Adapter.RecyclerAdapter_proclasschecknext;
 import com.example.ko_desk.myex_10.HttpClient;
 import com.example.ko_desk.myex_10.R;
 import com.example.ko_desk.myex_10.Web;
 import com.example.ko_desk.myex_10.vo.InClassHowVO;
+import com.example.ko_desk.myex_10.vo.ShopVO;
 import com.google.gson.Gson;
 
 import org.json.JSONArray;
@@ -30,34 +32,44 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
-public class ProClassStuList extends Activity {
+public class Shop extends Activity {
 
     private RecyclerView recyclerView;
-    private RecyclerAdapter_proclasschecknext adapter;
+    private RecyclerAdapter_Shop adapter;
     private View parent_view;
     JSONArray jsonArray;
     JSONObject jsonObject;
     Gson gson = new Gson();
-    String title;
-    String student;
     String id;
-    String m_name;
+    String title;
+    String classname;
+    String imageUrl;
+    Button btn_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.proclasschecknext);
+        setContentView(R.layout.shop);
         parent_view = findViewById(android.R.id.content);
-        Intent intent = getIntent();
-        title = intent.getStringExtra("title"); //req.getParameter("id")'
-        Log.d("받은 과목명 값",title);
 
-        ProClassStuList.InnerTask task = new ProClassStuList.InnerTask();
+        Shop.InnerTask task = new Shop.InnerTask();
         Map<String, String> map = new HashMap<>();
-        map.put("title", title);
+//        map.put("id", id);
         task.execute(map);
+
+        Intent intent = getIntent();
+        id = intent.getStringExtra("id"); //req.getParameter("id")'
+
+        btn_back = findViewById(R.id.btn_back);
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), MainActivity2.class);
+                intent.putExtra("id", id);
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -70,8 +82,8 @@ public class ProClassStuList extends Activity {
 
         @Override
         protected Object doInBackground(Object[] objects) {
-            HttpClient.Builder http = new HttpClient.Builder("POST", Web.servletURL + "android/proclasschecknext"); //@RequestMapping url
-            http.addOrReplace("title", title);
+            HttpClient.Builder http = new HttpClient.Builder("POST", Web.servletURL + "android/shoplist"); //@RequestMapping url
+//            http.addOrReplace("id", id);
 
             HttpClient post = http.create();
             post.request();
@@ -88,17 +100,17 @@ public class ProClassStuList extends Activity {
 //                LinearLayout ll = (LinearLayout) findViewById(R.id.rv_recyclerview);
 
                 int list_cnt = jsonArray.length();
+                String[] gettitle = new String[list_cnt];
                 String[] getstudent = new String[list_cnt];
-                String[] getid = new String[list_cnt];
-                String[] getm_name = new String[list_cnt];
+                String[] getprice = new String[list_cnt];
+                List<String> listTitle;
                 List<String> listStudent;
-                List<String> listId;
-                List<String> listM_name;
+                List<String> listPrice;
 
                 recyclerView = findViewById(R.id.rv_recyclerview);
-                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ProClassStuList.this);
+                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(Shop.this);
                 recyclerView.setLayoutManager(linearLayoutManager);
-                adapter = new RecyclerAdapter_proclasschecknext();
+                adapter = new RecyclerAdapter_Shop();
                 recyclerView.setAdapter(adapter);
 
                 for (int i = 0; i < jsonArray.length(); ++i) {
@@ -107,28 +119,29 @@ public class ProClassStuList extends Activity {
                     jsonObject = jsonArray.getJSONObject(i);
                     Log.e("JsonObject", "" + jsonObject);
 
-                    getstudent[i] = jsonObject.getString("student");
-                    getid[i] = jsonObject.getString("id");
-                    getm_name[i] = jsonObject.getString("m_name");
+                    gettitle[i] = jsonObject.getString("title");
+                    getstudent[i] = jsonObject.getString("name");
+                    getprice[i] = jsonObject.getString("price");
                     Log.e("JSON Object", jsonObject + "");
-                    Log.e("JsonParsing", getstudent[i] + "," + getid[i]+","+getm_name[i]);
+                    Log.e("JsonParsing", gettitle[i] + "," + getstudent[i]);
+                    title = gettitle[i];
 
+                    listTitle = Arrays.asList(gettitle[i]);
                     listStudent = Arrays.asList(getstudent[i]);
-                    listId = Arrays.asList(getid[i]);
-                    listM_name = Arrays.asList(getm_name[i]);
+                    listPrice = Arrays.asList(getprice[i]);
 
-                    for (int j = 0; j < listStudent.size(); j++) {
+                    for (int j = 0; j < listTitle.size(); j++) {
                         // 각 List의 값들을 data 객체에 set 해줍니다.
-                        InClassHowVO data = new InClassHowVO();
-                        data.setStudent(listStudent.get(j));
-                        data.setId(listId.get(j));
-                        data.setM_name(listM_name.get(j));
+                        ShopVO data = new ShopVO();
+                        data.setTitle(listTitle.get(j));
+                        data.setName(listStudent.get(j));
+                        data.setPrice(listPrice.get(j));
 
                         // 각 값이 들어간 data를 adapter에 추가합니다.
                         adapter.addItem(data);
                     }
 
-                    Log.e("학생명", String.valueOf(listStudent));
+                    Log.e("강의명", String.valueOf(listTitle));
 
                     // adapter의 값이 변경되었다는 것을 알려줍니다.
                     adapter.notifyDataSetChanged();
@@ -136,8 +149,6 @@ public class ProClassStuList extends Activity {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            TextView title1 = (TextView) findViewById(R.id.title);
-            title1.setText(title);
         }
     }
 }
