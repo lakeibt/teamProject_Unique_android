@@ -1,14 +1,19 @@
 package com.example.ko_desk.myex_10.Adapter;
 
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.widget.NestedScrollView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ko_desk.myex_10.R;
+import com.example.ko_desk.myex_10.activity.ProClassStuList;
 import com.example.ko_desk.myex_10.vo.InClassHowVO;
 
 import java.util.ArrayList;
@@ -24,7 +29,7 @@ public class RecyclerAdapter_proclasschecknext extends RecyclerView.Adapter<Recy
 
         // LayoutInflater를 이용하여 전 단계에서 만들었던 item.xml을 inflate 시킵니다.
         // return 인자는 ViewHolder 입니다.
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recyclerview_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recyclerview_item_classstu, parent, false);
         return new ItemViewHolder(view);
     }
 
@@ -49,9 +54,7 @@ public class RecyclerAdapter_proclasschecknext extends RecyclerView.Adapter<Recy
     // 여기서 subView를 setting 해줍니다.
     class ItemViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView textView1;
-        private TextView textView2;
-        private TextView textView3;
+        private TextView textView1,textView2,textView3;
 
         ItemViewHolder(View itemView) {
             super(itemView);
@@ -65,6 +68,7 @@ public class RecyclerAdapter_proclasschecknext extends RecyclerView.Adapter<Recy
             textView1.setText(data.getStudent());
             textView2.setText(data.getId());
             textView3.setText(data.getM_name());
+
         }
     }
 }

@@ -63,7 +63,7 @@
                             android:layout_height="?attr/actionBarSize"
                             android:background="?attr/selectableItemBackgroundBorderless"
                             android:tint="@color/grey_80"
-                            android:src="@drawable/down"/>
+                            android:src="@drawable/ic_right"/>
 
                     </LinearLayout>
 
@@ -72,14 +72,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/sub"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:padding="@dimen/spacing_large"
-                            android:text="로딩중..." />
-
                     </LinearLayout>
 
                 </LinearLayout>

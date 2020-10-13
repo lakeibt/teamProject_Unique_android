@@ -1,5 +1,6 @@
 package com.example.ko_desk.myex_10.Adapter;
 
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,8 +13,7 @@ import androidx.core.widget.NestedScrollView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ko_desk.myex_10.R;
-import com.example.ko_desk.myex_10.activity.Tools;
-import com.example.ko_desk.myex_10.activity.ViewAnimation;
+import com.example.ko_desk.myex_10.activity.ProClassStuList;
 import com.example.ko_desk.myex_10.vo.InClassHowVO;
 
 import java.util.ArrayList;
@@ -67,15 +67,18 @@ public class RecyclerAdapter_proclasscheck extends RecyclerView.Adapter<Recycler
             title = itemView.findViewById(R.id.title);
             bt_toggle_text = itemView.findViewById(R.id.bt_toggle_text);
             lyt_expand_text = itemView.findViewById(R.id.lyt_expand_text);
-            lyt_expand_text.setVisibility(View.GONE);
 
             bt_toggle_text.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    toggleSectionText(bt_toggle_text);
                     TextView push = itemView.findViewById(R.id.title);
                     going = push.getText().toString();
                     Log.e("타이틀 값", going);
+
+                    Intent intent = new Intent(view.getContext() , ProClassStuList.class);
+                    intent.putExtra("title",going);
+                    view.getContext().startActivity(intent);
+
                 }
             });
             nested_scroll_view = itemView.findViewById(R.id.nested_scroll_view);
@@ -84,30 +87,6 @@ public class RecyclerAdapter_proclasscheck extends RecyclerView.Adapter<Recycler
         void onBind(InClassHowVO data) {
             title.setText(data.getCo_name());
 
-        }
-
-        private void toggleSectionText(View view) {
-            boolean show = toggleArrow(view);
-            if (show) {
-                ViewAnimation.expand(lyt_expand_text, new ViewAnimation.AnimListener() {
-                    @Override
-                    public void onFinish() {
-                        Tools.nestedScrollTo(nested_scroll_view, lyt_expand_text);
-                    }
-                });
-            } else {
-                ViewAnimation.collapse(lyt_expand_text);
-            }
-        }
-
-        public boolean toggleArrow(View view) {
-            if (view.getRotation() == 0) {
-                view.animate().setDuration(200).rotation(180);
-                return true;
-            } else {
-                view.animate().setDuration(200).rotation(0);
-                return false;
-            }
         }
     }
 }
