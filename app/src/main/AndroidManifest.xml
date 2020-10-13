@@ -68,11 +68,6 @@
                 android:resource="@xml/provider_paths" />
         </provider>
 
-
-
-
-
-
         <activity android:name=".activity.WorkCheck"/>
 
         <activity android:name=".activity.Maninfo"/>
@@ -90,6 +85,8 @@
         <activity android:name=".activity.Proclasscheck"/>
 
         <activity android:name=".activity.ProClassStuList"/>
+
+        <activity android:name=".activity.Shop"/>
     </application>
 
 </manifest>
