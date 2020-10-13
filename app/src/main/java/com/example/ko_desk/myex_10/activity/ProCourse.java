@@ -41,7 +41,7 @@ public class ProCourse extends Activity {
     private RecyclerAdapter_ProfessorCourse adapter;
     JSONArray jsonArray;
     JSONObject jsonObject;
-    String id;
+    String id, name, pushclassname , imageUrl;
     Spinner spinner1, spinner2;
 
     Button btnselect, btnback;
@@ -53,6 +53,9 @@ public class ProCourse extends Activity {
 
         Intent intent = getIntent();
         id = intent.getStringExtra("id"); //req.getParameter("id")'
+        name = intent.getStringExtra("name");
+        pushclassname = intent.getStringExtra("classname");
+        imageUrl = intent.getStringExtra("imageUrl");
 
         ProCourse.InnerTask task = new ProCourse.InnerTask();
         Map<String, String> map = new HashMap<>();
@@ -85,6 +88,9 @@ public class ProCourse extends Activity {
             public void onClick(View v) {
                 Intent intent = new Intent(ProCourse.this, MainActivity.class);
                 intent.putExtra("id", id);
+                intent.putExtra("name", name);
+                intent.putExtra("classname", pushclassname);
+                intent.putExtra("imageUrl", imageUrl);
                 startActivity(intent);
             }
         });
