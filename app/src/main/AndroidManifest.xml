@@ -70,9 +70,6 @@
 
 
 
-
-
-
         <activity android:name=".activity.WorkCheck"/>
 
         <activity android:name=".activity.Maninfo"/>
@@ -84,12 +81,11 @@
         <activity android:name=".activity.Proinfo"/>
         <activity android:name=".activity.ProCourse" />
 
-
         <activity android:name=".activity.ConsultList"/>
 
-        <activity android:name=".activity.Proclasscheck"/>
-
         <activity android:name=".activity.ProClassStuList"/>
+
+        <activity android:name=".activity.Shop"/>
     </application>
 
 </manifest>
