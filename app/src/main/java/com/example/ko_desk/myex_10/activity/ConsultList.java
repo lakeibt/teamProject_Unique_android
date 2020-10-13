@@ -36,7 +36,7 @@ public class ConsultList extends Activity {
     JSONArray jsonArray;
     JSONObject jsonObject;
     Gson gson = new Gson();
-    String name;
+    String name, id, pushclassname, imageUrl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +45,10 @@ public class ConsultList extends Activity {
         setContentView(R.layout.consultlist);
 
         Intent intent = getIntent();
-        name = intent.getStringExtra("name"); //req.getParameter("id")'
-        Log.d("받은 이름 값",name);
+        id = intent.getStringExtra("id"); //req.getParameter("id")'
+        name = intent.getStringExtra("name");
+        pushclassname = intent.getStringExtra("classname");
+        imageUrl = intent.getStringExtra("imageUrl");
 
         ConsultList.InnerTask task = new ConsultList.InnerTask();
         Map<String, String> map = new HashMap<>();
