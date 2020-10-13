@@ -148,7 +148,7 @@ public class MainActivity3 extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(Object o) {
-            Log.d("JSON_RESULT", (String) o);
+            Log.d("JSON_RESULTALL", (String) o);
             Gson gson = new Gson();
             Data data = gson.fromJson((String) o, Data.class);
             try {

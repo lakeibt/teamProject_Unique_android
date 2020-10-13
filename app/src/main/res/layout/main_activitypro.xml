@@ -158,7 +158,7 @@
                                 app:cardUseCompatPadding="true">
 
                                 <LinearLayout
-                                    android:id="@+id/stuinfo"
+                                    android:id="@+id/proinfo"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:background="?android:selectableItemBackground"
@@ -204,6 +204,7 @@
                                 app:cardUseCompatPadding="true">
 
                                 <LinearLayout
+                                    android:id="@+id/procourse"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:background="?android:selectableItemBackground"
@@ -255,7 +256,6 @@
                                 app:cardUseCompatPadding="true">
 
                                 <LinearLayout
-                                    android:id="@+id/classcheck"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:background="?android:selectableItemBackground"
