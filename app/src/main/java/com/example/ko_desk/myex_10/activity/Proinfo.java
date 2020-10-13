@@ -18,6 +18,7 @@ import com.bumptech.glide.Glide;
 import com.example.ko_desk.myex_10.HttpClient;
 import com.example.ko_desk.myex_10.R;
 import com.example.ko_desk.myex_10.Web;
+import com.example.ko_desk.myex_10.vo.HumanVO;
 import com.example.ko_desk.myex_10.vo.Manager;
 import com.google.gson.Gson;
 
@@ -27,7 +28,7 @@ import java.util.Map;
 public class Proinfo extends Activity {
 
     EditText tel, email, address, address2;
-    String id;
+    String id, name, pushclassname, imageUrl;
 
     Button btnInfoSave;
     Button btnback;
@@ -39,6 +40,9 @@ public class Proinfo extends Activity {
 
         Intent intent = getIntent();
         id = intent.getStringExtra("id"); //req.getParameter("id")'
+        name = intent.getStringExtra("name");
+        name = intent.getStringExtra("name");
+        name = intent.getStringExtra("name");
 
         Proinfo.InnerTask task = new Proinfo.InnerTask();
         Map<String, String> map = new HashMap<>();
@@ -107,7 +111,7 @@ public class Proinfo extends Activity {
         protected void onPostExecute(String o) {
             Log.d("JSON_RESULT", o);
             Gson gson = new Gson();
-            Manager data = gson.fromJson(o, Manager.class);
+            HumanVO data = gson.fromJson(o, HumanVO.class);
 
             try {
                 TextView name = (TextView) findViewById(R.id.mainname);
@@ -120,7 +124,7 @@ public class Proinfo extends Activity {
                 EditText address2 = (EditText) findViewById(R.id.address2);
 
                 name.setText(data.getName() + " 님");
-                className.setText(data.getDepart() +" / "+ data.getRank());
+                className.setText(data.getM_code());
                 String imageUrl = "" + Web.servletURL + "resources/img/profile_photo/professor/"+data.getPhoto();
                 Glide.with(Proinfo.this).load(imageUrl).into(imageView);
                 id.setText(data.getId());
@@ -163,6 +167,9 @@ public class Proinfo extends Activity {
             Toast.makeText(getApplicationContext(), "수정이 완료 되었습니다.", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(Proinfo.this, Proinfo.class);
             intent.putExtra("id", id);
+            intent.putExtra("name", name);
+            intent.putExtra("classname", pushclassname);
+            intent.putExtra("imageUrl", imageUrl);
             startActivity(intent);
         }
     }
