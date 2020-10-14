@@ -1,4 +1,5 @@
 package com.example.ko_desk.myex_10.activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.biometric.BiometricPrompt;
 import androidx.core.content.ContextCompat;
@@ -75,15 +77,26 @@ public class SignInActivity extends AppCompatActivity {
                     @NonNull BiometricPrompt.AuthenticationResult result) {
                 super.onAuthenticationSucceeded(result);
                 Unique = UUID.getDeviceId(null);
-                if(fp_pwd.length() == 60 && fp_uu.length() == 19) {
+                if(fp_pwd!=null && fp_uu!=null) {
+                    Toast.makeText(getApplicationContext(),
+                            R.string.auth_success_message, Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(SignInActivity.this, MainActivity3.class);
                     intent.putExtra("id", fp_id);
                     startActivity(intent);
+                }else{
+                    AlertDialog.Builder builder = new AlertDialog.Builder(SignInActivity.this);
+                    builder.setTitle("알림");
+                    builder.setMessage("등록 된 지문이 없습니다. 로그인 후 지문을 등록해주세요.");
+                    builder.setPositiveButton("확인",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Intent intent = new Intent(SignInActivity.this, SignInActivity.class);
+                                    startActivity(intent);
+                                    overridePendingTransition(0, 0);
+                                }
+                            }).show();
                 }
-                Toast.makeText(getApplicationContext(),
-                        R.string.auth_success_message, Toast.LENGTH_SHORT).show();
             };
-
             @Override   //fail
             public void onAuthenticationFailed() {
                 super.onAuthenticationFailed();
@@ -91,7 +104,6 @@ public class SignInActivity extends AppCompatActivity {
                         Toast.LENGTH_SHORT).show();
             }
         });
-
         fingerPrint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -235,8 +247,6 @@ public class SignInActivity extends AppCompatActivity {
         }
     }
 
-
-
     //키 확인 task
     public class checkTask extends AsyncTask<Map, String, String> {
 
@@ -266,6 +276,7 @@ public class SignInActivity extends AppCompatActivity {
             Log.d("JSON_RESULT", jsonData);
             Gson gson = new Gson();
             FingerPrintVO fp = gson.fromJson(jsonData, FingerPrintVO.class);
+        try {
             fp_id = fp.getId();
             fp_pwd = fp.getPwd();
             fp_uu = fp.getUuid();
@@ -274,23 +285,21 @@ public class SignInActivity extends AppCompatActivity {
                     if (fp_uu.length() == 19) {
                         Unique = UUID.getDeviceId(null);
                         if (fp_uu.equals(Unique)) {
-                            if(biocheck!=null) {
+                            if (biocheck != null) {
                                 Toast.makeText(getApplicationContext(), "로그인 되었습니다.", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(SignInActivity.this, MainActivity3.class);
                                 intent.putExtra("id", fp_id);
                                 startActivity(intent);
-                            }
-                            else if (biocheck==null) {
+                            } else if (biocheck == null) {
                                 System.out.println("기다려");
                             }
                         }
                     }
+                }
                 }else{
-                    System.out.println("biocheck★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★" + biocheck);
                     Toast.makeText(getApplicationContext(), "등록된 지문이 없습니다. \n 로그인 후 지문을 등록해주세요.", Toast.LENGTH_SHORT).show();
                 }
+            } catch (NullPointerException e){}
             }
-
         }
     }
-}

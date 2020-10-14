@@ -30,9 +30,6 @@ public class Auth extends AppCompatActivity {
         id = intent.getStringExtra("id");
         pwd = intent.getStringExtra("pwd");
         uuid = intent.getStringExtra("uuid");
-        System.out.println("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII" + id);
-        System.out.println("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII" + pwd);
-        System.out.println("uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu" + uuid);
 
         executor = ContextCompat.getMainExecutor(this);
         biometricPrompt = new BiometricPrompt(this,

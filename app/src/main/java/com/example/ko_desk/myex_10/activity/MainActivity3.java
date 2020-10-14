@@ -4,9 +4,14 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.biometric.BiometricPrompt;
+import androidx.core.content.ContextCompat;
+
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -25,6 +30,7 @@ import com.google.gson.Gson;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.Executor;
 
 public class MainActivity3 extends AppCompatActivity {
 
@@ -202,9 +208,7 @@ public class MainActivity3 extends AppCompatActivity {
             String fp_id = fp.getId();
             String fp_pwd = fp.getPwd();
             String fp_uu = fp.getUuid();
-            System.out.println("ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ"+fp_id);
-            System.out.println("ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ"+fp_pwd);
-            System.out.println("ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ"+fp_uu);
+            if(fp_pwd!=null){
             if (fp_pwd.length() == 60 && fp_uu.length() == 19) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity3.this);
                 builder.setTitle("알림");
@@ -218,13 +222,13 @@ public class MainActivity3 extends AppCompatActivity {
                                 overridePendingTransition(0, 0);
                             }
                         })
-                                .show();
-                } else{
-                    Intent intent = new Intent(MainActivity3.this, AuthFingerprintActivity.class);
-                    intent.putExtra("id", id);
-                    startActivity(intent);
-
-                }
+                        .show();
+            }
+            } else{
+                Intent intent = new Intent(MainActivity3.this, AuthFingerprintActivity.class);
+                intent.putExtra("id", id);
+                startActivity(intent);
             }
         }
+    }
 }

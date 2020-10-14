@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
@@ -15,6 +16,7 @@ import androidx.core.content.ContextCompat;
 import com.example.ko_desk.myex_10.HttpClient;
 import com.example.ko_desk.myex_10.R;
 import com.example.ko_desk.myex_10.Web;
+import com.example.ko_desk.myex_10.vo.FingerPrintVO;
 import com.google.gson.Gson;
 
 import org.json.JSONException;
@@ -27,99 +29,87 @@ import java.util.concurrent.Executor;
 public class AuthFingerprintActivity extends AppCompatActivity {
 
     String id;
-    String Unique;
+    String Unique = UUID.getDeviceId(null);;
     String fp_id;
     String fp_uu;
     String uuid;
+    Button fingerAdd;
 
     private Executor executor;
     private BiometricPrompt biometricPrompt;
     private BiometricPrompt.PromptInfo promptInfo;
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        Intent intent = getIntent();
-        id = intent.getStringExtra("id");
-        uuid = intent.getStringExtra("uuid");
-        System.out.println("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII" + id);
-        System.out.println("uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu" + uuid);
-
-        checkInsert(id, uuid);
-
-    }
-
-    protected void checkInsert(String id, String uuid) {
-
         setContentView(R.layout.fingerprint);
+        fingerAdd = (Button) findViewById(R.id.fingerAddButton);
 
-        if (uuid != null) {
-            new AlertDialog.Builder(AuthFingerprintActivity.this)
-                    .setMessage("지문이 이미 등록되어있습니다.")
-                    .setPositiveButton("확인", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which){
-                            Intent intent = new Intent(AuthFingerprintActivity.this, MainActivity3.class);
-                            intent.putExtra("id", id);
-                            startActivity(intent);
-                        }
-                    })
-                    .show();
+        executor = ContextCompat.getMainExecutor(this);
+        biometricPrompt = new BiometricPrompt(this,
+                executor, new BiometricPrompt.AuthenticationCallback() {
 
-        } else {
-            executor = ContextCompat.getMainExecutor(this);
-            biometricPrompt = new BiometricPrompt(this,
-                    executor, new BiometricPrompt.AuthenticationCallback() {
+            @Override   //error
+            public void onAuthenticationError(int errorCode,
+                                              @NonNull CharSequence errString) {
+                super.onAuthenticationError(errorCode, errString);
+                Toast.makeText(getApplicationContext(),
+                        R.string.auth_error_message, Toast.LENGTH_SHORT)
+                        .show();
+            }
 
-                @Override   //error
-                public void onAuthenticationError(int errorCode,
-                                                  @NonNull CharSequence errString) {
-                    super.onAuthenticationError(errorCode, errString);
-                    Toast.makeText(getApplicationContext(),
-                            R.string.auth_error_message, Toast.LENGTH_SHORT)
-                            .show();
-                }
+            @Override   //sucess > uuid 생성 / 확인
+            public void onAuthenticationSucceeded(
+                    @NonNull BiometricPrompt.AuthenticationResult result) {
+                super.onAuthenticationSucceeded(result);
+                AlertDialog.Builder builder = new AlertDialog.Builder(AuthFingerprintActivity.this);
+                builder.setTitle("알림");
+                builder.setMessage("지문이 등록 되었습니다. \n 로그인 시 지문으로 로그인 가능합니다.");
+                builder.setPositiveButton("확인",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent intent = new Intent(AuthFingerprintActivity.this, MainActivity3.class);
+                                intent.putExtra("id", id);
+                                startActivity(intent);
+                                overridePendingTransition(0, 0);
+                            }
+                        })
+                .show();
+            }
+            @Override   //fail
+            public void onAuthenticationFailed() {
+                super.onAuthenticationFailed();
+                Toast.makeText(getApplicationContext(), R.string.auth_fail_message,
+                        Toast.LENGTH_SHORT)
+                        .show();
+            }
+        });
+        fingerAdd.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                //netive 지문 팝업 내용
+                promptInfo = new BiometricPrompt.PromptInfo.Builder()
+                        .setTitle("지문을 확인")
+                        .setSubtitle("등록된 지문과 일치한지 확인")
+                        .setNegativeButtonText("취소")
+                        .setConfirmationRequired(false)
+                        .setDeviceCredentialAllowed(false)
+                        .build();
 
-                @Override   //sucess > uuid 생성 / 확인
-                public void onAuthenticationSucceeded(
-                        @NonNull BiometricPrompt.AuthenticationResult result) {
-                    super.onAuthenticationSucceeded(result);
-                    Toast.makeText(getApplicationContext(),
-                            R.string.auth_success_message, Toast.LENGTH_SHORT).show();
-                }
-
-                @Override   //fail
-                public void onAuthenticationFailed() {
-                    super.onAuthenticationFailed();
-                    Toast.makeText(getApplicationContext(), R.string.auth_fail_message,
-                            Toast.LENGTH_SHORT)
-                            .show();
-                }
-            });
-
-            //netive 지문 팝업 내용
-            promptInfo = new BiometricPrompt.PromptInfo.Builder()
-                    .setTitle("지문을 확인")
-                    .setSubtitle("등록된 지문과 일치한지 확인")
-                    .setNegativeButtonText("취소")
-                    .setConfirmationRequired(false)
-                    .setDeviceCredentialAllowed(false)
-                    .build();
-
-            //  사용자가 다른 인증을 이용하길 원할 때 추가하기
-            Button biometricLoginButton = findViewById(R.id.fingerAddButton);
-            biometricLoginButton.setOnClickListener(view -> {
                 biometricPrompt.authenticate(promptInfo);
-            });
 
-            Map<String, String> map = new HashMap<>();
-            insertTask check = new insertTask();
-            map.put("id", id);
-            map.put("uuid", Unique);
-            check.execute(map);
-        }
+                insertTask insert = new insertTask();
+                Intent intent = getIntent();
+                id = intent.getStringExtra("id");
+                Map<String, String> map = new HashMap<>();
+                map.put("id", id);
+                map.put("uuid", Unique);
+                insert.execute(map);
+            }
+        });
     }
-    private class insertTask extends AsyncTask<Map, String, String> {
+
+    public class insertTask extends AsyncTask<Map, String, String> {
 
         @Override
         protected void onPreExecute() {
@@ -146,25 +136,15 @@ public class AuthFingerprintActivity extends AppCompatActivity {
         protected void onPostExecute(String jsonData) {
             Log.d("JSON_RESULT", jsonData);
             System.out.println("-----" + jsonData);
-
-            try {
-                JSONObject fp = new JSONObject(jsonData);
-                fp_id = fp.getString("id");
-                fp_uu = fp.getString("uuid");
-
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-
+            Gson gson = new Gson();
+            FingerPrintVO fp = gson.fromJson(jsonData, FingerPrintVO.class);
+            fp_id = fp.getId();
+            fp_uu = fp.getUuid();
             if (jsonData.length() > 0) {
-                Gson gson = new Gson();
                 System.out.println("SSSSSS : " + jsonData);
-                Toast.makeText(getApplicationContext(), "값 읽기", Toast.LENGTH_SHORT).show();
-
-            } else {
-                Toast.makeText(getApplicationContext(), "값 읽기 실패", Toast.LENGTH_SHORT).show();
             }
         }
     }
 }
+
 

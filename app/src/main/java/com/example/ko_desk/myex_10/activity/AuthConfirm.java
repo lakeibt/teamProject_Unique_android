@@ -1,10 +1,7 @@
 package com.example.ko_desk.myex_10.activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -38,12 +35,6 @@ public class AuthConfirm extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fingerprint);
 
-        // activity_main.xml에서 정의한 LinearLayout 객체 할당
-        LinearLayout inflatedLayout = (LinearLayout)findViewById(R.id.inflatedLayout);
-        // LayoutInflater 객체 생성
-        LayoutInflater inflater =  (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        // Inflated_Layout.xml로 구성한 레이아웃을 inflatedLayout 영역으로 확장
-        inflater.inflate(R.layout.fingerprint, inflatedLayout);
     }
 
     //키 확인 task
