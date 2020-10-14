@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.ko_desk.myex_10">
     <!-- 추가시작 -->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -8,8 +9,10 @@
     <uses-permission android:name="android.permission.READ_PHONE_NUMBERS" />
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <!-- 지문 로그인 permission 추가 -->
+    <uses-permission android:name=" android.permission.USE_BIOMETRIC" />
 
     <application
         android:allowBackup="true"
@@ -19,7 +22,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-
+        
         <activity android:name=".activity.lodingclass">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -58,6 +61,10 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
 
+        <activity android:name=".activity.AuthFingerprintActivity" />
+        <activity android:name=".activity.AuthLoginCheck" />
+
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.provider"
@@ -90,3 +97,6 @@
     </application>
 
 </manifest>
+
+
+

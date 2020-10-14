@@ -61,6 +61,10 @@ dependencies {
     implementation 'com.google.android:flexbox:0.3.2'                  // google flexible box
     implementation 'com.crystal:crystalrangeseekbar:1.1.3'             // range seek bar
 
+    /*지문 관련 추가*/
+    implementation 'androidx.biometric:biometric:1.0.1'
+    /*-------------*/
+
     // google support library ---------------------------------------------------------------------
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'com.google.android.material:material:1.1.0'
