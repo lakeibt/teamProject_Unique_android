@@ -40,11 +40,11 @@ public class Shop extends Activity {
     JSONArray jsonArray;
     JSONObject jsonObject;
     Gson gson = new Gson();
-    String id;
+    String id, name;
     String title;
     String classname;
     String imageUrl;
-    Button btn_back;
+    Button btn_back , btn_insert;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,13 +60,27 @@ public class Shop extends Activity {
 
         Intent intent = getIntent();
         id = intent.getStringExtra("id"); //req.getParameter("id")'
+        name = intent.getStringExtra("name");
 
         btn_back = findViewById(R.id.btn_back);
+        btn_insert = findViewById(R.id.btn_insert);
+
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getBaseContext(), MainActivity2.class);
                 intent.putExtra("id", id);
+                intent.putExtra("name", name);
+                startActivity(intent);
+            }
+        });
+
+        btn_insert.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), Shopnew.class);
+                intent.putExtra("id", id);
+                intent.putExtra("name", name);
                 startActivity(intent);
             }
         });
@@ -103,9 +117,15 @@ public class Shop extends Activity {
                 String[] gettitle = new String[list_cnt];
                 String[] getstudent = new String[list_cnt];
                 String[] getprice = new String[list_cnt];
+                String[] getnum = new String[list_cnt];
+                String[] getid = new String[list_cnt];
+                String[] getname = new String[list_cnt];
                 List<String> listTitle;
                 List<String> listStudent;
                 List<String> listPrice;
+                List<String> listNum;
+                List<String> listId;
+                List<String> listName;
 
                 recyclerView = findViewById(R.id.rv_recyclerview);
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(Shop.this);
@@ -122,26 +142,35 @@ public class Shop extends Activity {
                     gettitle[i] = jsonObject.getString("title");
                     getstudent[i] = jsonObject.getString("name");
                     getprice[i] = jsonObject.getString("price");
+                    getnum[i] = jsonObject.getString("num");
+                    getid[i] = id;
+                    getname[i] = name;
                     Log.e("JSON Object", jsonObject + "");
-                    Log.e("JsonParsing", gettitle[i] + "," + getstudent[i]);
+                    Log.e("JsonParsing", gettitle[i] + "," + getstudent[i]+","+getnum[i]+","+getid[i]+","+getname[i]);
                     title = gettitle[i];
 
                     listTitle = Arrays.asList(gettitle[i]);
                     listStudent = Arrays.asList(getstudent[i]);
                     listPrice = Arrays.asList(getprice[i]);
+                    listNum = Arrays.asList(getnum[i]);
+                    listId = Arrays.asList(getid[i]);
+                    listName = Arrays.asList(getname[i]);
 
                     for (int j = 0; j < listTitle.size(); j++) {
                         // 각 List의 값들을 data 객체에 set 해줍니다.
                         ShopVO data = new ShopVO();
                         data.setTitle(listTitle.get(j));
                         data.setName(listStudent.get(j));
-                        data.setPrice(listPrice.get(j));
+                        data.setPrice(listPrice.get(j)+" 원");
+                        data.setNum(Integer.parseInt(listNum.get(j)));
+                        data.setId(listId.get(j));
+                        data.setMyname(listName.get(j));
 
                         // 각 값이 들어간 data를 adapter에 추가합니다.
                         adapter.addItem(data);
                     }
 
-                    Log.e("강의명", String.valueOf(listTitle));
+                    Log.e("상품명", String.valueOf(listTitle));
 
                     // adapter의 값이 변경되었다는 것을 알려줍니다.
                     adapter.notifyDataSetChanged();
