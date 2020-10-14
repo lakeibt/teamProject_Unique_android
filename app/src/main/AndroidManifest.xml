@@ -94,6 +94,10 @@
         <activity android:name=".activity.ProClassStuList"/>
 
         <activity android:name=".activity.Shop"/>
+
+        <activity android:name=".activity.Shopdt"/>
+
+        <activity android:name=".activity.Shopnew"/>
     </application>
 
 </manifest>

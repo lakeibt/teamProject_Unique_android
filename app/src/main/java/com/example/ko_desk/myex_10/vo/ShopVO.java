@@ -10,13 +10,13 @@ public class ShopVO {
 	private String price;
 	private String text;
 	private int sales;
+	private String id;
+	private String myname;
 
 	public int getNum() {
 		return num;
 	}
-	public void setNum(int num) {
-		this.num = num;
-	}
+	public void setNum(int num) { this.num = num; }
 	public String getTitle() {
 		return title;
 	}
@@ -59,6 +59,8 @@ public class ShopVO {
 	public void setSales(int sales) {
 		this.sales = sales;
 	}
-	
-	
+	public String getId() { return id; }
+	public void setId(String id) { this.id = id; }
+	public String getMyname() { return myname; }
+	public void setMyname(String myname) { this.myname = myname; }
 }

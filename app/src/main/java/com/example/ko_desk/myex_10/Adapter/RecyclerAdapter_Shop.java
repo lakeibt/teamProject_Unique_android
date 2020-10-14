@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -20,6 +21,7 @@ import com.example.ko_desk.myex_10.R;
 import com.example.ko_desk.myex_10.Web;
 import com.example.ko_desk.myex_10.activity.MainActivity2;
 import com.example.ko_desk.myex_10.activity.ProClassStuList;
+import com.example.ko_desk.myex_10.activity.Shopdt;
 import com.example.ko_desk.myex_10.vo.ShopVO;
 import com.squareup.picasso.Picasso;
 
@@ -63,10 +65,12 @@ public class RecyclerAdapter_Shop extends RecyclerView.Adapter<RecyclerAdapter_S
     // 여기서 subView를 setting 해줍니다.
     class ItemViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView person, price, title, num;
+        private TextView person, price, title, num, id, myname;
         private CardView card;
         private NestedScrollView nested_scroll_view;
-        private String going;
+        private String going, name1, id1, pushname;
+        LinearLayout item;
+
 
 
 
@@ -78,28 +82,43 @@ public class RecyclerAdapter_Shop extends RecyclerView.Adapter<RecyclerAdapter_S
             card = itemView.findViewById(R.id.card);
             person = itemView.findViewById(R.id.person);
             price = itemView.findViewById(R.id.price);
+            item = itemView.findViewById(R.id.item);
+            id = itemView.findViewById(R.id.myid);
+            myname = itemView.findViewById(R.id.myname);
 
-            card.setOnClickListener(new View.OnClickListener() {
+            item.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     TextView num = itemView.findViewById(R.id.num);
+                    TextView name = itemView.findViewById(R.id.person);
+                    TextView id = itemView.findViewById(R.id.myid);
                     going = num.getText().toString();
+                    name1 = name.getText().toString();
+
+                    id1 = id.getText().toString();
                     Log.e("넘버 값", going);
-
-//                    Intent intent = new Intent(view.getContext() , MainActivity2.class);
-//                    intent.putExtra("num",going);
-//                    view.getContext().startActivity(intent);
-
+                    Intent intent = new Intent(view.getContext() , Shopdt.class);
+                    Log.e("이름 값", pushname);
+                    Log.e("아이디 값", id1);
+                    intent.putExtra("num",going);
+                    intent.putExtra("name",pushname);
+                    intent.putExtra("id",id1);
+                    view.getContext().startActivity(intent);
                 }
             });
             nested_scroll_view = itemView.findViewById(R.id.nested_scroll_view);
         }
 
         void onBind(ShopVO data) {
+            Log.e("넘버값 설정", String.valueOf(data.getNum()));
             num.setText(String.valueOf(data.getNum()));
             title.setText(data.getTitle());
             person.setText(data.getName());
             price.setText(data.getPrice());
+            id.setText(data.getId());
+            myname.setText(data.getMyname());
+
+            pushname = data.getMyname();
         }
     }
 }

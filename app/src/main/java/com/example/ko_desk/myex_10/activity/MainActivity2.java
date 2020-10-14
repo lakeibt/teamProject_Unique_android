@@ -36,7 +36,7 @@ public class MainActivity2 extends AppCompatActivity {
     Toolbar toolbar;
     InnerTask task = null;
     View stuinfo, stuCourse, stuScore, shop;
-    String id;
+    String id, name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +86,7 @@ public class MainActivity2 extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getBaseContext(), Shop.class);
                 intent.putExtra("id", id);
+                intent.putExtra("name",name);
                 startActivity(intent);
             }
         });
@@ -159,10 +160,11 @@ public class MainActivity2 extends AppCompatActivity {
             Gson gson = new Gson();
             Data data = gson.fromJson((String) o, Data.class);
             try {
-                TextView name = (TextView) findViewById(R.id.name);
+                TextView name1 = (TextView) findViewById(R.id.name);
                 TextView className = (TextView) findViewById(R.id.className);
                 ImageView imageView =  (ImageView) findViewById(R.id.stuimg);
-                name.setText(data.getData2() + " 님");
+                name1.setText(data.getData2() + " 님");
+                name = data.getData2();
                 className.setText(data.getData3());
                 String imageUrl = "" + Web.servletURL + "resources/img/profile_photo/student/" + data.getData4();
                 Glide.with(MainActivity2.this).load(imageUrl).into(imageView);
