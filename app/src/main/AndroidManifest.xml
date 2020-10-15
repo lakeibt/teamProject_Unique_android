@@ -100,6 +100,8 @@
         <activity android:name=".activity.Shopnew"/>
 
         <activity android:name=".activity.ChatTelegram"/>
+        <activity android:name=".activity.Salary"/>
+
     </application>
 
 </manifest>

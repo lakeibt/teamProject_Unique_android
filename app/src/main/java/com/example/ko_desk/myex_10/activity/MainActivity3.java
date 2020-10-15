@@ -41,6 +41,7 @@ public class MainActivity3 extends AppCompatActivity {
     View workcheck;
     View fingerprint;
     View myinfo;
+    View salary;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,6 +104,16 @@ public class MainActivity3 extends AppCompatActivity {
                 map.put("uuid", Unique);
                 check.execute(map);
 
+            }
+        });
+
+        salary = findViewById(R.id.salary);
+        salary.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), Salary.class);
+                intent.putExtra("id", id);
+                startActivity(intent);
             }
         });
     }
