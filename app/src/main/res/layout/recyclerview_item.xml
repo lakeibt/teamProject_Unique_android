@@ -29,7 +29,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="16dp"
-                android:text="상품명"
+                android:text="날짜"
                 android:textColor="@android:color/black"
                 android:textSize="18dp"/>
             <TextView
@@ -37,7 +37,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="15dp"
-                android:text="가격"
+                android:text="날짜"
                 android:textColor="@android:color/black"/>
 
             <TextView
@@ -45,7 +45,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="15dp"
-                android:text="누구"
+                android:text="날짜"
                 android:textColor="@android:color/black"/>
 
         </LinearLayout>

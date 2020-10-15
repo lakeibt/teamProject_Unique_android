@@ -7,20 +7,15 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.example.ko_desk.myex_10.Adapter.RecyclerAdapter_Shop;
-import com.example.ko_desk.myex_10.Adapter.RecyclerAdapter_proclasscheck;
 import com.example.ko_desk.myex_10.HttpClient;
 import com.example.ko_desk.myex_10.R;
 import com.example.ko_desk.myex_10.Web;
-import com.example.ko_desk.myex_10.vo.InClassHowVO;
-import com.example.ko_desk.myex_10.vo.ShopVO;
+import com.example.ko_desk.myex_10.vo.TableinfoVO;
 import com.google.gson.Gson;
 
 import org.json.JSONArray;
@@ -116,13 +111,11 @@ public class Shop extends Activity {
                 int list_cnt = jsonArray.length();
                 String[] gettitle = new String[list_cnt];
                 String[] getstudent = new String[list_cnt];
-                String[] getprice = new String[list_cnt];
                 String[] getnum = new String[list_cnt];
                 String[] getid = new String[list_cnt];
                 String[] getname = new String[list_cnt];
                 List<String> listTitle;
                 List<String> listStudent;
-                List<String> listPrice;
                 List<String> listNum;
                 List<String> listId;
                 List<String> listName;
@@ -140,8 +133,7 @@ public class Shop extends Activity {
                     Log.e("JsonObject", "" + jsonObject);
 
                     gettitle[i] = jsonObject.getString("title");
-                    getstudent[i] = jsonObject.getString("name");
-                    getprice[i] = jsonObject.getString("price");
+                    getstudent[i] = jsonObject.getString("id");
                     getnum[i] = jsonObject.getString("num");
                     getid[i] = id;
                     getname[i] = name;
@@ -151,17 +143,15 @@ public class Shop extends Activity {
 
                     listTitle = Arrays.asList(gettitle[i]);
                     listStudent = Arrays.asList(getstudent[i]);
-                    listPrice = Arrays.asList(getprice[i]);
                     listNum = Arrays.asList(getnum[i]);
                     listId = Arrays.asList(getid[i]);
                     listName = Arrays.asList(getname[i]);
 
                     for (int j = 0; j < listTitle.size(); j++) {
                         // 각 List의 값들을 data 객체에 set 해줍니다.
-                        ShopVO data = new ShopVO();
+                        TableinfoVO data = new TableinfoVO();
                         data.setTitle(listTitle.get(j));
                         data.setName(listStudent.get(j));
-                        data.setPrice(listPrice.get(j)+" 원");
                         data.setNum(Integer.parseInt(listNum.get(j)));
                         data.setId(listId.get(j));
                         data.setMyname(listName.get(j));
@@ -169,8 +159,6 @@ public class Shop extends Activity {
                         // 각 값이 들어간 data를 adapter에 추가합니다.
                         adapter.addItem(data);
                     }
-
-                    Log.e("상품명", String.valueOf(listTitle));
 
                     // adapter의 값이 변경되었다는 것을 알려줍니다.
                     adapter.notifyDataSetChanged();

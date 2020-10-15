@@ -98,6 +98,8 @@
         <activity android:name=".activity.Shopdt"/>
 
         <activity android:name=".activity.Shopnew"/>
+
+        <activity android:name=".activity.ChatTelegram"/>
     </application>
 
 </manifest>

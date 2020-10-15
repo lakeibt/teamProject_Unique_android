@@ -5,8 +5,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -16,21 +14,16 @@ import androidx.cardview.widget.CardView;
 import androidx.core.widget.NestedScrollView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.example.ko_desk.myex_10.R;
-import com.example.ko_desk.myex_10.Web;
-import com.example.ko_desk.myex_10.activity.MainActivity2;
-import com.example.ko_desk.myex_10.activity.ProClassStuList;
 import com.example.ko_desk.myex_10.activity.Shopdt;
-import com.example.ko_desk.myex_10.vo.ShopVO;
-import com.squareup.picasso.Picasso;
+import com.example.ko_desk.myex_10.vo.TableinfoVO;
 
 import java.util.ArrayList;
 
 public class RecyclerAdapter_Shop extends RecyclerView.Adapter<RecyclerAdapter_Shop.ItemViewHolder> {
 
     // adapter에 들어갈 list 입니다.
-    private ArrayList<ShopVO> listData = new ArrayList<>();
+    private ArrayList<TableinfoVO> listData = new ArrayList<>();
     String imageUrl;
     private ImageView image;
 
@@ -56,7 +49,7 @@ public class RecyclerAdapter_Shop extends RecyclerView.Adapter<RecyclerAdapter_S
         return listData.size();
     }
 
-    public void addItem(ShopVO data) {
+    public void addItem(TableinfoVO data) {
         // 외부에서 item을 추가시킬 함수입니다.
         listData.add(data);
     }
@@ -81,7 +74,6 @@ public class RecyclerAdapter_Shop extends RecyclerView.Adapter<RecyclerAdapter_S
             title = itemView.findViewById(R.id.title);
             card = itemView.findViewById(R.id.card);
             person = itemView.findViewById(R.id.person);
-            price = itemView.findViewById(R.id.price);
             item = itemView.findViewById(R.id.item);
             id = itemView.findViewById(R.id.myid);
             myname = itemView.findViewById(R.id.myname);
@@ -109,12 +101,11 @@ public class RecyclerAdapter_Shop extends RecyclerView.Adapter<RecyclerAdapter_S
             nested_scroll_view = itemView.findViewById(R.id.nested_scroll_view);
         }
 
-        void onBind(ShopVO data) {
+        void onBind(TableinfoVO data) {
             Log.e("넘버값 설정", String.valueOf(data.getNum()));
             num.setText(String.valueOf(data.getNum()));
             title.setText(data.getTitle());
             person.setText(data.getName());
-            price.setText(data.getPrice());
             id.setText(data.getId());
             myname.setText(data.getMyname());
 

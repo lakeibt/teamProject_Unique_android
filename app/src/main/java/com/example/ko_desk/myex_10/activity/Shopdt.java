@@ -8,29 +8,21 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-import com.example.ko_desk.myex_10.Adapter.RecyclerAdapter_proclasschecknext;
 import com.example.ko_desk.myex_10.HttpClient;
 import com.example.ko_desk.myex_10.R;
 import com.example.ko_desk.myex_10.Web;
-import com.example.ko_desk.myex_10.vo.ShopVO;
 import com.google.gson.Gson;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 
@@ -135,24 +127,21 @@ public class Shopdt extends Activity {
                 for(int i=0; i < job.length(); i++) {
                     JSONObject jsonobject = job.getJSONObject(i);
                     String title = jsonobject.getString("title");
-                    String price = jsonobject.getString("price");
                     String day = jsonobject.getString("day");
                     String text = jsonobject.getString("text");
-                    salename2 = jsonobject.getString("name");
+                    salename2 = jsonobject.getString("id");
 
                     TextView title1 = (TextView) findViewById(R.id.title);
-                    TextView price1 = (TextView) findViewById(R.id.price);
                     TextView salename1 = (TextView) findViewById(R.id.salename);
                     TextView day1 = (TextView) findViewById(R.id.day);
                     TextView textarea1 = (TextView) findViewById(R.id.textarea);
                     title1.setText(title);
-                    price1.setText(price+" 원");
                     day1.setText("글쓴 시간 : "+day);
                     textarea1.setText(text);
                     salename1.setText(salename2);
                 }
 
-                if(!junname.equals(salename2)) {
+                if(!id.equals(salename2)) {
                     btn_clear.setVisibility(View.GONE);
                 }
             } catch (JSONException e) {
