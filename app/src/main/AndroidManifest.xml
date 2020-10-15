@@ -33,15 +33,15 @@
         <activity android:name=".activity.SignInActivity" />
         <activity
             android:name=".activity.MainActivity2"
-            android:label="Uil Univ 학생"
+            android:label="UNQ Univ 학생"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.MainActivity3"
-            android:label="Uil Univ 관리자"
+            android:label="UNQ Univ 관리자"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.MainActivity"
-            android:label="Uil Univ 교수"
+            android:label="UNQ Univ 교수"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activity.MyPageMainActivity" />
         <activity android:name=".activity.NFCAct" />

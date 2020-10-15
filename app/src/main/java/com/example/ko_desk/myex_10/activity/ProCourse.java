@@ -89,8 +89,6 @@ public class ProCourse extends Activity {
                 Intent intent = new Intent(ProCourse.this, MainActivity.class);
                 intent.putExtra("id", id);
                 intent.putExtra("name", name);
-                intent.putExtra("classname", pushclassname);
-                intent.putExtra("imageUrl", imageUrl);
                 startActivity(intent);
             }
         });

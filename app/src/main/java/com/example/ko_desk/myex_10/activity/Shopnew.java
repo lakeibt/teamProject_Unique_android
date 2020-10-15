@@ -47,15 +47,6 @@ public class Shopnew extends Activity {
         map.put("id", id);
         task.execute(map);
 
-        getphoto = findViewById(R.id.getphoto);
-        getphoto.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_PICK);
-                intent.setDataAndType(android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
-                startActivityForResult(intent, GET_GALLERY_IMAGE);
-            }
-        });
-
         btn_infosave = findViewById(R.id.btn_infosave);
         btn_infosave.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -79,14 +70,6 @@ public class Shopnew extends Activity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-        if (requestCode == GET_GALLERY_IMAGE && resultCode == RESULT_OK && data != null && data.getData() != null) {
-
-            imageview = findViewById(R.id.imageview);
-            Uri selectedImageUri = data.getData();
-            imageview.setImageURI(selectedImageUri);
-
-
-        }
 
     }
 
