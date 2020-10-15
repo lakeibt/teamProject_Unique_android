@@ -2,77 +2,129 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:gravity="center_vertical"
-    android:background="@android:color/white">
+    android:background="@android:color/white"
+    android:layout_marginRight="2dp"
+    android:layout_marginLeft="2dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:orientation="vertical"
-        android:gravity="center_vertical">
+        android:gravity="center_vertical"
+        android:background="@color/white">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:gravity="center_horizontal">
 
-            <TextView
-                android:id="@+id/stucourse_coursename"
-                android:layout_width="150dp"
+            <LinearLayout
+                android:layout_width="75dp"
                 android:layout_height="wrap_content"
-                android:text="AI를 배워보자!"
-                android:paddingLeft="10dp"
-                android:textSize="15dp"
-                android:textColor="@android:color/black"/>
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:gravity="center"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/stucourse_professor"
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                android:includeFontPadding="false"
-                android:layout_marginLeft="10dp"
-                android:text="김교수"
-                android:textSize="15dp"
-                android:textColor="@android:color/black"/>
+                <TextView
+                    android:id="@+id/stucourse_coursename"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="과목명"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                    android:textColor="@color/black"
+                    android:padding="5dp"/>
 
-            <TextView
-                android:id="@+id/stucourse_day"
-                android:layout_width="40dp"
-                android:layout_height="wrap_content"
-                android:includeFontPadding="false"
-                android:layout_marginLeft="10dp"
-                android:text="월"
-                android:textSize="15dp"
-                android:textColor="@android:color/black"/>
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/stucourse_time"
-                android:layout_width="40dp"
-                android:layout_height="wrap_content"
-                android:includeFontPadding="false"
-                android:layout_marginLeft="10dp"
-                android:text="1-3"
-                android:textSize="15dp"
-                android:textColor="@android:color/black"/>
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/white"/>
 
-            <TextView
-                android:id="@+id/stucourse_score"
-                android:layout_width="40dp"
-                android:layout_height="wrap_content"
-                android:includeFontPadding="false"
-                android:layout_marginLeft="10dp"
-                android:text="A"
-                android:textSize="15dp"
-                android:textColor="@android:color/black"/>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:gravity="center"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/stucourse_professor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="교수명"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                    android:textColor="@color/black"
+                    android:padding="5dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/stucourse_day"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="요일"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                    android:textColor="@color/black"
+                    android:padding="5dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/stucourse_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="시간"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                    android:textColor="@color/black"
+                    android:padding="5dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/stucourse_score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="학점"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                    android:textColor="@color/black"
+                    android:padding="5dp"/>
+
+            </LinearLayout>
 
         </LinearLayout>
-
         <View
             android:layout_width="fill_parent"
             android:layout_height="1dp"
-            android:layout_marginTop="5dp"
             android:layout_centerInParent="true"
             android:background="@color/blue_grey_200"/>
     </LinearLayout>
+
 </LinearLayout>

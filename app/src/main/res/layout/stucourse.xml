@@ -142,17 +142,19 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/spacing_mlarge"
-                            android:orientation="vertical">
+                            android:layout_marginLeft="3dp"
+                            android:layout_marginRight="3dp"
+                            android:background="@drawable/edittext_shadow"
+                            android:elevation="2dp"
+                            android:orientation="horizontal">
 
                             <LinearLayout
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:gravity="left"
-                                android:orientation="horizontal"
-                                android:paddingLeft="30dp"
-                                android:paddingRight="30dp">
+                                android:background="?attr/selectableItemBackgroundBorderless"
+                                android:gravity="center"
+                                android:orientation="vertical">
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -168,8 +170,25 @@
                                 <androidx.appcompat.widget.AppCompatSpinner
                                     android:id="@+id/selectYear"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
+                                    android:layout_height="50dp"
                                     android:layout_weight="1"/>
+
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:background="@color/colorPrimary"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginBottom="5dp"/>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="?attr/selectableItemBackgroundBorderless"
+                                android:gravity="center"
+                                android:orientation="vertical">
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -185,19 +204,25 @@
                                 <androidx.appcompat.widget.AppCompatSpinner
                                     android:id="@+id/selectSemester"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
+                                    android:layout_height="50dp"
                                     android:layout_weight="1"/>
 
                             </LinearLayout>
 
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:background="@color/colorPrimary"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginBottom="5dp"/>
+
                             <LinearLayout
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:gravity="left"
-                                android:orientation="horizontal"
-                                android:paddingLeft="30dp"
-                                android:paddingRight="30dp">
+                                android:background="?attr/selectableItemBackgroundBorderless"
+                                android:gravity="center"
+                                android:orientation="vertical">
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -212,12 +237,15 @@
 
                                 <androidx.appcompat.widget.AppCompatSpinner
                                     android:id="@+id/selectDay"
-                                    android:layout_width="118dp"
-                                    android:layout_height="wrap_content" />
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="50dp"
+                                    android:layout_weight="1"/>
 
                             </LinearLayout>
 
                         </LinearLayout>
+
+
 
                         <View
                             android:layout_width="fill_parent"
@@ -231,47 +259,112 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/rounded"
+                            android:orientation="horizontal"
+                            android:layout_marginRight="2dp"
+                            android:layout_marginLeft="2dp"
+                            >
+
+                            <LinearLayout
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="?attr/selectableItemBackgroundBorderless"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/grade"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="과목명"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                                    android:textColor="@color/white"
+                                    android:textStyle="bold"
+                                    android:padding="5dp"/>
+
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:background="@color/white"/>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="?attr/selectableItemBackgroundBorderless"
+                                android:gravity="center"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:id="@+id/year"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="교수명"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                                    android:textColor="@color/white"
+                                    android:textStyle="bold"
+                                    android:padding="5dp"/>
+
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:background="@color/white"/>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="?attr/selectableItemBackgroundBorderless"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/birth"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="요일"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                                    android:textColor="@color/white"
+                                    android:textStyle="bold"
+                                    android:padding="5dp"/>
+
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:background="@color/white"/>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="?attr/selectableItemBackgroundBorderless"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="시간"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                                    android:textColor="@color/white"
+                                    android:textStyle="bold"
+                                    android:padding="5dp"/>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:layout_marginTop="10dp">
+                            android:orientation="vertical">
 
-                            <TableLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent">
-
-                                <TableRow
-                                    android:background="@color/colorPrimary">
-
-                                    <TextView
-                                        android:layout_width="180dp"
-                                        android:layout_height="30dp"
-                                        android:gravity="center"
-                                        android:text="과목명"
-                                        android:textSize="18dp"
-                                        android:textColor="@color/white" />
-                                    <TextView
-                                        android:layout_width="70dp"
-                                        android:layout_height="30dp"
-                                        android:gravity="center"
-                                        android:text="교수명"
-                                        android:textSize="18dp"
-                                        android:textColor="@color/white" />
-                                    <TextView
-                                        android:layout_width="50dp"
-                                        android:layout_height="30dp"
-                                        android:gravity="center"
-                                        android:text="요일"
-                                        android:textSize="18dp"
-                                        android:textColor="@color/white" />
-                                    <TextView
-                                        android:layout_width="50dp"
-                                        android:layout_height="30dp"
-                                        android:gravity="center"
-                                        android:text="시간"
-                                        android:textSize="18dp"
-                                        android:textColor="@color/white" />
-                                </TableRow>
-                            </TableLayout>
                             <include layout="@layout/itemlist"/>
                         </LinearLayout>
 

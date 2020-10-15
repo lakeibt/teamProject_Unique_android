@@ -140,8 +140,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="@dimen/spacing_smlarge"
                             android:layout_marginRight="@dimen/spacing_smlarge"
-                            android:orientation="horizontal"
-                            android:paddingBottom="10dp">
+                            android:orientation="horizontal">
 
                             <androidx.cardview.widget.CardView
                                 android:layout_width="0dp"

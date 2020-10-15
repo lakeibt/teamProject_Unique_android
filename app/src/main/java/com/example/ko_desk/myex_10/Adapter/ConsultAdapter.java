@@ -70,13 +70,13 @@ public class ConsultAdapter extends RecyclerView.Adapter<ConsultAdapter.ItemView
         }
 
         void onBind(ConsultVO data) {
-            textView1.setText("신청자 : "+data.getStuName());
-            textView2.setText("학번 : "+data.getStuNumber());
-            textView5.setText("유형 : "+data.getConsultType());
-            textView6.setText("경험 : "+data.getConsultExp());
-            textView3.setText("제목 : "+data.getSubject());
-            textView4.setText("내용 : "+data.getContent());
-            textView7.setText("날짜 :"+data.getDate());
+            textView1.setText(data.getStuName());
+            textView2.setText(data.getStuNumber());
+            textView5.setText(data.getConsultType());
+            textView6.setText(data.getConsultExp());
+            textView3.setText(data.getSubject());
+            textView4.setText(data.getContent());
+            textView7.setText(data.getDate());
         }
     }
 }

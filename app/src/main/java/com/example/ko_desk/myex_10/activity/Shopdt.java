@@ -75,7 +75,7 @@ public class Shopdt extends Activity {
                                 map.put("num", num);
                                 task.execute(map);
 
-                                Toast.makeText(getApplicationContext(), "판매 완료처리 되었습니다.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "삭제 처리 되었습니다.", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(getBaseContext(), MainActivity2.class);
                                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
                                 intent.putExtra("id", id);
@@ -135,14 +135,12 @@ public class Shopdt extends Activity {
                 for(int i=0; i < job.length(); i++) {
                     JSONObject jsonobject = job.getJSONObject(i);
                     String title = jsonobject.getString("title");
-                    String photo = jsonobject.getString("photo");
                     String price = jsonobject.getString("price");
                     String day = jsonobject.getString("day");
                     String text = jsonobject.getString("text");
                     salename2 = jsonobject.getString("name");
 
                     TextView title1 = (TextView) findViewById(R.id.title);
-                    ImageView imageView1 =  (ImageView) findViewById(R.id.image);
                     TextView price1 = (TextView) findViewById(R.id.price);
                     TextView salename1 = (TextView) findViewById(R.id.salename);
                     TextView day1 = (TextView) findViewById(R.id.day);
@@ -152,8 +150,6 @@ public class Shopdt extends Activity {
                     day1.setText("글쓴 시간 : "+day);
                     textarea1.setText(text);
                     salename1.setText(salename2);
-                    String imageUrl = "" + Web.servletURL + "resources/img/shop/"+photo;
-                    Glide.with(Shopdt.this).load(imageUrl).into(imageView1);
                 }
 
                 if(!junname.equals(salename2)) {
