@@ -35,7 +35,7 @@ public class MainActivity2 extends AppCompatActivity {
 
     Toolbar toolbar;
     InnerTask task = null;
-    View stuinfo, stuCourse, stuScore, shop;
+    View stuinfo, stuCourse, stuScore, shop, chatbot;
     String id, name;
 
     @Override
@@ -75,6 +75,16 @@ public class MainActivity2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getBaseContext(), Stuscore.class);
+                intent.putExtra("id", id);
+                startActivity(intent);
+            }
+        });
+
+        chatbot = findViewById(R.id.chatbot);
+        chatbot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), ChatTelegram.class);
                 intent.putExtra("id", id);
                 startActivity(intent);
             }

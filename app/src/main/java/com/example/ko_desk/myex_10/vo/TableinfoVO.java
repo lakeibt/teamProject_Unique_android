@@ -1,33 +1,26 @@
 package com.example.ko_desk.myex_10.vo;
 
-public class ShopVO {
+public class TableinfoVO {
 
 	private int num;
 	private String title;
-	private String photo;
 	private String name;
 	private String day;
-	private String price;
 	private String text;
-	private int sales;
+	private int deltext;
 	private String id;
 	private String myname;
-
 	public int getNum() {
 		return num;
 	}
-	public void setNum(int num) { this.num = num; }
+	public void setNum(int num) {
+		this.num = num;
+	}
 	public String getTitle() {
 		return title;
 	}
 	public void setTitle(String title) {
 		this.title = title;
-	}
-	public String getPhoto() {
-		return photo;
-	}
-	public void setPhoto(String photo) {
-		this.photo = photo;
 	}
 	public String getName() {
 		return name;
@@ -41,26 +34,29 @@ public class ShopVO {
 	public void setDay(String day) {
 		this.day = day;
 	}
-	public String getPrice() {
-		return price;
-	}
-	public void setPrice(String price) {
-		this.price = price;
-	}
 	public String getText() {
 		return text;
 	}
 	public void setText(String text) {
 		this.text = text;
 	}
-	public int getSales() {
-		return sales;
+	public int getDeltext() {
+		return deltext;
 	}
-	public void setSales(int sales) {
-		this.sales = sales;
+	public void setDeltext(int deltext) {
+		this.deltext = deltext;
 	}
-	public String getId() { return id; }
-	public void setId(String id) { this.id = id; }
-	public String getMyname() { return myname; }
-	public void setMyname(String myname) { this.myname = myname; }
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getMyname() {
+		return myname;
+	}
+	public void setMyname(String myname) {
+		this.myname = myname;
+	}
+
 }

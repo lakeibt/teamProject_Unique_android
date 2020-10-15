@@ -37,7 +37,7 @@ public class MainActivity3 extends AppCompatActivity {
     Toolbar toolbar;
     MainActivity3.InnerTask task = null;
     String id;
-    View parking;
+    View parking , chatbot;
     View workcheck;
     View fingerprint;
     View myinfo;
@@ -77,6 +77,16 @@ public class MainActivity3 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getBaseContext(), Maninfo.class);
+                intent.putExtra("id", id);
+                startActivity(intent);
+            }
+        });
+
+        chatbot = findViewById(R.id.chatbot);
+        chatbot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), ChatTelegram.class);
                 intent.putExtra("id", id);
                 startActivity(intent);
             }
