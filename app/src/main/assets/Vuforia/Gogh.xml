@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="Gogh3" size="0.155310 0.111125" />
+    <ImageTarget name="Gogh2" size="0.094191 0.105833" />
+    <ImageTarget name="Gogh1" size="0.110595 0.135466" />
+  </Tracking>
+</QCARConfig>

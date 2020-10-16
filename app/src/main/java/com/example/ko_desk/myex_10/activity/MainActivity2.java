@@ -35,7 +35,7 @@ public class MainActivity2 extends AppCompatActivity {
 
     Toolbar toolbar;
     InnerTask task = null;
-    View stuinfo, stuCourse, stuScore, shop, chatbot;
+    View stuinfo, stuCourse, stuScore, shop, chatbot, unity;
     String id, name;
 
     @Override
@@ -97,6 +97,15 @@ public class MainActivity2 extends AppCompatActivity {
                 Intent intent = new Intent(getBaseContext(), Shop.class);
                 intent.putExtra("id", id);
                 intent.putExtra("name",name);
+                startActivity(intent);
+            }
+        });
+
+        unity = findViewById(R.id.unity);
+        unity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), Arclass.class);
                 startActivity(intent);
             }
         });

@@ -31,4 +31,6 @@
     <string name="auth_success_message">로그인 되었습니다.</string>
     <string name="add_success_message">지문이 추가 되었습니다.</string>
     <string name="auth_fail_message">지문 인식에 실패했습니다. 다시 시도 해주세요.</string>
+
+    <string name="game_view_content_description">Game view</string>
 </resources>

@@ -1,1 +1,2 @@
+include ':unity-classes'
 include ':app'
