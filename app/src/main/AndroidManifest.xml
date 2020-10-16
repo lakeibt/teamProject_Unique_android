@@ -11,8 +11,24 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.CAMERA"/>
+
+    <uses-feature android:glEsVersion="0x00020000" />
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
+    <uses-feature android:name="android.hardware.touchscreen.multitouch" android:required="false" />
+    <uses-feature android:name="android.hardware.touchscreen.multitouch.distinct" android:required="false" />
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
+    <uses-feature android:name="android.hardware.touchscreen.multitouch" android:required="false" />
+    <uses-feature android:name="android.hardware.touchscreen.multitouch.distinct" android:required="false" />
     <!-- 지문 로그인 permission 추가 -->
     <uses-permission android:name=" android.permission.USE_BIOMETRIC" />
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true"
+        android:xlargeScreens="true"/>
 
     <application
         android:allowBackup="true"
@@ -21,7 +37,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"
+        android:isGame="true">
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false"/>
         
         <activity android:name=".activity.lodingclass">
             <intent-filter>
@@ -101,6 +121,10 @@
 
         <activity android:name=".activity.ChatTelegram"/>
         <activity android:name=".activity.Salary"/>
+
+        <activity android:name=".activity.Arclass"/>
+
+        <activity android:name=".unity.UnityPlayerActivity"/>
 
     </application>
 
