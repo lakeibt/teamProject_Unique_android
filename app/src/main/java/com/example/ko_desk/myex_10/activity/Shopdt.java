@@ -43,7 +43,7 @@ public class Shopdt extends Activity {
         junname = intent.getStringExtra("name");
         Log.d("받은 넘버 값???",num);
         Log.d("받은 아디 값???",id);
-        Log.d("받은 네임 값???",junname);
+//        Log.d("받은 네임 값???",junname);
         Shopdt.InnerTask task = new Shopdt.InnerTask();
         Map<String, String> map = new HashMap<>();
         map.put("num", num);

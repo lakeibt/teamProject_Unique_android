@@ -29,6 +29,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -36,10 +37,11 @@ import java.util.Map;
 
 public class Salary extends Activity {
     JSONObject jsonObject;
-    String id;
+    String id, text2, pushname, imageUrl, classname;
     Spinner spinner1, spinner2;
 
     Button btnsalary, btnback;
+    DecimalFormat formatter = new DecimalFormat("###,###");
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -48,7 +50,11 @@ public class Salary extends Activity {
 
         Intent intent = getIntent();
         id = intent.getStringExtra("id"); //req.getParameter("id")'
+        pushname = intent.getStringExtra("pushname");
+        imageUrl = intent.getStringExtra("imageUrl");
+        classname = intent.getStringExtra("classname");
 
+        Log.d("아디뭐임?1", id);
         Salary.InnerTask task = new Salary.InnerTask();
         Map<String, String> map = new HashMap<>();
         map.put("id", id);
@@ -65,7 +71,7 @@ public class Salary extends Activity {
                 spinner1 = (Spinner)findViewById(R.id.yearList);
                 spinner2 = (Spinner)findViewById(R.id.monthList);
                 String text1 = spinner1.getSelectedItem().toString();
-                String text2 = spinner2.getSelectedItem().toString();
+                text2 = spinner2.getSelectedItem().toString();
 
                 Salary.InnerTask task = new Salary.InnerTask();
                 Map<String, String> map = new HashMap<>();
@@ -129,15 +135,29 @@ public class Salary extends Activity {
                 TextView food_salary = (TextView) findViewById(R.id.food_salay);
                 TextView car_salary = (TextView) findViewById(R.id.car_salay);
                 TextView total = (TextView) findViewById(R.id.total_salay);
+                TextView month = (TextView) findViewById(R.id.month);
 
-                name.setText(data.get("NAME") + " 님");
-                className.setText(String.valueOf(data.get("DEPART")));
-                String imageUrl = "" + Web.servletURL + "resources/img/profile_photo/admin/"+data.get("PHOTO");
-                Glide.with(Salary.this).load(imageUrl).into(imageView);
-                month_salary.setText(String.valueOf(data.get("PAY")));
-                food_salary.setText(String.valueOf(data.get("MEAL")));
-                car_salary.setText(String.valueOf(data.get("CAR")));
-                total.setText(String.valueOf(data.get("TOTAL")));
+                if (data != null){
+                    name.setText(pushname+ " 님");
+                    className.setText(classname);
+                    Glide.with(Salary.this).load(imageUrl).into(imageView);
+                    month_salary.setText(String.valueOf(formatter.format(Math.round((Double) data.get("PAY")))));
+                    food_salary.setText(String.valueOf(formatter.format(Math.round((Double) data.get("MEAL")))));
+                    car_salary.setText(String.valueOf(formatter.format(Math.round((Double) data.get("CAR")))));
+                    total.setText(String.valueOf(formatter.format(Math.round((Double) data.get("TOTAL")))));
+                    month.setText(text2);
+                } else {
+                    name.setText(pushname+ " 님");
+                    className.setText(classname);
+                    Glide.with(Salary.this).load(imageUrl).into(imageView);
+                    month_salary.setText("0");
+                    food_salary.setText("0");
+                    car_salary.setText("0");
+                    total.setText("0");
+                    month.setText(text2);
+                }
+
+
             } catch (Exception e) {
                 e.printStackTrace();
             }

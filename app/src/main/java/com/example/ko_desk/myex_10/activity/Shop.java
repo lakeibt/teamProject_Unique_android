@@ -92,7 +92,7 @@ public class Shop extends Activity {
         @Override
         protected Object doInBackground(Object[] objects) {
             HttpClient.Builder http = new HttpClient.Builder("POST", Web.servletURL + "android/shoplist"); //@RequestMapping url
-//            http.addOrReplace("id", id);
+            http.addOrReplace("id", id);
 
             HttpClient post = http.create();
             post.request();

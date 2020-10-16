@@ -90,7 +90,7 @@ public class RecyclerAdapter_Shop extends RecyclerView.Adapter<RecyclerAdapter_S
                     id1 = id.getText().toString();
                     Log.e("넘버 값", going);
                     Intent intent = new Intent(view.getContext() , Shopdt.class);
-                    Log.e("이름 값", pushname);
+//                    Log.e("이름 값", pushname);
                     Log.e("아이디 값", id1);
                     intent.putExtra("num",going);
                     intent.putExtra("name",pushname);
@@ -108,7 +108,6 @@ public class RecyclerAdapter_Shop extends RecyclerView.Adapter<RecyclerAdapter_S
             person.setText(data.getName());
             id.setText(data.getId());
             myname.setText(data.getMyname());
-
             pushname = data.getMyname();
         }
     }
