@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<!--    <style name="AppTheme" parent="Theme.Ara" />-->
+
+<!--    <style name="Theme.Ara" parent="Theme.AppCompat.NoActionBar">-->
+<!--        &lt;!&ndash;<item name="android:colorPrimaryDark">@color/ara_mint</item>-->
+<!--        <item name="android:colorPrimary">@color/ara_navy</item>&ndash;&gt;-->
+<!--        <item name="android:windowContentOverlay">@null</item>-->
+<!--        <item name="android:windowNoTitle">true</item>-->
+<!--        <item name="android:windowActionBar">false</item>-->
+<!--    </style>-->
+
+</resources>
+

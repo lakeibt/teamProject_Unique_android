@@ -30,6 +30,8 @@
         android:smallScreens="true"
         android:xlargeScreens="true"/>
 
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -120,11 +122,21 @@
         <activity android:name=".activity.Shopnew"/>
 
         <activity android:name=".activity.ChatTelegram"/>
+
         <activity android:name=".activity.Salary"/>
 
         <activity android:name=".activity.Arclass"/>
 
         <activity android:name=".unity.UnityPlayerActivity"/>
+
+        <!-- 추가시작 -->
+        <activity android:name=".widget.TabMenuActivity" />
+        <activity android:name=".RealtimeActivity"></activity>
+        <activity android:name=".WeatherActivity"></activity>
+        <activity android:name=".TimetableActivity"></activity>
+        <activity android:name=".ScoreActivity"></activity>
+        <activity android:name=".AttendanceActivity"></activity>
+        <!-- 추가종료 -->
 
     </application>
 

@@ -1,11 +1,13 @@
 package com.example.ko_desk.myex_10.activity;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.IntentFilter.MalformedMimeTypeException;
+import android.content.pm.PackageManager;
 import android.nfc.NdefMessage;
 import android.nfc.NfcAdapter;
 import android.nfc.Tag;
@@ -18,6 +20,9 @@ import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
 import com.example.ko_desk.myex_10.HttpClient;
 import com.example.ko_desk.myex_10.NdefMessageParser;
 import com.example.ko_desk.myex_10.ParsedRecord;
@@ -26,12 +31,14 @@ import com.example.ko_desk.myex_10.TextRecord;
 import com.example.ko_desk.myex_10.Web;
 import com.google.gson.Gson;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class ReadAct extends Activity {
 
+    private static final int MY_PERMISSIONS_REQUEST_MULTI = 0;
     TextView readResult;
 
     private NfcAdapter mAdapter;
@@ -47,6 +54,20 @@ public class ReadAct extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.read);
+
+        ArrayList<String> permissions = new ArrayList<String>();
+        if(ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED){
+            permissions.add(Manifest.permission.READ_PHONE_STATE);
+        }
+        if(ContextCompat.checkSelfPermission(this, Manifest.permission.READ_SMS) != PackageManager.PERMISSION_GRANTED){
+            permissions.add(Manifest.permission.READ_SMS);
+        }
+
+        if(permissions.size() > 0) {
+            String[] reqPermissionArray = new String[permissions.size()];
+            reqPermissionArray = permissions.toArray(reqPermissionArray);
+            ActivityCompat.requestPermissions(this, reqPermissionArray, MY_PERMISSIONS_REQUEST_MULTI);
+        }
 
         readResult = (TextView) findViewById(R.id.readResult);
 

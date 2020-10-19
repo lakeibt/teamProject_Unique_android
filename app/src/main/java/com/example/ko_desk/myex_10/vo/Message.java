@@ -24,7 +24,11 @@ public class Message implements Serializable{
 		this.showTime = showTime;
 	}
 
-	public long getId() {
+    public Message(String content) {
+		this.content = content;
+    }
+
+    public long getId() {
 		return id;
 	}
 

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/weather_linearLayout"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".WeatherActivity"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent">
+
+    <!--타이틀-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/uni"/>
+    </LinearLayout>
+
+
+
+    <!-- 날씨 -->
+ <!--   <TextView
+        android:id="@+id/weather_location"
+        android:layout_width="match_parent"
+        android:layout_height="183dp"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="30dp"
+        android:textAlignment="center"
+        android:textColor="@color/ara_navy"
+        android:textSize="@dimen/ara_medium_margin" />
+
+    <ListView
+        android:id="@+id/weather_listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/date"-->
+<!--        style="@style/TextHomeActivity"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentLeft="true"-->
+<!--        android:layout_below="@+id/city"-->
+<!--        android:layout_marginBottom="120dp"-->
+<!--        android:paddingLeft="10dp"-->
+<!--        android:text="@string/label_date"-->
+<!--        android:textColor="@color/ara_navy"-->
+<!--        android:textSize="30dp" />-->
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="22dp">
+
+<!--        <TextView-->
+<!--            android:id="@+id/city"-->
+<!--            style="@style/TextHomeActivity"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentStart="true"-->
+<!--            android:layout_alignParentTop="true"-->
+<!--            android:paddingLeft="10dp"-->
+<!--            android:paddingTop="5dp"-->
+<!--            android:text="@string/label_city"-->
+<!--            android:textColor="@color/ara_navy"-->
+<!--            android:textSize="40dp" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/temperature"-->
+<!--            style="@style/TextHomeActivity"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentRight="true"-->
+<!--            android:layout_alignParentTop="true"-->
+<!--            android:paddingRight="10dp"-->
+<!--            android:paddingTop="5dp"-->
+<!--            android:text="@string/label_temperature"-->
+<!--            android:textColor="@color/ara_navy"-->
+<!--            android:textSize="40dp" />-->
+
+    </RelativeLayout>
+
+<!--    <RelativeLayout-->
+<!--        android:id="@+id/relativeLayout1"-->
+<!--        android:layout_width="fill_parent"-->
+<!--        android:layout_height="80dp"-->
+<!--        android:layout_alignParentLeft="true"-->
+<!--        android:layout_below="@+id/date"-->
+<!--        android:layout_marginLeft="10dp"-->
+<!--        android:layout_marginRight="10dp"-->
+<!--        android:layout_marginTop="22dp"-->
+<!--        android:background="@color/translucent_blue" >-->
+
+<!--        <TextView-->
+<!--            android:textSize="20dp"-->
+<!--            style="@style/TextHomeActivity"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentLeft="true"-->
+<!--            android:layout_alignParentTop="true"-->
+<!--            android:paddingLeft="15dp"-->
+<!--            android:paddingTop="15dp"-->
+<!--            android:text="@string/label_wind" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/wind"-->
+<!--            style="@style/TextHomeActivity"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            android:layout_alignParentLeft="true"-->
+<!--            android:paddingBottom="15dp"-->
+<!--            android:paddingLeft="15dp"-->
+<!--            android:text="@string/label_wind_value" />-->
+
+<!--        <TextView-->
+<!--            android:textSize="20dp"-->
+<!--            style="@style/TextHomeActivity"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentRight="true"-->
+<!--            android:layout_alignParentTop="true"-->
+<!--            android:paddingRight="15dp"-->
+<!--            android:paddingTop="15dp"-->
+<!--            android:text="@string/label_humidity" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/humidity"-->
+<!--            style="@style/TextHomeActivity"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            android:layout_alignParentRight="true"-->
+<!--            android:paddingBottom="15dp"-->
+<!--            android:paddingRight="15dp"-->
+<!--            android:text="@string/label_humidity_value" />-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/icon"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            android:contentDescription="@string/image_weather_description"-->
+<!--            android:layout_centerVertical="true" />-->
+
+<!--    </RelativeLayout>-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/state"-->
+<!--        style="@style/TextHomeActivity"-->
+<!--        android:layout_width="fill_parent"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentLeft="true"-->
+<!--        android:layout_marginLeft="10dp"-->
+<!--        android:layout_marginRight="10dp"-->
+<!--        android:alpha="1"-->
+<!--        android:background="@color/translucent_blue"-->
+<!--        android:gravity="center"-->
+<!--        android:paddingBottom="40dp"-->
+<!--        android:paddingLeft="50dp"-->
+<!--        android:paddingRight="50dp"-->
+<!--        android:paddingTop="40dp"-->
+<!--        android:textColor="#FFF"-->
+<!--        android:textSize="45sp" />-->
+
+
+
+</LinearLayout>
