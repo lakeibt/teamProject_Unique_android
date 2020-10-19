@@ -234,32 +234,24 @@ public class AraFragmentPage extends Fragment {
             String name = intent.getExtras().getString("name");
             map.put("id", id);
             if(input.contains("시작") || input.contains("1팀") || input.contains("발표") || input.contains("1조")){
-                strMsg = "[석무] : 발표 시작합니다.";
+                strMsg = "[유일봇] : 발표 시작합니다.";
                 chatMessageAdapter.add(new ChatMessage(true,strMsg));
-                tts.speak("이거아라팀 발표 시작하겠습니다. 잘부탁드립니다!", TextToSpeech.QUEUE_FLUSH,null);
-            }else if(input.contains("발표자") || input.contains("박희현") || input.contains("박희연") || input.contains("박히연")){
-                strMsg = "[석무] : 박희현군은 코스모에서 제일 못생겼습니다.";
-
-
-
-            }else if((input.contains("자기소개") && input.contains("자기 소개")) || input.contains("소개") || input.contains("너에 대해")){
-                strMsg = "[석무] : 안녕하세요 석무입니다. \n " +
-                        "제 이름은 \"무엇이든 알아\" 에서 알아를 소리나는 대로 지어진 이름입니다.\n" +
-                        name + "님의 즐거운 캠퍼스 생활을 위해 무엇이든 알려드리겠습니다.";
+                tts.speak("UNIQUE팀 발표 시작하겠습니다. 잘부탁드립니다!", TextToSpeech.QUEUE_FLUSH,null);
+            }else if(input.contains("발표자") || input.contains("황동국") || input.contains("황 동국") || input.contains("황동 국")){
+                strMsg = "[유일봇] : KOSMO 65기 발표자 황동국입니다.";
 
                 chatMessageAdapter.add(new ChatMessage(true,strMsg));
-                tts.speak("안녕하세요 저는 아라입니다. 제 이름은 ,무엇이든 알아에서 알아를 소리나는대로 지어진 이름입니다. , "
-                        + name + "님의 즐거운 캠퍼스 생활을 위해 무엇이든 알려드리겠습니다.", TextToSpeech.QUEUE_FLUSH,null);
-
+                //tts.speak("안녕하세요 저는 유일봇입니다.", TextToSpeech.QUEUE_FLUSH,null);
+                
             }else if(input.contains("끝") || input.contains("종료") || input.contains("마지막")){
-                strMsg = "[석무] : 이거아라팀 발표를 마치겠습니다. 감사합니다";
+                strMsg = "[유일봇] : UNIQUE팀 발표를 마치겠습니다. 감사합니다";
                 chatMessageAdapter.add(new ChatMessage(true,strMsg));
-                tts.speak("이거아라팀 발표를 마치겠습니다. 감사합니다.", TextToSpeech.QUEUE_FLUSH,null);
+                tts.speak("UNIQUE팀 발표를 마치겠습니다. 감사합니다.", TextToSpeech.QUEUE_FLUSH,null);
 
             }else if(input.contains("안녕") || input.contains("반가워") || input.contains("반갑")){   //안녕이라는 문자가 포함된 경우
-                strMsg = "[석무] : 닥쳐.";
+                strMsg = "[유일봇] : 안녕하세요.";
                 chatMessageAdapter.add(new ChatMessage(true,strMsg));
-                tts.speak("닥쳐.", TextToSpeech.QUEUE_FLUSH,null);
+                tts.speak("안녕하세요.", TextToSpeech.QUEUE_FLUSH,null);
 
                 //내 정보를 얻어오기 위한 부분
                 /*
@@ -267,7 +259,7 @@ public class AraFragmentPage extends Fragment {
                 * input.startsWith("내 정보") 를 사용한 이유는 음성의 첫부분에 "내 정보"가 들어갈 경우 input.contains(" 내 정보")에 해당하지 않아서
                 * */
             }else if(input.contains("학사") || input.contains(" 내 정보") || input.contains(" 내정보") || input.startsWith("내 정보") || input.startsWith("내정보")){
-                strMsg = "[석무] : 내 정보 출력";
+                strMsg = "[유일봇] : 내 정보 출력";
                 chatMessageAdapter.add(new ChatMessage(true,strMsg));
 
                 //서버에 보낼 서비스를 구분하기위한 키워드
@@ -276,148 +268,136 @@ public class AraFragmentPage extends Fragment {
                 tts.speak("내 정보입니다.", TextToSpeech.QUEUE_FLUSH,null);
 
 
-            }else if(input.contains("출석") || input.contains("출결") || input.contains("attendance")){  //출석정보를 위한 부분
-                strMsg = "[석무] : 출결정보 출력";
-
-                //서버에 보낼 서비스를 구분하기위한 키워드
-                map.put("keyword","attendance");
-                chatMessageAdapter.add(new ChatMessage(true,strMsg));
-                task.execute(map);
-
-
-
             }else if(input.contains("성적") || input.contains("점수") || input.contains("학점")){ //성적정보를 위한 부분
-                strMsg = "[석무] : 성적정보 출력";
+                strMsg = "[유일봇] : 성적정보 출력";
                 chatMessageAdapter.add(new ChatMessage(true,strMsg));
 
                 //서버에 보낼 서비스를 구분하기위한 키워드
                 map.put("keyword","score");
                 task.execute(map);
 
-
-
-            }else if(input.contains("시간표") || input.contains("수업")){    //시간표를 위한 부분
-                strMsg = "[석무] : 시간표 출력";
-                chatMessageAdapter.add(new ChatMessage(true,strMsg));
-
-                //입력된 문자열에 요일이 포함되지만 요일로 시작하면 안되고, 요일 앞에 공백이 있으면 안됨
-                if(input.contains("요일") && !input.startsWith("요일") && !input.contains(" 요일")){
-
-                    //해당 요일을 받아옴
-                    String day = input.substring(input.indexOf("요일")-1,input.indexOf("요일"));
-                    switch (day){
-                        case "월":
-                            map.put("day",0);
-                            break;
-                        case "화":
-                            map.put("day",1);
-                            break;
-                        case "수":
-                            map.put("day",2);
-                            break;
-                        case "목":
-                            map.put("day",3);
-                            break;
-                        case "금":
-                            map.put("day",4);
-                            break;
-                        default:
-                            map.put("day",5);
-                            break;
-                    }
-
-                }else if(input.contains("모레")){ //모레라는 단어가 포함된 경우 내일모레의 수업을 알려줌
-                    Calendar cal = Calendar.getInstance();
-
-                    //현재 날짜 가져옴
-                    int today = cal.get(Calendar.DAY_OF_WEEK);
-
-                    //7이 넘어가는 경우(토요일 -> 일요일)를 위한 코드
-                    today = (today+2) % 7;
-                    switch (today){
-                        case 2:
-                            map.put("day",0);
-                            break;
-                        case 3:
-                            map.put("day",1);
-                            break;
-                        case 4:
-                            map.put("day",2);
-                            break;
-                        case 5:
-                            map.put("day",3);
-                            break;
-                        case 6:
-                            map.put("day",4);
-                            break;
-                        default:
-                            map.put("day",5);
-                            break;
-                    }
-
-                }else if(input.contains("내일")){ //내일이라는 단어가 포함된 경우 내일의 수업을 알려줌
-                    Calendar cal = Calendar.getInstance();
-
-                    //현재 날짜 가져옴
-                    int today = cal.get(Calendar.DAY_OF_WEEK);
-
-                    //7이 넘어가는 경우(토요일 -> 일요일)를 위한 코드
-                    today = (today+1) % 7;
-                    switch (today){
-                        case 2:
-                            map.put("day",0);
-                            break;
-                        case 3:
-                            map.put("day",1);
-                            break;
-                        case 4:
-                            map.put("day",2);
-                            break;
-                        case 5:
-                            map.put("day",3);
-                            break;
-                        case 6:
-                            map.put("day",4);
-                            break;
-                        default:
-                            map.put("day",5);
-                            break;
-                    }
-
-                }else{  //그렇지 않은 경우 오늘 수업을 알려준다
-                    Calendar cal = Calendar.getInstance();
-
-                    //현재 날짜 가져옴
-                    int today = cal.get(Calendar.DAY_OF_WEEK);
-
-                    switch (today){
-                        case 2:
-                            map.put("day",0);
-                            break;
-                        case 3:
-                            map.put("day",1);
-                            break;
-                        case 4:
-                            map.put("day",2);
-                            break;
-                        case 5:
-                            map.put("day",3);
-                            break;
-                        case 6:
-                            map.put("day",4);
-                            break;
-                        default:
-                            map.put("day",5);
-                            break;
-                    }
-                }
-                //서버에 보낼 서비스를 구분하기위한 키워드
-                map.put("keyword","timetable");
-                task.execute(map);
-
+//            }else if(input.contains("시간표") || input.contains("수업")){    //시간표를 위한 부분
+//                strMsg = "[석무] : 시간표 출력";
+//                chatMessageAdapter.add(new ChatMessage(true,strMsg));
+//
+//                //입력된 문자열에 요일이 포함되지만 요일로 시작하면 안되고, 요일 앞에 공백이 있으면 안됨
+//                if(input.contains("요일") && !input.startsWith("요일") && !input.contains(" 요일")){
+//
+//                    //해당 요일을 받아옴
+//                    String day = input.substring(input.indexOf("요일")-1,input.indexOf("요일"));
+//                    switch (day){
+//                        case "월":
+//                            map.put("day",0);
+//                            break;
+//                        case "화":
+//                            map.put("day",1);
+//                            break;
+//                        case "수":
+//                            map.put("day",2);
+//                            break;
+//                        case "목":
+//                            map.put("day",3);
+//                            break;
+//                        case "금":
+//                            map.put("day",4);
+//                            break;
+//                        default:
+//                            map.put("day",5);
+//                            break;
+//                    }
+//
+//                }else if(input.contains("모레")){ //모레라는 단어가 포함된 경우 내일모레의 수업을 알려줌
+//                    Calendar cal = Calendar.getInstance();
+//
+//                    //현재 날짜 가져옴
+//                    int today = cal.get(Calendar.DAY_OF_WEEK);
+//
+//                    //7이 넘어가는 경우(토요일 -> 일요일)를 위한 코드
+//                    today = (today+2) % 7;
+//                    switch (today){
+//                        case 2:
+//                            map.put("day",0);
+//                            break;
+//                        case 3:
+//                            map.put("day",1);
+//                            break;
+//                        case 4:
+//                            map.put("day",2);
+//                            break;
+//                        case 5:
+//                            map.put("day",3);
+//                            break;
+//                        case 6:
+//                            map.put("day",4);
+//                            break;
+//                        default:
+//                            map.put("day",5);
+//                            break;
+//                    }
+//
+//                }else if(input.contains("내일")){ //내일이라는 단어가 포함된 경우 내일의 수업을 알려줌
+//                    Calendar cal = Calendar.getInstance();
+//
+//                    //현재 날짜 가져옴
+//                    int today = cal.get(Calendar.DAY_OF_WEEK);
+//
+//                    //7이 넘어가는 경우(토요일 -> 일요일)를 위한 코드
+//                    today = (today+1) % 7;
+//                    switch (today){
+//                        case 2:
+//                            map.put("day",0);
+//                            break;
+//                        case 3:
+//                            map.put("day",1);
+//                            break;
+//                        case 4:
+//                            map.put("day",2);
+//                            break;
+//                        case 5:
+//                            map.put("day",3);
+//                            break;
+//                        case 6:
+//                            map.put("day",4);
+//                            break;
+//                        default:
+//                            map.put("day",5);
+//                            break;
+//                    }
+//
+//                }else{  //그렇지 않은 경우 오늘 수업을 알려준다
+//                    Calendar cal = Calendar.getInstance();
+//
+//                    //현재 날짜 가져옴
+//                    int today = cal.get(Calendar.DAY_OF_WEEK);
+//
+//                    switch (today){
+//                        case 2:
+//                            map.put("day",0);
+//                            break;
+//                        case 3:
+//                            map.put("day",1);
+//                            break;
+//                        case 4:
+//                            map.put("day",2);
+//                            break;
+//                        case 5:
+//                            map.put("day",3);
+//                            break;
+//                        case 6:
+//                            map.put("day",4);
+//                            break;
+//                        default:
+//                            map.put("day",5);
+//                            break;
+//                    }
+//                }
+//                //서버에 보낼 서비스를 구분하기위한 키워드
+//                map.put("keyword","timetable");
+//                task.execute(map);
+//
 
             }else if(input.contains("날씨")) {    //날씨정보를 위한 부분
-                strMsg = "[석무] : 날씨 정보 출력";
+                strMsg = "[유일봇] : 날씨 정보 출력";
                 if(input.contains("모레")){
                     searchKeyword = "모레날씨";
                 }else if(input.contains("내일")){
@@ -434,7 +414,7 @@ public class AraFragmentPage extends Fragment {
                 jsoupAsyncTask.execute();
 
             }else if((input.contains("실시간") && input.contains("검색")) || input.contains("실시간검색") || input.contains("실시간 검색")) {
-                strMsg = "[석무] : 실시간 검색어 출력";
+                strMsg = "[유일봇] : 실시간 검색어 출력";
                 searchKeyword = "실시간";
                 chatMessageAdapter.add(new ChatMessage(true, strMsg));
 
@@ -442,7 +422,7 @@ public class AraFragmentPage extends Fragment {
                 JsoupAsyncTask jsoupAsyncTask = new JsoupAsyncTask();
                 jsoupAsyncTask.execute();
             }else if(input.contains("코로나")||input.contains("코로나 확진자")||input.contains("코로나 실시간")||input.contains("일일 코로나 확진자")){
-                strMsg = "[썅무] : 일일 코로나 확진자 수 출력";
+                strMsg = "[유일봇] : 일일 코로나 확진자 수 출력";
                 searchKeyword= "코로나";
                 chatMessageAdapter.add(new ChatMessage(true,strMsg));
                 JsoupAsyncTask jsoupAsyncTask = new JsoupAsyncTask();
@@ -451,7 +431,7 @@ public class AraFragmentPage extends Fragment {
                 Random random = new Random();
                 int i = random.nextInt(2);
 
-                strMsg = (i==1?"[석무] : 다시 말씀해주세요.":"[석무] : 한번 더 말씀해주세요.");
+                strMsg = (i==1?"[유일봇] : 다시 말씀해주세요.":"[유일봇] : 한번 더 말씀해주세요.");
                 chatMessageAdapter.add(new ChatMessage(true,strMsg));
                 tts.speak(i==1?"다시 말씀해주세요.":"한번 더 말씀해주세요.", TextToSpeech.QUEUE_FLUSH,null);
             }
