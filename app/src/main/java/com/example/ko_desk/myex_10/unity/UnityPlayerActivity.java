@@ -8,7 +8,8 @@ import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.Window;
 
-import com.unity3d.player.UnityPlayer;
+import com.unity3d.player.*;
+
 
 public class UnityPlayerActivity extends Activity
 {

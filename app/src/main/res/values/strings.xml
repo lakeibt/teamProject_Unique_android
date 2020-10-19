@@ -43,4 +43,6 @@
     <string name="btn_changecity">Change city</string>
     <string name="image_weather_description">Weather image</string>
 
+    <string name="game_view_content_description">Game view</string>
+
 </resources>
