@@ -31,4 +31,17 @@
     <string name="auth_success_message">로그인 되었습니다.</string>
     <string name="add_success_message">지문이 추가 되었습니다.</string>
     <string name="auth_fail_message">지문 인식에 실패했습니다. 다시 시도 해주세요.</string>
+
+    <!--  날씨 -->
+    <string name="label_temperature">Temperature</string>
+    <string name="label_city">City</string>
+    <string name="label_date">Date</string>
+    <string name="label_humidity">습도</string>
+    <string name="label_humidity_value">0%</string>
+    <string name="label_wind">풍속</string>
+    <string name="label_wind_value">0.0km/h</string>
+    <string name="btn_changecity">Change city</string>
+    <string name="image_weather_description">Weather image</string>
+
+
 </resources>

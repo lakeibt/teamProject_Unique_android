@@ -342,4 +342,14 @@
         <item type="color">#607d8b</item>
         <item type="color">#ff9800</item>
     </array>
+
+    <color name="ara_mint">#C4E8F6</color>
+    <color name="ara_navy">#001E42</color>
+    <color name="ara_red">#E82929</color>
+    <color name="ara_beige">#FDF8F5</color>
+    <color name="ara_white">#FFF</color>
+    <color name="selected_item_color">#001E42</color>
+
+
+    <color name="translucent_blue">#80318ecd</color>
 </resources>

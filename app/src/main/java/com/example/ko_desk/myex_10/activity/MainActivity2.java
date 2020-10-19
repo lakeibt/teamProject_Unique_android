@@ -22,10 +22,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.ko_desk.myex_10.AraFragmentPage;
 import com.example.ko_desk.myex_10.HttpClient;
 import com.example.ko_desk.myex_10.R;
+import com.example.ko_desk.myex_10.ScoreActivity;
 import com.example.ko_desk.myex_10.Web;
 import com.example.ko_desk.myex_10.vo.Data;
+import com.example.ko_desk.myex_10.widget.TabMenuActivity;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -84,7 +87,7 @@ public class MainActivity2 extends AppCompatActivity {
         chatbot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getBaseContext(), ChatTelegram.class);
+                Intent intent = new Intent(getBaseContext(), TabMenuActivity.class);
                 intent.putExtra("id", id);
                 startActivity(intent);
             }
