@@ -2,6 +2,7 @@ package com.example.ko_desk.myex_10;
 
 import android.content.Intent;
 import android.database.DataSetObserver;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.speech.RecognitionListener;
@@ -427,7 +428,17 @@ public class AraFragmentPage extends Fragment {
                 chatMessageAdapter.add(new ChatMessage(true,strMsg));
                 JsoupAsyncTask jsoupAsyncTask = new JsoupAsyncTask();
                 jsoupAsyncTask.execute();
-            }else{
+            }else if(input.contains("게임")||input.contains("재미있는 게임")||input.contains("어몽어스")||input.contains("우주인")){
+                strMsg = "[유일봇] : 어몽어스를 다운받으러 갑니다.";
+                chatMessageAdapter.add(new ChatMessage(true,strMsg));
+                tts.speak("어몽어스를 다운받으러 갑니다.", TextToSpeech.QUEUE_FLUSH,null);
+                try {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.innersloth.spacemafia")));
+                } catch (android.content.ActivityNotFoundException anfe) {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.innersloth.spacemafia")));
+                }
+                
+            } else{
                 Random random = new Random();
                 int i = random.nextInt(2);
 
