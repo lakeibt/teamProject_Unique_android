@@ -242,7 +242,7 @@ public class AraFragmentPage extends Fragment {
 
                 chatMessageAdapter.add(new ChatMessage(true,strMsg));
                 //tts.speak("안녕하세요 저는 유일봇입니다.", TextToSpeech.QUEUE_FLUSH,null);
-                
+
             }else if(input.contains("끝") || input.contains("종료") || input.contains("마지막")){
                 strMsg = "[유일봇] : UNIQUE팀 발표를 마치겠습니다. 감사합니다";
                 chatMessageAdapter.add(new ChatMessage(true,strMsg));
