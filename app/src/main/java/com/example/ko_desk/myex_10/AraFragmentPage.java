@@ -437,7 +437,7 @@ public class AraFragmentPage extends Fragment {
                 } catch (android.content.ActivityNotFoundException anfe) {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.innersloth.spacemafia")));
                 }
-                
+
             } else{
                 Random random = new Random();
                 int i = random.nextInt(2);
