@@ -302,58 +302,6 @@
                                 app:cardUseCompatPadding="true">
 
                                 <LinearLayout
-                                    android:id="@+id/chatbot"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:background="?android:selectableItemBackground"
-                                    android:clickable="true"
-                                    android:orientation="vertical"
-                                    android:padding="@dimen/spacing_large">
-
-                                    <ImageView
-                                        android:layout_width="fill_parent"
-                                        android:layout_height="@dimen/spacing_mxlarge"
-                                        android:layout_centerHorizontal="true"
-                                        app:srcCompat="@drawable/ic_mess"
-                                        app:tint="@color/light_blue_400" />
-
-                                    <TextView
-                                        android:layout_width="fill_parent"
-                                        android:layout_height="wrap_content"
-                                        android:textAlignment="center"
-                                        android:layout_marginTop="20dp"
-                                        android:text="챗봇"
-                                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
-                                        android:textColor="@color/grey_60" />
-
-                                </LinearLayout>
-
-                            </androidx.cardview.widget.CardView>
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="@dimen/spacing_smlarge"
-                            android:layout_marginRight="@dimen/spacing_smlarge"
-                            android:orientation="horizontal">
-
-                            <androidx.cardview.widget.CardView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/spacing_xsmall"
-                                android:layout_marginTop="@dimen/spacing_xsmall"
-                                android:layout_marginRight="@dimen/spacing_xsmall"
-                                android:layout_marginBottom="@dimen/spacing_xsmall"
-                                android:layout_weight="1"
-                                android:clickable="true"
-                                android:visibility="visible"
-                                app:cardCornerRadius="2dp"
-                                app:cardElevation="2dp"
-                                app:cardUseCompatPadding="true">
-
-                                <LinearLayout
                                     android:id="@+id/parking"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
@@ -382,9 +330,14 @@
 
                             </androidx.cardview.widget.CardView>
 
-                            <View
-                                android:layout_width="@dimen/spacing_middle"
-                                android:layout_height="0dp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/spacing_smlarge"
+                            android:layout_marginRight="@dimen/spacing_smlarge"
+                            android:orientation="horizontal">
 
                             <androidx.cardview.widget.CardView
                                 android:layout_width="0dp"

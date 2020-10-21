@@ -83,16 +83,6 @@ public class MainActivity3 extends AppCompatActivity {
             }
         });
 
-        chatbot = findViewById(R.id.chatbot);
-        chatbot.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getBaseContext(), ChatTelegram.class);
-                intent.putExtra("id", id);
-                startActivity(intent);
-            }
-        });
-
         fingerprint = findViewById(R.id.fingerprint);
         fingerprint.setOnClickListener(new View.OnClickListener() {
             @Override

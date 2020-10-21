@@ -42,6 +42,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemVi
         return listData.size();
     }
 
+
+
     public void addItem(nfcVO data) {
         // 외부에서 item을 추가시킬 함수입니다.
         listData.add(data);
